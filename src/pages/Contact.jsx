@@ -1,9 +1,44 @@
 // src/pages/Contact.jsx
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Button from '../components/Button'; // Import the Button component
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
+  const from = useRef();
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    //Your Email services ID, Template ID, and Public key
+    const serviceId = 'service_zssene9';
+    const templateId = 'template_ptn6pdn';
+    const publicKey = 'zWbnEq51ZCZeAooAZ';
+
+    //Create a new object that contains dynamic template params
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      to_name: 'Fiky',
+      message: message,
+    }
+
+    //Send the email using EmailJS
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then((res) => {
+        alert('Email berhasil terkirim', res);
+        setName('');
+        setEmail('');
+        setMessage('');
+      })
+      .catch((err) => {
+        alert('Email error/tidak terkirim', err);
+      })
+  }
+
   const { ref, inView } = useInView({
     triggerOnce: true,
   });
@@ -18,7 +53,7 @@ const Contact = () => {
           Kirim pesan, saya akan balas secepatnya!
         </p>
 
-        <form>
+        <form onSubmit={handleSubmit} ref={from}>
           {/* Nama Lengkap */}
           <div className="mb-5">
             <label
@@ -32,6 +67,8 @@ const Contact = () => {
               id="fullName"
               name="fullName"
               autoComplete="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-500"
               placeholder="Masukkan nama lengkap Anda"
             />
@@ -50,6 +87,8 @@ const Contact = () => {
               id="email"
               name="email"
               autoComplete="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-500"
               placeholder="nama@email.com"
             />
@@ -67,6 +106,8 @@ const Contact = () => {
               id="message"
               name="message"
               rows="5"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 placeholder:text-gray-500"
               placeholder="Tulis pesan Anda di sini..."
             ></textarea>

@@ -1,5 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
+import Button from '../components/Button';
 
 const About = () => {
   const { ref: textRef, inView: textInView } = useInView({
@@ -28,16 +29,18 @@ const About = () => {
         </div>
 
         {/* Konten Utama */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-start'>
           {/* Teks */}
           <div
             ref={textRef}
-            className={`space-y-6 ${textInView ? 'animate__animated animate__fadeInUp' : ''}`}
+            className={`space-y-6 ${
+              textInView ? 'animate__animated animate__fadeInUp' : ''
+            }`}
           >
             <p className='text-gray-800 text-lg leading-relaxed'>
               Halo, saya <strong>Fiky</strong> — seorang developer yang fokus
               membangun aplikasi web modern dengan React, JavaScript, dan
-              Tailwind CSS.
+              CSS modular.
             </p>
             <p className='text-gray-800 text-lg leading-relaxed'>
               Saya menyukai hal-hal yang{' '}
@@ -51,40 +54,55 @@ const About = () => {
               drive alternatif — karena efisiensi dimulai dari hal kecil.
             </p>
 
-            {/* CTA */}
+            {/* CTA Button */}
             <div className='pt-4'>
               <a
                 href='/project'
-                className='group inline-flex items-center px-6 py-3 font-medium rounded-xl
-                text-transparent bg-clip-text
-                bg-gradient-to-br from-cyan-400 to-blue-400
-                hover:bg-gradient-to-br hover:from-cyan-400 hover:to-blue-400
-              hover:text-slate-100 hover:bg-clip-border
-                transition-all duration-300 ease-out
-                hover:ring-2 hover:ring-cyan-300/70 shadow shadow-slate-300
-                hover:shadow-[0_0_12px_2px_rgba(56,189,248,0.5)]
-                relative'
               >
+                <Button>
                 Lihat Projek Saya →
+                </Button>
+              </a>
+            </div>
+
+            {/* Social Media Icons — DIPINDAHKAN TEPAT DI BAWAH TOMBOL */}
+            <div className='flex gap-6 pt-4'>
+              <a
+                href='https://instagram.com/filas756'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='Instagram'
+              >
+                <i className='ri-instagram-fill ri-2x text-gray-700 hover:text-pink-500 transition-colors duration-200'></i>
+              </a>
+              <a
+                href='https://linkedin.com/in/fiky'
+                target='_blank'
+                rel='noopener noreferrer'
+                aria-label='LinkedIn'
+              >
+                <i className='ri-linkedin-fill ri-2x text-gray-700 hover:text-blue-600 transition-colors duration-200'></i>
               </a>
             </div>
           </div>
 
-          {/* Gambar — mengisi penuh card */}
+          {/* Gambar */}
           <div
             ref={imageRef}
-            className={`bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden ${imageInView ? 'animate__animated animate__fadeInRight' : ''}`}
+            className={`bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden ${
+              imageInView ? 'animate__animated animate__fadeInRight' : ''
+            }`}
           >
             <img
               src='/About.webp'
               alt='Fiky'
-              className='w-full h-full object-cover' // ✅ mengisi lebar, tinggi tetap proporsional
+              className='w-full h-full object-cover'
             />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;
