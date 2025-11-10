@@ -1,6 +1,7 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const { ref: textRef, inView: textInView } = useInView({
@@ -56,13 +57,13 @@ const About = () => {
 
             {/* CTA Button */}
             <div className='pt-4'>
-              <a
-                href='/project'
+              <Link
+                to='/project'
               >
                 <Button>
                 Lihat Projek Saya →
                 </Button>
-              </a>
+              </Link>
             </div>
 
             {/* Social Media Icons — DIPINDAHKAN TEPAT DI BAWAH TOMBOL */}
