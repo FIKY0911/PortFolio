@@ -2,12 +2,12 @@
 @import 'animate.css';
 @plugin "daisyui";
 
-@layer base {
-  body {
-    font-family: Poppins, sans-serif;
-    background: white;
-  }
+
+body{
+  font-family: Poppins, sans-serif;
+  background: white;
 }
+
 
 :root {
   font-synthesis: none;
