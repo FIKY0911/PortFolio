@@ -47,10 +47,10 @@ const Footer = () => {
               <p>
                 Email:{' '}
                 <a
-                  href='mailto:budi@example.com'
+                  href='mailto:linkidnmohamadfiky@gmail.com'
                   className='hover:text-cyan-600 transition-colors'
                 >
-                  budi@example.com
+                  linkidnmohamadfiky@gmail.com
                 </a>
               </p>
             </address>

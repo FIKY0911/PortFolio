@@ -40,19 +40,13 @@ const About = () => {
           >
             <p className='text-gray-800 text-lg leading-relaxed'>
               Halo, saya <strong>Fiky</strong> — seorang developer yang fokus
-              membangun aplikasi web modern dengan React, JavaScript, dan
-              CSS modular.
+              membangun aplikasi web modern dengan React, JavaScript, dll.
             </p>
             <p className='text-gray-800 text-lg leading-relaxed'>
               Saya menyukai hal-hal yang{' '}
               <strong>ringan, cepat, dan aman</strong>. Setiap baris kode yang
               saya tulis bertujuan untuk menyelesaikan masalah nyata tanpa
               menambah kerumitan.
-            </p>
-            <p className='text-gray-800 text-lg leading-relaxed'>
-              Saat ini saya sedang mengeksplorasi otomatisasi keamanan,
-              penggunaan WSL sebagai lingkungan utama, dan migrasi proyek ke
-              drive alternatif — karena efisiensi dimulai dari hal kecil.
             </p>
 
             {/* CTA Button */}
