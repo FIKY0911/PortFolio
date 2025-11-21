@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 
 // Import gambar dari assets
-import Html from "../../assets/tools/Html-tools.webp"
-import Css from "../../assets/tools/Css-tools.webp"
+import Html from '../../assets/tools/Html-tools.webp'
+import Css from '../../assets/tools/Css-tools.webp'
 import Nextjs from '../../assets/tools/next-js-tools.webp'
 import TypeScript from '../../assets/tools/Typescript-tools.webp'
+import Javascript from "../../assets/tools/JS-tools.webp"
 import Clerk from '../../assets/tools/clrek-tools.webp'
 import Tailwind from '../../assets/tools/tailwind-css-tools.webp'
 import Button from '../Button'
@@ -107,6 +108,22 @@ const technologies = [
       'Animasi & transisi',
       'Flexbox & Grid untuk layout modern',
       'Dukungan penuh di semua perangkat'
+    ]
+  },
+  {
+    id: 7,
+    name: 'JavaScript',
+    type: 'Bahasa Pemrograman',
+    image: Javascript, // pastikan komponen/import Javascript sudah ada
+    description:
+      'JavaScript adalah bahasa pemrograman inti web yang membuat halaman web interaktif dan dinamis. Bisa dijalankan di browser (frontend) maupun server (Node.js), menjadikannya serbaguna dan wajib dikuasai.',
+    officialSite: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+    features: [
+      'Interaktivitas di sisi klien (frontend)',
+      'Manipulasi DOM secara real-time',
+      'Asynchronous programming (Promise, async/await)',
+      'Kompatibel dengan semua browser modern',
+      'Ekosistem luas (React, Node.js, dll.)'
     ]
   }
 ]

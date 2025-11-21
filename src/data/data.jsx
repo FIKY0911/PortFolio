@@ -1,6 +1,7 @@
 import HeroImage from "../assets/hero/heroimage.webp"
 import Html from "../assets/tools/Html-tools.webp"
 import Css from "../assets/tools/Css-tools.webp"
+import Javascript from "../assets/tools/JS-tools.webp"
 import Nextjs from "../assets/tools/next-js-tools.webp"
 import TypeScript from "../assets/tools/Typescript-tools.webp"
 import Clerk from "../assets/tools/clrek-tools.webp"
@@ -34,7 +35,7 @@ export const listTools = [
   {
     id: 4,
     image: Tailwind,
-    name: "Tailwind",
+    name: "Tailwind Css",
     ket: "Framework Css",
   },
   {
@@ -48,6 +49,12 @@ export const listTools = [
     image: Css,
     name: "Css",
     ket: "Cascading Style Sheets",
+  },
+  {
+    id:7,
+    image: Javascript,
+    name: "Javascript",
+    ket: "Bahasa Pemrograman",
   }
 ];
 
