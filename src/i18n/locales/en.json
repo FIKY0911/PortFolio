@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "greeting": "Hi, I am Fiky!☺️",
+    "welcome": "Welcome to My Portfolio!",
+    "role": "Student | Web Developer🧑‍💻",
+    "passion": "Enthusiast | CyberSecurity",
+    "description": "I am a passionate web developer who loves learning and creating innovative and efficient digital solutions. With expertise in various web technologies, I am committed to delivering exceptional user experiences through responsive design and reliable functionality.",
+    "viewProjects": "View Projects",
+    "downloadCV": "Download CV"
+  },
+  "skills": {
+    "title": "My Tools!",
+    "noSkills": "No skills available",
+    "noDescription": "No description"
+  },
+  "projects": {
+    "title": "My Projects!",
+    "viewProject": "View Project",
+    "noProjects": "No projects available",
+    "noDescription": "No description available"
+  },
+  "skillDetail": {
+    "title": "Technologies I Use",
+    "description": "Every project is built with the right tools. Here are the details of frameworks and programming languages I use in development.",
+    "features": "Key Features:",
+    "visitSite": "Visit Official Site →",
+    "back": "Back to Skills"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "A web developer who believes in simplicity, security, and delightful user experiences.",
+    "intro": "Hi, I am",
+    "description1": "— a developer focused on building modern web applications with React, JavaScript, etc.",
+    "description2": "I love things that are",
+    "highlight": "lightweight, fast, and secure",
+    "description3": ". Every line of code I write aims to solve real problems without adding complexity.",
+    "viewProjects": "View My Projects →"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Send a message, I'll reply as soon as possible!",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "email": "Email",
+    "emailPlaceholder": "name@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "send": "Send Message",
+    "successMessage": "Email sent successfully",
+    "errorMessage": "Email error/not sent"
+  },
+  "footer": {
+    "description": "Building lightweight, secure, and delightful web experiences — one line of code at a time.",
+    "navigation": "Navigation",
+    "contactTitle": "Contact",
+    "collaborate": "Want to Collaborate?",
+    "collaborateDesc": "I'm open to interesting projects, tech discussions, or just chatting about security automation.",
+    "contactMe": "Contact Me",
+    "copyright": "All rights reserved. Crafted with",
+    "and": "and Tailwind CSS."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skill": "Skills",
+    "project": "Projects",
+    "contact": "Contact"
+  },
+  "common": {
+    "noImage": "No image",
+    "loading": "Loading..."
+  }
+}

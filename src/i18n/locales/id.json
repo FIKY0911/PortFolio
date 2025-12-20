@@ -1,0 +1,73 @@
+{
+  "hero": {
+    "greeting": "Halo, Saya Fiky!☺️",
+    "welcome": "Selamat Datang di Portofolio Saya!",
+    "role": "Student | Web Developer🧑‍💻",
+    "passion": "Antusias | CyberSecurity",
+    "description": "Saya adalah seorang pengembang web yang bersemangat dalam belajar dan menciptakan solusi digital yang inovatif dan efisien. Dengan keahlian dalam berbagai teknologi web, saya berkomitmen untuk menghadirkan pengalaman pengguna yang luar biasa melalui desain yang responsif dan fungsionalitas yang handal.",
+    "viewProjects": "Lihat Proyek",
+    "downloadCV": "Download CV"
+  },
+  "skills": {
+    "title": "Tools saya!",
+    "noSkills": "Tidak ada skill tersedia",
+    "noDescription": "Tidak ada deskripsi"
+  },
+  "projects": {
+    "title": "Projek Saya!",
+    "viewProject": "Lihat Project",
+    "noProjects": "Tidak ada projek tersedia",
+    "noDescription": "Tidak ada deskripsi"
+  },
+  "skillDetail": {
+    "title": "Teknologi yang Saya Gunakan",
+    "description": "Setiap proyek dibangun dengan alat yang tepat. Berikut detail framework dan bahasa pemrograman yang saya gunakan dalam pengembangan.",
+    "features": "Fitur Unggulan:",
+    "visitSite": "Kunjungi Situs Resmi →",
+    "back": "Kembali ke Skill"
+  },
+  "about": {
+    "title": "Tentang Saya",
+    "subtitle": "Pengembang web yang percaya pada kesederhanaan, keamanan, dan pengalaman pengguna yang menyenangkan.",
+    "intro": "Halo, saya",
+    "description1": "— seorang developer yang fokus membangun aplikasi web modern dengan React, JavaScript, dll.",
+    "description2": "Saya menyukai hal-hal yang",
+    "highlight": "ringan, cepat, dan aman",
+    "description3": ". Setiap baris kode yang saya tulis bertujuan untuk menyelesaikan masalah nyata tanpa menambah kerumitan.",
+    "viewProjects": "Lihat Projek Saya →"
+  },
+  "contact": {
+    "title": "Hubungi Saya",
+    "subtitle": "Kirim pesan, saya akan balas secepatnya!",
+    "fullName": "Nama Lengkap",
+    "fullNamePlaceholder": "Masukkan nama lengkap Anda",
+    "email": "Email",
+    "emailPlaceholder": "nama@email.com",
+    "message": "Pesan",
+    "messagePlaceholder": "Tulis pesan Anda di sini...",
+    "send": "Kirim Pesan",
+    "successMessage": "Email berhasil terkirim",
+    "errorMessage": "Email error/tidak terkirim"
+  },
+  "footer": {
+    "description": "Membangun pengalaman web yang ringan, aman, dan menyenangkan — satu baris kode pada satu waktu.",
+    "navigation": "Navigasi",
+    "contactTitle": "Kontak",
+    "collaborate": "Ingin Berkolaborasi?",
+    "collaborateDesc": "Saya terbuka untuk proyek menarik, diskusi teknologi, atau sekadar ngobrol soal otomatisasi keamanan.",
+    "contactMe": "Hubungi Saya",
+    "copyright": "All rights reserved. Crafted with",
+    "and": "and Tailwind CSS."
+  },
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "skill": "Keahlian",
+    "project": "Projek",
+    "contact": "Kontak"
+  },
+  "common": {
+    "noImage": "Tidak ada gambar",
+    "loading": "Memuat..."
+  }
+}

@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import 'animate.css';
+@plugin "daisyui";
+
+/**
+ * KONFIGURASI DARK MODE
+ * =====================
+ * Menggunakan selector 'class' untuk Tailwind dark mode.
+ * Class 'dark' ditambahkan ke <html> oleh ThemeContext.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/**
+ * BASE STYLES
+ * ===========
+ * Styling dasar untuk body dengan dukungan dark mode.
+ */
+body {
+  font-family: Poppins, sans-serif;
+  background: white;
+  color: #1f2937;
+  transition-property: background-color, color;
+  transition-duration: 300ms;
+}
+
+/* Dark mode styles untuk body */
+.dark body {
+  background: #111827;
+  color: #f3f4f6;
+}
+
+/* Pastikan html juga punya transisi */
+html {
+  transition-property: background-color;
+  transition-duration: 300ms;
+}
+
+html.dark {
+  background: #111827;
+}
+
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* src/index.css */
+
+@keyframes rotate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+  75% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-border {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #41abfb, #41effb, #0d7ef8
+);
+  background-size: 200% 200%;
+  animation: rotate-gradient 5s linear infinite; /* Adjust duration as needed */
+  padding: 6px; /* tebal border */
+  border-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.gradient-border img {
+  display: block;
+  border-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 0;
+  object-fit: cover;
+}
+
