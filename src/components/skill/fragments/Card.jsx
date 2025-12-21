@@ -2,7 +2,7 @@ import { useState, memo } from 'react'
 import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
-import { useApi, prefetchApi } from '../../../hooks/useApi'
+import { listTools } from '../../../data/data'
 
 const AnimatedCard = memo(({ skill, index, t }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -12,15 +12,10 @@ const AnimatedCard = memo(({ skill, index, t }) => {
     threshold: 0.1,
   })
 
-  const handleMouseEnter = () => {
-    prefetchApi(`/skills/${skill.id}`)
-  }
-
   return (
     <Link
       ref={ref}
       to={`/skill/${skill.id}`}
-      onMouseEnter={handleMouseEnter}
       className={`block ${inView ? 'animate__animated animate__fadeInRight' : ''}`}
       style={{ animationDelay: `${index * 50}ms` }}
     >
@@ -81,17 +76,10 @@ const LoadingSkeleton = () => (
 )
 
 const Card = () => {
-  const { data: skills, loading } = useApi('/skills')
+  const skills = listTools
   const { t } = useTranslation()
 
-  if (loading) {
-    return <LoadingSkeleton />
-  }
-
-  // Validasi data adalah array
-  const skillsArray = Array.isArray(skills) ? skills : []
-
-  if (skillsArray.length === 0) {
+  if (skills.length === 0) {
     return (
       <div className='text-center py-20'>
         <p className='text-gray-500 dark:text-gray-400 text-lg'>
@@ -104,7 +92,7 @@ const Card = () => {
   return (
     <div className='w-full max-w-7xl mx-auto px-4 sm:px-6'>
       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 mb-16'>
-        {skillsArray.map((skill, index) => (
+        {skills.map((skill, index) => (
           <AnimatedCard key={skill.id} skill={skill} index={index} t={t} />
         ))}
       </div>

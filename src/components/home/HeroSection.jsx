@@ -3,14 +3,14 @@ import { TypeAnimation } from 'react-type-animation'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Button from '../Button'
-import { useApi } from '../../hooks/useApi'
+import { profileData } from '../../data/data'
 
 const HeroSection = () => {
-  const { data: profile, loading: apiLoading } = useApi('/profile')
+  const profile = profileData
   const [imageLoaded, setImageLoaded] = useState(false)
   const { t, i18n } = useTranslation()
 
-  const loading = apiLoading || (profile?.image_url && !imageLoaded)
+  const loading = profile?.image_url && !imageLoaded
 
   // Dynamic typing sequence based on language
   const typingSequence =
@@ -64,7 +64,7 @@ const HeroSection = () => {
                 />
               )}
 
-              {!apiLoading && (!profile || !profile.image_url) && (
+              {!profile?.image_url && (
                 <div className='absolute inset-0 bg-white/10 flex items-center justify-center'>
                   <span className='text-white text-lg'>No profile image</span>
                 </div>

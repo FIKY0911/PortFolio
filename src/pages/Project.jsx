@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
 import 'remixicon/fonts/remixicon.css'
 import Button from '../components/Button'
-import { useApi } from '../hooks/useApi'
+import { listProject } from '../data/data'
 
 const AnimatedProjectCard = memo(({ project, t }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
@@ -120,11 +120,8 @@ const LoadingSkeleton = () => (
 )
 
 const Project = () => {
-  const { data: projects, loading } = useApi('/projects')
+  const projects = listProject
   const { t } = useTranslation()
-
-  // Validasi data adalah array
-  const projectsArray = Array.isArray(projects) ? projects : []
 
   return (
     <div className='w-full py-20 px-4 sm:px-6 bg-white dark:bg-gray-900 transition-colors duration-300'>
@@ -133,11 +130,9 @@ const Project = () => {
           {t('projects.title')}
         </h2>
 
-        {loading ? (
-          <LoadingSkeleton />
-        ) : projectsArray.length > 0 ? (
+        {projects.length > 0 ? (
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-            {projectsArray.map((project) => (
+            {projects.map((project) => (
               <AnimatedProjectCard key={project.id} project={project} t={t} />
             ))}
           </div>
