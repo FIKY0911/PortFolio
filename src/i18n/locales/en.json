@@ -11,13 +11,59 @@
   "skills": {
     "title": "My Tools!",
     "noSkills": "No skills available",
-    "noDescription": "No description"
+    "noDescription": "No description",
+    "tools": {
+      "nextjs": {
+        "name": "Nextjs",
+        "level": "Beginner"
+      },
+      "typescript": {
+        "name": "TypeScript",
+        "level": "Beginner"
+      },
+      "clerk": {
+        "name": "Clerk",
+        "level": "Beginner"
+      },
+      "tailwind": {
+        "name": "Tailwind Css",
+        "level": "Beginner"
+      },
+      "html": {
+        "name": "Html",
+        "level": "Advanced"
+      },
+      "css": {
+        "name": "Css",
+        "level": "Intermediate"
+      },
+      "javascript": {
+        "name": "Javascript",
+        "level": "Beginner"
+      },
+      "react": {
+        "name": "React",
+        "level": "Beginner"
+      }
+    }
   },
   "projects": {
     "title": "My Projects!",
     "viewProject": "View Project",
     "noProjects": "No projects available",
-    "noDescription": "No description available"
+    "noDescription": "No description available",
+    "list": {
+      "grocerystore": {
+        "title": "Grocerystore",
+        "description": "This is my UAS-RPL e-commerce project inspired by YouTube with the ATM concept (Observe, Imitate, Modify).",
+        "tools": ["Next js", "TypeScript", "Clerk", "Tailwind"]
+      },
+      "coffeshop": {
+        "title": "Coffeshop",
+        "description": "This is my Programming Language project with my friends",
+        "tools": ["Html", "Css", "Javascript"]
+      }
+    }
   },
   "skillDetail": {
     "title": "Technologies I Use",

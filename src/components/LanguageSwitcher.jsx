@@ -1,15 +1,31 @@
 import { useTranslation } from 'react-i18next'
+import { useAppSelector, useAppDispatch } from '../store/hooks'
+import { setLanguage, selectLanguage } from '../store/slices/languageSlice'
 
 /**
  * LanguageSwitcher Component
+ * ==========================
  * Tombol toggle untuk switch antara Indonesia dan English
+ * Menggunakan Redux untuk state management
+ * 
+ * FEATURES:
+ * - Redux state management
+ * - Sync dengan i18next
+ * - Persist to localStorage
+ * - Smooth transitions
  */
 const LanguageSwitcher = ({ className = '' }) => {
   const { i18n } = useTranslation()
-  const currentLang = i18n.language
+  const dispatch = useAppDispatch()
+  const currentLang = useAppSelector(selectLanguage)
 
   const toggleLanguage = () => {
     const newLang = currentLang === 'id' ? 'en' : 'id'
+    
+    // Update Redux state
+    dispatch(setLanguage(newLang))
+    
+    // Update i18next
     i18n.changeLanguage(newLang)
   }
 
@@ -41,10 +57,12 @@ const LanguageSwitcher = ({ className = '' }) => {
  */
 export const LanguageSwitcherMinimal = ({ className = '' }) => {
   const { i18n } = useTranslation()
-  const currentLang = i18n.language
+  const dispatch = useAppDispatch()
+  const currentLang = useAppSelector(selectLanguage)
 
   const toggleLanguage = () => {
     const newLang = currentLang === 'id' ? 'en' : 'id'
+    dispatch(setLanguage(newLang))
     i18n.changeLanguage(newLang)
   }
 

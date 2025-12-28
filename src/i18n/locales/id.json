@@ -11,13 +11,59 @@
   "skills": {
     "title": "Tools saya!",
     "noSkills": "Tidak ada skill tersedia",
-    "noDescription": "Tidak ada deskripsi"
+    "noDescription": "Tidak ada deskripsi",
+    "tools": {
+      "nextjs": {
+        "name": "Nextjs",
+        "level": "Pemula"
+      },
+      "typescript": {
+        "name": "TypeScript",
+        "level": "Pemula"
+      },
+      "clerk": {
+        "name": "Clerk",
+        "level": "Pemula"
+      },
+      "tailwind": {
+        "name": "Tailwind Css",
+        "level": "Pemula"
+      },
+      "html": {
+        "name": "Html",
+        "level": "Mahir"
+      },
+      "css": {
+        "name": "Css",
+        "level": "Menengah"
+      },
+      "javascript": {
+        "name": "Javascript",
+        "level": "Pemula"
+      },
+      "react": {
+        "name": "React",
+        "level": "Pemula"
+      }
+    }
   },
   "projects": {
     "title": "Projek Saya!",
     "viewProject": "Lihat Project",
     "noProjects": "Tidak ada projek tersedia",
-    "noDescription": "Tidak ada deskripsi"
+    "noDescription": "Tidak ada deskripsi",
+    "list": {
+      "grocerystore": {
+        "title": "Grocerystore",
+        "description": "Ini adalah project e-commerce UAS-RPL saya terinspirasi dari youtube dengan konsep ATM(Amati Tiru Modifikasi).",
+        "tools": ["Next js", "TypeScript", "Clerk", "Tailwind"]
+      },
+      "coffeshop": {
+        "title": "Coffeshop",
+        "description": "Ini adalah project Bahasa Pemrograman saya bersama temen saya",
+        "tools": ["Html", "Css", "Javascript"]
+      }
+    }
   },
   "skillDetail": {
     "title": "Teknologi yang Saya Gunakan",

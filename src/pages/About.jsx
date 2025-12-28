@@ -2,6 +2,7 @@ import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button'
+import AboutExperience from '../components/about/AboutExperience'
 
 const About = () => {
   const { t } = useTranslation()
@@ -73,19 +74,12 @@ const About = () => {
             </div>
           </div>
 
-          {/* Gambar */}
-          <div
-            ref={imageRef}
-            className={`bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-sm overflow-hidden ${
-              imageInView ? 'animate__animated animate__fadeInRight' : ''
-            }`}
-          >
-            <img
-              src='/About.webp'
-              alt='Fiky'
-              className='w-full h-full object-cover'
-            />
-          </div>
+          {/* Gambar 3d */}
+          <figure>
+            <div className='.hero-3d-layout'>
+              <AboutExperience/>
+            </div>
+          </figure>
         </div>
       </div>
     </div>

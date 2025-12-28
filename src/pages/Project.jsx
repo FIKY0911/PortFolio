@@ -113,6 +113,18 @@ const AnimatedProjectCard = memo(({ project, t }) => {
     triggerOnce: true, // Animasi hanya sekali (performance)
     threshold: 0.1,    // Trigger saat 10% card visible
   })
+  
+  // Get translated project data based on project title
+  const getTranslatedProject = (projectTitle) => {
+    const projectKey = projectTitle.toLowerCase().replace(/\s+/g, '')
+    return {
+      title: t(`projects.list.${projectKey}.title`, projectTitle),
+      description: t(`projects.list.${projectKey}.description`, project.descripstion),
+      tools: t(`projects.list.${projectKey}.tools`, { returnObjects: true, defaultValue: project.tools })
+    }
+  }
+  
+  const translatedProject = getTranslatedProject(project.title)
 
   return (
     <div
@@ -131,7 +143,7 @@ const AnimatedProjectCard = memo(({ project, t }) => {
         {project.image_url ? (
           <img
             src={project.image_url}
-            alt={project.title}
+            alt={translatedProject.title}
             loading='lazy' // Native lazy loading (browser feature)
             onLoad={() => setImageLoaded(true)}  // Set state saat image loaded
             onError={() => setImageLoaded(true)} // Handle error gracefully
@@ -150,14 +162,14 @@ const AnimatedProjectCard = memo(({ project, t }) => {
       {/* Content Container */}
       <div className='p-6 flex flex-col flex-grow'>
         <h3 className='text-lg sm:text-xl font-semibold text-gray-800 dark:text-white mb-3'>
-          {project.title}
+          {translatedProject.title}
         </h3>
 
         {/* Tools/Tech Stack Tags */}
         {/* Optional chaining (?.) untuk safe access */}
-        {project.tools?.length > 0 && (
+        {Array.isArray(translatedProject.tools) && translatedProject.tools.length > 0 && (
           <div className='flex flex-wrap gap-2 mb-5'>
-            {project.tools.map((tool, id) => (
+            {translatedProject.tools.map((tool, id) => (
               <span
                 key={id}
                 className='px-2 py-1 text-xs font-medium bg-slate-100 dark:bg-gray-700 text-slate-600 dark:text-gray-300 rounded-full'
@@ -170,7 +182,7 @@ const AnimatedProjectCard = memo(({ project, t }) => {
 
         {/* Description dengan fallback */}
         <p className='text-slate-600 dark:text-gray-400 text-sm mb-6 flex-grow leading-relaxed'>
-          {project.descripstion || t('projects.noDescription')}
+          {translatedProject.description}
         </p>
 
         {/* Action Buttons */}

@@ -41,6 +41,17 @@ const AnimatedCard = memo(({ skill, index, t }) => {
     triggerOnce: true, // Animasi hanya sekali
     threshold: 0.1,    // Trigger saat 10% card terlihat
   })
+  
+  // Get translated tool name and level based on skill name
+  const getTranslatedTool = (toolName) => {
+    const toolKey = toolName.toLowerCase().replace(/\s+/g, '')
+    return {
+      name: t(`skills.tools.${toolKey}.name`, toolName),
+      level: t(`skills.tools.${toolKey}.level`, skill.keterangan)
+    }
+  }
+  
+  const translatedTool = getTranslatedTool(skill.name)
 
   return (
     <Link
@@ -58,7 +69,7 @@ const AnimatedCard = memo(({ skill, index, t }) => {
           {skill.image_url ? (
             <img
               src={skill.image_url}
-              alt={skill.keterangan || skill.name}
+              alt={translatedTool.name}
               loading='lazy'
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageLoaded(true)}
@@ -75,10 +86,10 @@ const AnimatedCard = memo(({ skill, index, t }) => {
 
         <div className='flex flex-col justify-center min-w-0'>
           <h3 className='text-black dark:text-white font-semibold text-xs sm:text-sm md:text-base group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors truncate'>
-            {skill.name || 'Framework / Library'}
+            {translatedTool.name}
           </h3>
           <p className='text-gray-500 dark:text-gray-400 text-xs mt-0.5 sm:mt-1'>
-            {skill.keterangan || t('skills.noDescription')}
+            {translatedTool.level}
           </p>
         </div>
       </div>

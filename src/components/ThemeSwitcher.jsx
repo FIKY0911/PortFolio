@@ -2,35 +2,43 @@
  * ThemeSwitcher.jsx
  * =================
  * Komponen tombol untuk toggle antara light dan dark mode.
- * Menggunakan style yang mirip dean shadcn/ui.
+ * Menggunakan Redux untuk state management.
  * 
  * PENJELASAN:
  * -----------
- * 1. useTheme() - Hook untuk mengakses state tema dari ThemeContext.
+ * 1. useAppSelector & useAppDispatch - Redux hooks untuk state management
  * 
- * 2. Button styling - Menggunakan Tailwind CSS dengan style minimalis
+ * 2. Redux Integration - Theme state dikelola di Redux store
+ *    - Centralized state
+ *    - No prop drilling
+ *    - Persist across app
+ * 
+ * 3. Button styling - Menggunakan Tailwind CSS dengan style minimalis
  *    seperti shadcn/ui (rounded, subtle hover effect, clean icons).
  * 
- * 3. Icons - Menggunakan Remix Icon (ri-sun-line dan ri-moon-line)
+ * 4. Icons - Menggunakan Remix Icon (ri-sun-line dan ri-moon-line)
  *    yang sudah terinstall di project.
  * 
- * 4. Transisi - Smooth transition untuk icon dan background saat hover.
+ * 5. Transisi - Smooth transition untuk icon dan background saat hover.
  * 
- * 5. Accessibility - Menyertakan aria-label untuk screen readers.
+ * 6. Accessibility - Menyertakan aria-label untuk screen readers.
  */
 
-import { useTheme } from './context/ThemeContext'
+import { useAppSelector, useAppDispatch } from '../store/hooks'
+import { toggleTheme, selectIsDark } from '../store/slices/themeSlice'
 
 /**
  * ThemeSwitcher Component
  * -----------------------
  * Tombol toggle untuk switch antara light dan dark mode.
+ * Menggunakan Redux untuk state management.
  * 
  * FITUR:
  * - Icon berubah sesuai tema (sun untuk light, moon untuk dark)
  * - Smooth transition animation
  * - Hover effect yang subtle
  * - Accessible dengan aria-label
+ * - Redux state management
  * 
  * CARA PENGGUNAAN:
  * <ThemeSwitcher />
@@ -42,12 +50,18 @@ import { useTheme } from './context/ThemeContext'
  * @param {string} props.className - Additional CSS classes (optional)
  */
 const ThemeSwitcher = ({ className = '' }) => {
-  // Ambil state dan fungsi dari ThemeContext
-  const { toggleTheme, isDark } = useTheme()
+  // Redux hooks
+  const dispatch = useAppDispatch()
+  const isDark = useAppSelector(selectIsDark)
+  
+  // Toggle theme handler
+  const handleToggle = () => {
+    dispatch(toggleTheme())
+  }
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={handleToggle}
       className={`
         relative
         inline-flex
@@ -119,11 +133,12 @@ const ThemeSwitcher = ({ className = '' }) => {
  * Versi minimal tanpa border, cocok untuk navbar yang sudah punya background.
  */
 export const ThemeSwitcherMinimal = ({ className = '' }) => {
-  const { toggleTheme, isDark } = useTheme()
+  const dispatch = useAppDispatch()
+  const isDark = useAppSelector(selectIsDark)
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={() => dispatch(toggleTheme())}
       className={`
         p-2
         rounded-full
@@ -149,11 +164,12 @@ export const ThemeSwitcherMinimal = ({ className = '' }) => {
  * Versi dengan label text, cocok untuk settings page atau menu.
  */
 export const ThemeSwitcherWithLabel = ({ className = '' }) => {
-  const { toggleTheme, isDark } = useTheme()
+  const dispatch = useAppDispatch()
+  const isDark = useAppSelector(selectIsDark)
 
   return (
     <button
-      onClick={toggleTheme}
+      onClick={() => dispatch(toggleTheme())}
       className={`
         flex
         items-center
