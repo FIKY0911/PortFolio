@@ -3,10 +3,12 @@ import Header from '../components/header/Header'
 import { Outlet } from 'react-router-dom'
 import Container from '../components/Container'
 import Footer from '../components/footer/Footer'
+import ScrollToTop from '../components/ScrollToTop'
 
 const RootLayout = () => {
   return (
     <div className='min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300'>
+      <ScrollToTop />
       <header>
               <nav>
                 <Header/>

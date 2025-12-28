@@ -24,7 +24,105 @@
     "description": "Setiap proyek dibangun dengan alat yang tepat. Berikut detail framework dan bahasa pemrograman yang saya gunakan dalam pengembangan.",
     "features": "Fitur Unggulan:",
     "visitSite": "Kunjungi Situs Resmi →",
-    "back": "Kembali ke Skill"
+    "back": "Kembali ke Skill",
+    "technologies": {
+      "nextjs": {
+        "name": "Next.js",
+        "type": "Framework",
+        "description": "Next.js adalah framework React yang memungkinkan pembuatan aplikasi web server-rendered (SSR), static-generated (SSG), dan hybrid. Cocok untuk SEO, performa tinggi, dan pengembangan cepat.",
+        "features": [
+          "Server-Side Rendering (SSR)",
+          "Static Site Generation (SSG)",
+          "Routing otomatis",
+          "API Routes built-in",
+          "Image Optimization"
+        ]
+      },
+      "typescript": {
+        "name": "TypeScript",
+        "type": "Bahasa Pemrograman",
+        "description": "TypeScript adalah superset dari JavaScript yang menambahkan fitur tiping statis. Membantu menangkap error lebih awal dan membuat kode lebih mudah dipelihara, terutama di proyek besar.",
+        "features": [
+          "Tiping statis (static typing)",
+          "IntelliSense & autocomplete",
+          "Kompatibel dengan JavaScript",
+          "Interface & type inference",
+          "Meningkatkan kualitas kode"
+        ]
+      },
+      "clerk": {
+        "name": "Clerk",
+        "type": "Framework",
+        "description": "Clerk adalah layanan autentikasi siap pakai untuk aplikasi modern. Menyediakan login, register, manajemen sesi, dan keamanan tanpa harus mengatur backend sendiri.",
+        "features": [
+          "Login & Register siap pakai",
+          "Multi-factor authentication",
+          "Social login (Google, GitHub, dll)",
+          "Manajemen pengguna & peran",
+          "Keamanan tingkat enterprise"
+        ]
+      },
+      "tailwind": {
+        "name": "Tailwind CSS",
+        "type": "Framework",
+        "description": "Tailwind CSS adalah framework CSS utility-first yang memungkinkan styling langsung di markup HTML. Sangat fleksibel, cocok untuk desain custom, dan sangat cepat dikembangkan.",
+        "features": [
+          "Utility-first approach",
+          "Responsif out-of-the-box",
+          "Customizable theme",
+          "JIT compiler (cepat & ringan)",
+          "Plugin ecosystem luas"
+        ]
+      },
+      "html": {
+        "name": "HTML",
+        "type": "Bahasa Markup",
+        "description": "HTML (HyperText Markup Language) adalah fondasi dari setiap halaman web. Digunakan untuk mendefinisikan struktur konten seperti heading, paragraf, gambar, dan form.",
+        "features": [
+          "Struktur dasar halaman web",
+          "Semantic elements (<header>, <article>, dll.)",
+          "Aksesibilitas (accessibility) yang baik",
+          "Kompatibel di semua browser",
+          "Ringan dan mudah dipelajari"
+        ]
+      },
+      "css": {
+        "name": "CSS",
+        "type": "Bahasa Styling",
+        "description": "CSS (Cascading Style Sheets) digunakan untuk mengatur tampilan dan tata letak halaman web. Memisahkan konten (HTML) dari desain, memungkinkan konsistensi visual dan responsivitas.",
+        "features": [
+          "Styling visual (warna, font, layout)",
+          "Responsive design dengan media queries",
+          "Animasi & transisi",
+          "Flexbox & Grid untuk layout modern",
+          "Dukungan penuh di semua perangkat"
+        ]
+      },
+      "javascript": {
+        "name": "JavaScript",
+        "type": "Bahasa Pemrograman",
+        "description": "JavaScript adalah bahasa pemrograman inti web yang membuat halaman web interaktif dan dinamis. Bisa dijalankan di browser (frontend) maupun server (Node.js), menjadikannya serbaguna dan wajib dikuasai.",
+        "features": [
+          "Interaktivitas di sisi klien (frontend)",
+          "Manipulasi DOM secara real-time",
+          "Asynchronous programming (Promise, async/await)",
+          "Kompatibel dengan semua browser modern",
+          "Ekosistem luas (React, Node.js, dll.)"
+        ]
+      },
+      "react": {
+        "name": "React",
+        "type": "Library JavaScript",
+        "description": "React adalah library JavaScript untuk membangun user interface yang interaktif dan dinamis. Dikembangkan oleh Facebook, React menggunakan konsep component-based dan virtual DOM untuk performa optimal. Sangat populer dan memiliki ekosistem yang luas untuk pengembangan aplikasi web modern.",
+        "features": [
+          "Component-based architecture",
+          "Virtual DOM untuk performa tinggi",
+          "JSX syntax untuk menulis UI",
+          "Hooks untuk state management",
+          "Ekosistem luas (React Router, Redux, dll.)"
+        ]
+      }
+    }
   },
   "about": {
     "title": "Tentang Saya",

@@ -15,7 +15,7 @@ const AnimatedCard = memo(({ skill, index, t }) => {
   return (
     <Link
       ref={ref}
-      to={`/skill/${skill.id}`}
+      to={`/skill/`}
       className={`block ${inView ? 'animate__animated animate__fadeInRight' : ''}`}
       style={{ animationDelay: `${index * 50}ms` }}
     >

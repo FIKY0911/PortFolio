@@ -10,131 +10,41 @@ import TypeScript from '../../assets/tools/Typescript-tools.webp'
 import Javascript from '../../assets/tools/JS-tools.webp'
 import Clerk from '../../assets/tools/clrek-tools.webp'
 import Tailwind from '../../assets/tools/tailwind-css-tools.webp'
+import ReactLogo from '../../assets/tools/react-logo.webp'
 import Button from '../Button'
 
-// Data teknologi
-const technologies = [
-  {
-    id: 1,
-    name: 'Next.js',
-    type: 'Framework',
-    image: Nextjs,
-    description:
-      'Next.js adalah framework React yang memungkinkan pembuatan aplikasi web server-rendered (SSR), static-generated (SSG), dan hybrid. Cocok untuk SEO, performa tinggi, dan pengembangan cepat.',
-    officialSite: 'https://nextjs.org',
-    features: [
-      'Server-Side Rendering (SSR)',
-      'Static Site Generation (SSG)',
-      'Routing otomatis',
-      'API Routes built-in',
-      'Image Optimization',
-    ],
-  },
-  {
-    id: 2,
-    name: 'TypeScript',
-    type: 'Bahasa Pemrograman',
-    image: TypeScript,
-    description:
-      'TypeScript adalah superset dari JavaScript yang menambahkan fitur tiping statis. Membantu menangkap error lebih awal dan membuat kode lebih mudah dipelihara, terutama di proyek besar.',
-    officialSite: 'https://www.typescriptlang.org',
-    features: [
-      'Tiping statis (static typing)',
-      'IntelliSense & autocomplete',
-      'Kompatibel dengan JavaScript',
-      'Interface & type inference',
-      'Meningkatkan kualitas kode',
-    ],
-  },
-  {
-    id: 3,
-    name: 'Clerk',
-    type: 'Framework',
-    image: Clerk,
-    description:
-      'Clerk adalah layanan autentikasi siap pakai untuk aplikasi modern. Menyediakan login, register, manajemen sesi, dan keamanan tanpa harus mengatur backend sendiri.',
-    officialSite: 'https://clerk.com',
-    features: [
-      'Login & Register siap pakai',
-      'Multi-factor authentication',
-      'Social login (Google, GitHub, dll)',
-      'Manajemen pengguna & peran',
-      'Keamanan tingkat enterprise',
-    ],
-  },
-  {
-    id: 4,
-    name: 'Tailwind CSS',
-    type: 'Framework',
-    image: Tailwind,
-    description:
-      'Tailwind CSS adalah framework CSS utility-first yang memungkinkan styling langsung di markup HTML. Sangat fleksibel, cocok untuk desain custom, dan sangat cepat dikembangkan.',
-    officialSite: 'https://tailwindcss.com',
-    features: [
-      'Utility-first approach',
-      'Responsif out-of-the-box',
-      'Customizable theme',
-      'JIT compiler (cepat & ringan)',
-      'Plugin ecosystem luas',
-    ],
-  },
-  {
-    id: 5,
-    name: 'HTML',
-    type: 'Bahasa Markup',
-    image: Html,
-    description:
-      'HTML (HyperText Markup Language) adalah fondasi dari setiap halaman web. Digunakan untuk mendefinisikan struktur konten seperti heading, paragraf, gambar, dan form.',
-    officialSite: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
-    features: [
-      'Struktur dasar halaman web',
-      'Semantic elements (<header>, <article>, dll.)',
-      'Aksesibilitas (accessibility) yang baik',
-      'Kompatibel di semua browser',
-      'Ringan dan mudah dipelajari',
-    ],
-  },
-  {
-    id: 6,
-    name: 'CSS',
-    type: 'Bahasa Styling',
-    image: Css,
-    description:
-      'CSS (Cascading Style Sheets) digunakan untuk mengatur tampilan dan tata letak halaman web. Memisahkan konten (HTML) dari desain, memungkinkan konsistensi visual dan responsivitas.',
-    officialSite: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
-    features: [
-      'Styling visual (warna, font, layout)',
-      'Responsive design dengan media queries',
-      'Animasi & transisi',
-      'Flexbox & Grid untuk layout modern',
-      'Dukungan penuh di semua perangkat',
-    ],
-  },
-  {
-    id: 7,
-    name: 'JavaScript',
-    type: 'Bahasa Pemrograman',
-    image: Javascript,
-    description:
-      'JavaScript adalah bahasa pemrograman inti web yang membuat halaman web interaktif dan dinamis. Bisa dijalankan di browser (frontend) maupun server (Node.js), menjadikannya serbaguna dan wajib dikuasai.',
-    officialSite: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
-    features: [
-      'Interaktivitas di sisi klien (frontend)',
-      'Manipulasi DOM secara real-time',
-      'Asynchronous programming (Promise, async/await)',
-      'Kompatibel dengan semua browser modern',
-      'Ekosistem luas (React, Node.js, dll.)',
-    ],
-  },
-]
+// Mapping gambar berdasarkan key
+const techImages = {
+  nextjs: Nextjs,
+  typescript: TypeScript,
+  clerk: Clerk,
+  tailwind: Tailwind,
+  html: Html,
+  css: Css,
+  javascript: Javascript,
+  react: ReactLogo,
+}
 
-const AnimatedSkillCard = ({ tech, index, t }) => {
+// Official sites untuk setiap teknologi
+const officialSites = {
+  nextjs: 'https://nextjs.org',
+  typescript: 'https://www.typescriptlang.org',
+  clerk: 'https://clerk.com',
+  tailwind: 'https://tailwindcss.com',
+  html: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
+  css: 'https://developer.mozilla.org/en-US/docs/Web/CSS',
+  javascript: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+  react: 'https://react.dev',
+}
+
+const AnimatedSkillCard = ({ techKey, index, t }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
 
   const animationDelay = `${index * 100}ms`
+  const tech = t(`skillDetail.technologies.${techKey}`, { returnObjects: true })
 
   return (
     <div
@@ -146,7 +56,7 @@ const AnimatedSkillCard = ({ tech, index, t }) => {
     >
       <div className='flex items-center gap-4 mb-4'>
         <img
-          src={tech.image}
+          src={techImages[techKey]}
           alt={tech.name}
           className='w-12 h-12 rounded-lg object-contain'
         />
@@ -176,7 +86,7 @@ const AnimatedSkillCard = ({ tech, index, t }) => {
       </div>
 
       <a
-        href={tech.officialSite}
+        href={officialSites[techKey]}
         target='_blank'
         rel='noopener noreferrer'
         className='inline-flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-800 dark:hover:text-cyan-300 text-sm font-medium transition-colors'
@@ -189,6 +99,8 @@ const AnimatedSkillCard = ({ tech, index, t }) => {
 
 const SkillDetail = () => {
   const { t } = useTranslation()
+
+  const techKeys = ['nextjs', 'typescript', 'clerk', 'tailwind', 'html', 'css', 'javascript', 'react']
 
   return (
     <div className='py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300'>
@@ -205,8 +117,8 @@ const SkillDetail = () => {
 
         {/* Grid Detail */}
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-          {technologies.map((tech, index) => (
-            <AnimatedSkillCard key={tech.id} tech={tech} index={index} t={t} />
+          {techKeys.map((techKey, index) => (
+            <AnimatedSkillCard key={techKey} techKey={techKey} index={index} t={t} />
           ))}
         </div>
 

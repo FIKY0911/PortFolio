@@ -6,7 +6,6 @@ import About from "../pages/About"
 import Project from "../pages/Project";
 import Contact from "../pages/Contact"
 import SkillDetail from "../components/skill/SkillDetail";
-import Skill from "../pages/Skill";
 
 export const router = createBrowserRouter([
   {
@@ -24,10 +23,6 @@ export const router = createBrowserRouter([
       },
       {
         path: "/skill",
-        element: <Skill />
-      },
-      {
-        path: "/skill/:id",
         element: <SkillDetail/>
       },
       {

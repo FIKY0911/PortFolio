@@ -24,7 +24,105 @@
     "description": "Every project is built with the right tools. Here are the details of frameworks and programming languages I use in development.",
     "features": "Key Features:",
     "visitSite": "Visit Official Site →",
-    "back": "Back to Skills"
+    "back": "Back to Skills",
+    "technologies": {
+      "nextjs": {
+        "name": "Next.js",
+        "type": "Framework",
+        "description": "Next.js is a React framework that enables server-rendered (SSR), static-generated (SSG), and hybrid web applications. Perfect for SEO, high performance, and rapid development.",
+        "features": [
+          "Server-Side Rendering (SSR)",
+          "Static Site Generation (SSG)",
+          "Automatic routing",
+          "Built-in API Routes",
+          "Image Optimization"
+        ]
+      },
+      "typescript": {
+        "name": "TypeScript",
+        "type": "Programming Language",
+        "description": "TypeScript is a superset of JavaScript that adds static typing features. Helps catch errors early and makes code more maintainable, especially in large projects.",
+        "features": [
+          "Static typing",
+          "IntelliSense & autocomplete",
+          "Compatible with JavaScript",
+          "Interface & type inference",
+          "Improves code quality"
+        ]
+      },
+      "clerk": {
+        "name": "Clerk",
+        "type": "Framework",
+        "description": "Clerk is a ready-to-use authentication service for modern applications. Provides login, registration, session management, and security without having to set up your own backend.",
+        "features": [
+          "Ready-to-use Login & Register",
+          "Multi-factor authentication",
+          "Social login (Google, GitHub, etc.)",
+          "User & role management",
+          "Enterprise-level security"
+        ]
+      },
+      "tailwind": {
+        "name": "Tailwind CSS",
+        "type": "Framework",
+        "description": "Tailwind CSS is a utility-first CSS framework that allows styling directly in HTML markup. Highly flexible, perfect for custom designs, and very fast to develop.",
+        "features": [
+          "Utility-first approach",
+          "Responsive out-of-the-box",
+          "Customizable theme",
+          "JIT compiler (fast & lightweight)",
+          "Extensive plugin ecosystem"
+        ]
+      },
+      "html": {
+        "name": "HTML",
+        "type": "Markup Language",
+        "description": "HTML (HyperText Markup Language) is the foundation of every web page. Used to define content structure such as headings, paragraphs, images, and forms.",
+        "features": [
+          "Basic web page structure",
+          "Semantic elements (<header>, <article>, etc.)",
+          "Good accessibility support",
+          "Compatible with all browsers",
+          "Lightweight and easy to learn"
+        ]
+      },
+      "css": {
+        "name": "CSS",
+        "type": "Styling Language",
+        "description": "CSS (Cascading Style Sheets) is used to control the appearance and layout of web pages. Separates content (HTML) from design, enabling visual consistency and responsiveness.",
+        "features": [
+          "Visual styling (colors, fonts, layout)",
+          "Responsive design with media queries",
+          "Animations & transitions",
+          "Flexbox & Grid for modern layouts",
+          "Full support across all devices"
+        ]
+      },
+      "javascript": {
+        "name": "JavaScript",
+        "type": "Programming Language",
+        "description": "JavaScript is the core programming language of the web that makes web pages interactive and dynamic. Can run in browsers (frontend) or servers (Node.js), making it versatile and essential to master.",
+        "features": [
+          "Client-side interactivity (frontend)",
+          "Real-time DOM manipulation",
+          "Asynchronous programming (Promise, async/await)",
+          "Compatible with all modern browsers",
+          "Extensive ecosystem (React, Node.js, etc.)"
+        ]
+      },
+      "react": {
+        "name": "React",
+        "type": "JavaScript Library",
+        "description": "React is a JavaScript library for building interactive and dynamic user interfaces. Developed by Facebook, React uses component-based concepts and virtual DOM for optimal performance. Very popular with an extensive ecosystem for modern web application development.",
+        "features": [
+          "Component-based architecture",
+          "Virtual DOM for high performance",
+          "JSX syntax for writing UI",
+          "Hooks for state management",
+          "Extensive ecosystem (React Router, Redux, etc.)"
+        ]
+      }
+    }
   },
   "about": {
     "title": "About Me",
