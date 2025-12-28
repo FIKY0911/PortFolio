@@ -424,31 +424,40 @@ const Ground = ({ isDark }) => {
 }
 
 /**
- * Scene Component
- * ===============
+ * ============================================================================
+ * Scene Component - Main 3D Scene
+ * ============================================================================
  * Contains the Room model dengan conditional lighting based on theme
  * 
- * DARK MODE LIGHTING:
+ * DARK MODE LIGHTING (Nighttime):
  * - Purple/blue ambient untuk nighttime atmosphere
  * - Purple directional light sebagai main light
- * - Blue point light untuk accent
- * - Cyan monitor glow effect
- * - Purple spot light untuk dramatic effect
+ * - Multiple indoor lights (ceiling, desk, monitor, floor lamps)
  * - Starry sky background
  * - Fireflies (kunang-kunang) di halaman rumah
- * - Indoor lighting (lampu dalam rumah)
  * - Glowing grass ground
+ * - Dramatic shadows
  * 
- * LIGHT MODE LIGHTING:
- * - Warm daylight colors
- * - Natural sunlight simulation
+ * LIGHT MODE LIGHTING (Daytime):
+ * - Bright ambient light untuk daylight
+ * - Strong directional light (sun simulation)
+ * - Multiple indoor lights (natural + artificial)
+ * - Sunlight through windows
+ * - Clear bright sky
+ * - Natural grass ground
  * - Soft shadows
- * - Clear sky background
- * - Green grass ground
+ * - NO fireflies (daytime)
+ * 
+ * @param {Object} props - Component props
+ * @param {boolean} props.isDark - Dark mode flag
  */
 const Scene = ({ isDark }) => {
     return (
         <>
+            {/* ========================================
+                BACKGROUND & ENVIRONMENT
+            ======================================== */}
+            
             {/* Starry Sky Background - Hanya muncul di dark mode */}
             {isDark && (
                 <Stars 
@@ -465,7 +474,11 @@ const Scene = ({ isDark }) => {
             {/* Ground - Dataran rumput hijau dengan tekstur */}
             <Ground isDark={isDark} />
             
-            {/* Fireflies - Kunang-kunang di halaman rumah (hanya di dark mode) */}
+            {/* ========================================
+                FIREFLIES - HANYA DI DARK MODE
+            ======================================== */}
+            
+            {/* Fireflies - Kunang-kunang di halaman rumah (HANYA DARK MODE) */}
             {isDark && (
                 <>
                     {/* Kunang-kunang di halaman rumah (banyak, rendah) */}
@@ -475,9 +488,15 @@ const Scene = ({ isDark }) => {
                 </>
             )}
             
+            {/* ========================================
+                LIGHTING SYSTEM - CONDITIONAL
+            ======================================== */}
+            
             {/* Conditional Lighting Based on Theme */}
             {isDark ? (
-                // DARK MODE - Nighttime with monitor glow
+                // ========================================
+                // DARK MODE - Nighttime with indoor lights
+                // ========================================
                 <>
                     {/* Purple/Blue Ambient - Base nighttime lighting (dikurangi) */}
                     <ambientLight color="#0a0a1e" intensity={0.15} />
@@ -595,15 +614,18 @@ const Scene = ({ isDark }) => {
                     />
                 </>
             ) : (
-                // LIGHT MODE - Warm daylight
+                // ========================================
+                // LIGHT MODE - Bright Daytime with sunlight
+                // ========================================
                 <>
-                    {/* Warm Ambient Light - Base lighting */}
-                    <ambientLight intensity={0.4} />
+                    {/* Bright Ambient Light - Strong daylight base */}
+                    <ambientLight color="#ffffff" intensity={1.2} />
                     
-                    {/* Main Directional Light - Sunlight simulation */}
+                    {/* Main Sun Light - Strong directional sunlight */}
                     <directionalLight 
-                        position={[5, 8, 5]} 
-                        intensity={1.5}
+                        position={[8, 12, 6]} 
+                        color="#fffaed" // Warm sunlight
+                        intensity={2.5}
                         castShadow
                         shadow-mapSize-width={2048}
                         shadow-mapSize-height={2048}
@@ -614,31 +636,77 @@ const Scene = ({ isDark }) => {
                         shadow-camera-bottom={-10}
                     />
                     
-                    {/* Spot Light - Accent lighting */}
-                    <spotLight 
-                        position={[10, 10, 10]} 
-                        angle={0.3} 
-                        penumbra={1} 
-                        intensity={1}
-                        castShadow
-                        shadow-mapSize-width={1024}
-                        shadow-mapSize-height={1024}
-                    />
-                    
-                    {/* Fill Light - Soft light dari sisi lain */}
+                    {/* Secondary Sun Light - Fill light dari sisi lain */}
                     <directionalLight 
-                        position={[-5, 5, -5]} 
-                        intensity={0.5}
+                        position={[-6, 8, -4]} 
+                        color="#e6f2ff" // Cool sky light
+                        intensity={1.2}
                     />
                     
-                    {/* Sunlight through window - Cahaya matahari masuk jendela */}
+                    {/* === INDOOR LIGHTING - Cahaya dalam ruangan (BRIGHT) === */}
+                    
+                    {/* Sunlight Through Window 1 - Cahaya matahari masuk jendela */}
                     <spotLight 
                         position={[2, 3, 1]} 
                         target-position={[0, 0, 0]}
                         color="#fff9e6" // Warm sunlight
-                        angle={0.4} 
+                        angle={0.5} 
+                        penumbra={0.4} 
+                        intensity={8}
+                        distance={6}
+                        castShadow
+                    />
+                    
+                    {/* Sunlight Through Window 2 - Cahaya dari jendela lain */}
+                    <spotLight 
+                        position={[-1.5, 3, 2]} 
+                        target-position={[0, 0, 0]}
+                        color="#fff9e6" // Warm sunlight
+                        angle={0.6} 
                         penumbra={0.5} 
-                        intensity={2}
+                        intensity={7}
+                        distance={5}
+                    />
+                    
+                    {/* Ceiling Light - Lampu plafon (tetap nyala di siang hari) */}
+                    <pointLight 
+                        position={[0, 0.8, 0]} 
+                        color="#ffffee" // Soft white
+                        intensity={4}
+                        distance={5}
+                        decay={2}
+                    />
+                    
+                    {/* Room Ambient Fill - Cahaya pantulan dalam ruangan */}
+                    <pointLight 
+                        position={[0, 0.5, 0]} 
+                        color="#fff5e6" // Very soft warm
+                        intensity={3}
+                        distance={6}
+                        decay={2}
+                    />
+                    
+                    {/* Desk Area Light - Cahaya di area meja */}
+                    <pointLight 
+                        position={[-0.5, 0.4, 0.5]} 
+                        color="#ffffff" // Pure white
+                        intensity={3}
+                        distance={3}
+                        decay={2}
+                    />
+                    
+                    {/* Sky Light - Cahaya dari atas (simulasi langit) */}
+                    <directionalLight 
+                        position={[0, 15, 0]} 
+                        color="#e6f7ff" // Sky blue tint
+                        intensity={1.5}
+                    />
+                    
+                    {/* Bounce Light - Cahaya pantulan dari ground */}
+                    <directionalLight 
+                        position={[0, -5, 0]} 
+                        color="#d4f1d4" // Green tint dari rumput
+                        intensity={0.8}
                     />
                 </>
             )}
