@@ -1,3 +1,21 @@
+/**
+ * data.jsx
+ * ========
+ * File data statis untuk aplikasi portfolio.
+ * Berisi semua data yang ditampilkan di aplikasi (tidak menggunakan API/backend).
+ * 
+ * DATA YANG TERSEDIA:
+ * 1. Image - Gambar hero untuk HeroSection
+ * 2. profileData - Data profil (nama, foto)
+ * 3. listTools - List tools/teknologi yang dikuasai
+ * 4. listProject - List portfolio project
+ * 
+ * CATATAN:
+ * - Semua gambar diimport dari folder assets
+ * - Data ini digunakan langsung tanpa API call
+ * - Untuk menambah/edit data, edit langsung di file ini
+ */
+
 import HeroImage from "../assets/hero/heroimage.webp"
 import Html from "../assets/tools/Html-tools.webp"
 import Css from "../assets/tools/Css-tools.webp"
@@ -10,15 +28,19 @@ import React from "../assets/tools/react-logo.webp"
 import Project1 from "../assets/project/project1.webp"
 import Project2 from "../assets/project/project2.webp"
 
+// Gambar untuk HeroSection
 export const Image = {
   HeroImage,
 };
 
+// Data profil untuk HeroSection
 export const profileData = {
   name: "Fiky",
   image_url: HeroImage,
 };
 
+// List tools/teknologi yang dikuasai
+// Ditampilkan di section Skill (halaman Home)
 export const listTools = [
   {
     id: 1,
@@ -70,6 +92,8 @@ export const listTools = [
   }
 ];
 
+// List portfolio project
+// Ditampilkan di section Project (halaman Home dan /project)
 export const listProject = [
   {
     id: 1,

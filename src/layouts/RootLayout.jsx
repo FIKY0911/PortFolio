@@ -1,3 +1,23 @@
+/**
+ * RootLayout.jsx
+ * ==============
+ * Layout utama aplikasi yang membungkus semua halaman.
+ * Berisi Header (navbar) dan Footer yang muncul di semua halaman.
+ * 
+ * FITUR:
+ * - ScrollToTop: Otomatis scroll ke atas saat pindah route
+ * - Header: Navbar dengan logo, menu, theme switcher, language switcher
+ * - Outlet: Tempat render konten halaman (dari React Router)
+ * - Footer: Footer dengan info kontak dan navigasi
+ * - Dark mode support dengan transition smooth
+ * 
+ * STRUKTUR:
+ * - ScrollToTop (invisible, hanya logic)
+ * - Header (fixed di atas)
+ * - Main content (Outlet)
+ * - Footer (di bawah)
+ */
+
 import React from 'react'
 import Header from '../components/header/Header'
 import { Outlet } from 'react-router-dom'

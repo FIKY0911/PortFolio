@@ -1,3 +1,22 @@
+/**
+ * SkillDetail.jsx
+ * ===============
+ * Halaman detail yang menampilkan semua teknologi/tools yang dikuasai.
+ * Diakses melalui route /skill dari navbar.
+ * 
+ * FITUR:
+ * - Menampilkan 8 teknologi dalam grid layout (2 kolom di desktop)
+ * - Setiap card menampilkan: nama, tipe, deskripsi, fitur unggulan, dan link ke situs resmi
+ * - Animasi fade-in saat scroll menggunakan react-intersection-observer
+ * - Mendukung multi-bahasa (ID/EN) menggunakan i18n
+ * - Data teknologi diambil dari file translasi (id.json/en.json)
+ * 
+ * STRUKTUR DATA:
+ * - techImages: Mapping key teknologi ke file gambar
+ * - officialSites: Mapping key teknologi ke URL situs resmi
+ * - Data detail (nama, tipe, deskripsi, fitur) ada di file i18n/locales
+ */
+
 import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
@@ -13,7 +32,8 @@ import Tailwind from '../../assets/tools/tailwind-css-tools.webp'
 import ReactLogo from '../../assets/tools/react-logo.webp'
 import Button from '../Button'
 
-// Mapping gambar berdasarkan key
+// Mapping gambar berdasarkan key teknologi
+// Key ini harus sesuai dengan key di file i18n (skillDetail.technologies.{key})
 const techImages = {
   nextjs: Nextjs,
   typescript: TypeScript,
@@ -25,7 +45,7 @@ const techImages = {
   react: ReactLogo,
 }
 
-// Official sites untuk setiap teknologi
+// URL situs resmi untuk setiap teknologi
 const officialSites = {
   nextjs: 'https://nextjs.org',
   typescript: 'https://www.typescriptlang.org',
@@ -37,13 +57,31 @@ const officialSites = {
   react: 'https://react.dev',
 }
 
+/**
+ * AnimatedSkillCard Component
+ * ============================
+ * Card individual untuk setiap teknologi dengan animasi fade-in.
+ * 
+ * Props:
+ * - techKey: Key teknologi (nextjs, typescript, dll)
+ * - index: Index untuk delay animasi
+ * - t: Fungsi translate dari i18n
+ * 
+ * Fitur:
+ * - Animasi fade-in saat card masuk viewport
+ * - Delay animasi berdasarkan index (100ms per card)
+ * - Menampilkan gambar, nama, tipe, deskripsi, dan fitur
+ * - Link ke situs resmi teknologi
+ */
 const AnimatedSkillCard = ({ techKey, index, t }) => {
+  // Hook untuk deteksi apakah card sudah terlihat di viewport
   const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
+    triggerOnce: true, // Animasi hanya sekali
+    threshold: 0.1,    // Trigger saat 10% card terlihat
   })
 
   const animationDelay = `${index * 100}ms`
+  // Ambil data teknologi dari file translasi berdasarkan techKey
   const tech = t(`skillDetail.technologies.${techKey}`, { returnObjects: true })
 
   return (
@@ -97,9 +135,17 @@ const AnimatedSkillCard = ({ techKey, index, t }) => {
   )
 }
 
+/**
+ * SkillDetail Component (Main)
+ * =============================
+ * Komponen utama halaman detail skill.
+ * Menampilkan grid semua teknologi yang dikuasai.
+ */
 const SkillDetail = () => {
   const { t } = useTranslation()
 
+  // Array key teknologi yang akan ditampilkan
+  // Urutan di sini menentukan urutan tampilan di halaman
   const techKeys = ['nextjs', 'typescript', 'clerk', 'tailwind', 'html', 'css', 'javascript', 'react']
 
   return (

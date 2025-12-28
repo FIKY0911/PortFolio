@@ -1,15 +1,45 @@
+/**
+ * Card.jsx
+ * ========
+ * Komponen untuk menampilkan grid card tools/teknologi.
+ * Digunakan di section Skill pada halaman Home.
+ * 
+ * FITUR:
+ * - Grid responsive (1-4 kolom tergantung ukuran layar)
+ * - Animasi fade-in dari kanan saat scroll
+ * - Lazy loading gambar dengan placeholder
+ * - Hover effect (border, shadow, scale)
+ * - Data diambil dari data.jsx (listTools)
+ * 
+ * KOMPONEN:
+ * - AnimatedCard: Card individual dengan animasi
+ * - LoadingSkeleton: Placeholder saat loading (tidak digunakan karena data lokal)
+ * - Card: Komponen utama yang render grid
+ */
+
 import { useState, memo } from 'react'
 import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
 import { listTools } from '../../../data/data'
 
+/**
+ * AnimatedCard Component
+ * ======================
+ * Card individual untuk setiap tool dengan animasi fade-in dari kanan.
+ * 
+ * Props:
+ * - skill: Object data skill (id, name, image_url, keterangan)
+ * - index: Index untuk delay animasi
+ * - t: Fungsi translate dari i18n
+ */
 const AnimatedCard = memo(({ skill, index, t }) => {
   const [imageLoaded, setImageLoaded] = useState(false)
 
+  // Hook untuk deteksi apakah card sudah terlihat di viewport
   const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
+    triggerOnce: true, // Animasi hanya sekali
+    threshold: 0.1,    // Trigger saat 10% card terlihat
   })
 
   return (
@@ -58,6 +88,12 @@ const AnimatedCard = memo(({ skill, index, t }) => {
 
 AnimatedCard.displayName = 'AnimatedCard'
 
+/**
+ * LoadingSkeleton Component
+ * =========================
+ * Placeholder skeleton saat data sedang loading.
+ * Saat ini tidak digunakan karena data diambil dari file lokal (data.jsx).
+ */
 const LoadingSkeleton = () => (
   <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 mb-16'>
     {[...Array(8)].map((_, index) => (
@@ -75,10 +111,17 @@ const LoadingSkeleton = () => (
   </div>
 )
 
+/**
+ * Card Component (Main)
+ * =====================
+ * Komponen utama yang menampilkan grid semua tools.
+ * Data diambil dari listTools di data.jsx.
+ */
 const Card = () => {
   const skills = listTools
   const { t } = useTranslation()
 
+  // Tampilkan pesan jika tidak ada data
   if (skills.length === 0) {
     return (
       <div className='text-center py-20'>

@@ -1,3 +1,24 @@
+/**
+ * Navbar.jsx
+ * ==========
+ * Komponen navigasi menu untuk desktop dan mobile.
+ * 
+ * FITUR:
+ * - Active state: Menu yang sedang aktif akan highlight
+ * - Responsive: Layout berbeda untuk desktop dan mobile
+ * - Multi-bahasa: Label menu dari file translasi
+ * - Smooth transition dan hover effect
+ * 
+ * ACTIVE STATE:
+ * - Desktop: Background gradient cyan-blue dengan glow effect
+ * - Mobile: Text cyan dengan font bold
+ * - Deteksi route menggunakan useLocation
+ * 
+ * Props:
+ * - scrolled: Boolean untuk styling saat scroll (desktop)
+ * - onLinkClick: Callback untuk close mobile menu saat klik link
+ */
+
 import { Link, useLocation } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
@@ -5,6 +26,7 @@ const Navbar = ({ scrolled = false, onLinkClick }) => {
   const { t } = useTranslation()
   const location = useLocation()
 
+  // Daftar menu navigasi
   const navItems = [
     { path: '/', label: t('nav.home') },
     { path: '/about', label: t('nav.about') },
@@ -13,7 +35,12 @@ const Navbar = ({ scrolled = false, onLinkClick }) => {
     { path: '/contact', label: t('nav.contact') },
   ]
 
-  // Fungsi untuk cek apakah path sedang aktif
+  /**
+   * Fungsi untuk cek apakah path sedang aktif
+   * - Home (/): Hanya aktif jika exact match
+   * - Skill (/skill): Aktif jika path dimulai dengan /skill (termasuk /skill/:id)
+   * - Lainnya: Exact match
+   */
   const isActive = (path) => {
     if (path === '/') {
       return location.pathname === '/'

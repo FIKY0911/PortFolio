@@ -1,3 +1,20 @@
+/**
+ * Skill.jsx
+ * =========
+ * Section Skill yang menampilkan list tools/teknologi dalam bentuk card grid.
+ * Digunakan di halaman Home sebagai salah satu section.
+ * 
+ * FITUR:
+ * - Menampilkan Card component yang berisi grid tools
+ * - Title "Tools saya!" dengan gradient text
+ * - Background abu-abu dengan rounded corners
+ * - Responsive padding dan spacing
+ * 
+ * PERBEDAAN dengan SkillDetail:
+ * - Skill.jsx: Menampilkan card list sederhana (digunakan di Home)
+ * - SkillDetail.jsx: Menampilkan detail lengkap setiap teknologi (route /skill)
+ */
+
 import { useTranslation } from 'react-i18next'
 import Card from '../components/skill/fragments/Card'
 import Container from '../components/Container'

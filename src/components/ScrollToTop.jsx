@@ -1,3 +1,21 @@
+/**
+ * ScrollToTop.jsx
+ * ===============
+ * Komponen utility untuk scroll otomatis ke atas saat pindah route.
+ * 
+ * CARA KERJA:
+ * - Menggunakan useLocation untuk deteksi perubahan route
+ * - Setiap kali pathname berubah, scroll ke posisi (0, 0)
+ * - Menggunakan behavior 'instant' untuk scroll langsung tanpa animasi
+ * 
+ * PENGGUNAAN:
+ * - Ditaruh di RootLayout agar berjalan di semua route
+ * - Return null karena tidak render apapun (hanya logic)
+ * 
+ * CATATAN:
+ * - Bisa diganti 'smooth' jika ingin animasi scroll smooth
+ */
+
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 

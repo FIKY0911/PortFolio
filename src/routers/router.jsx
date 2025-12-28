@@ -1,3 +1,21 @@
+/**
+ * router.jsx
+ * ==========
+ * Konfigurasi routing aplikasi menggunakan React Router v6.
+ * 
+ * STRUKTUR ROUTE:
+ * - / : Halaman Home (HeroSection + About + Skill + Project + Contact)
+ * - /about : Halaman About standalone
+ * - /skill : Halaman detail semua teknologi (SkillDetail)
+ * - /project : Halaman Project standalone
+ * - /contact : Halaman Contact standalone
+ * 
+ * FITUR:
+ * - Menggunakan RootLayout sebagai wrapper (Header + Footer)
+ * - Error handling dengan ErrorPage
+ * - Nested routes dengan Outlet di RootLayout
+ */
+
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import ErrorPage from "../components/ErrorPage"
