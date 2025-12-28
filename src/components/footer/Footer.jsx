@@ -9,6 +9,7 @@ const Footer = () => {
   const navItems = [
     { path: '/', label: t('nav.home') },
     { path: '/about', label: t('nav.about') },
+    { path: '/skill', label: t('nav.skill')},
     { path: '/project', label: t('nav.project') },
     { path: '/contact', label: t('nav.contact') },
   ]
