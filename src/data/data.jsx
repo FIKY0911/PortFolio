@@ -27,6 +27,7 @@ import Tailwind from "../assets/tools/tailwind-css-tools.webp"
 import React from "../assets/tools/react-logo.webp"
 import Project1 from "../assets/project/project1.webp"
 import Project2 from "../assets/project/project2.webp"
+import CVFile from "../assets/cv_sertif/CV Mohamad Fiky.pdf"
 
 // Gambar untuk HeroSection
 export const Image = {
@@ -37,6 +38,7 @@ export const Image = {
 export const profileData = {
   name: "Fiky",
   image_url: HeroImage,
+  cv_url: CVFile,
 };
 
 // List tools/teknologi yang dikuasai

@@ -6,42 +6,70 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/low-poly-room-a6bf7976f3ac401e96907aa5b8a0c1c1
 Title: Low Poly Room
 
-SHADOWS ENABLED:
-- castShadow: Model akan cast shadow ke objek lain
-- receiveShadow: Model akan receive shadow dari objek lain
+OPTIMIZATIONS:
+- Simplified materials untuk better performance
+- Conditional shadows based on device
+- Memoized component untuk prevent re-renders
 */
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useMediaQuery } from 'react-responsive'
 
-export function Room(props) {
+export const Room = React.memo(function Room(props) {
   const { nodes, materials } = useGLTF('/3D/low_poly_room.glb')
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+  
+  // Optimize materials untuk performance
+  const optimizedMaterials = useMemo(() => {
+    // Clone materials dan optimize
+    const uber = materials.UberTexture.clone()
+    const glass = materials.PC_Glass.clone()
+    const floor = materials.Floor.clone()
+    
+    // Reduce material complexity
+    uber.flatShading = true
+    glass.flatShading = true
+    floor.flatShading = true
+    
+    // Disable expensive features on mobile
+    if (isMobile) {
+      uber.roughness = 1
+      uber.metalness = 0
+      glass.roughness = 0.5
+      glass.metalness = 0
+      floor.roughness = 1
+      floor.metalness = 0
+    }
+    
+    return { uber, glass, floor }
+  }, [materials, isMobile])
   
   return (
     <group {...props} dispose={null}>
       <group position={[-126.857, 16.425, 29.041]} rotation={[-Math.PI / 2, 0, 0]} scale={16.095}>
-        {/* Enable shadows untuk setiap mesh */}
+        {/* Enable shadows hanya untuk desktop */}
         <mesh 
           geometry={nodes.Cube002_UberTexture_0.geometry} 
-          material={materials.UberTexture}
-          castShadow
-          receiveShadow
+          material={optimizedMaterials.uber}
+          castShadow={!isMobile}
+          receiveShadow={!isMobile}
         />
         <mesh 
           geometry={nodes.Cube002_PC_Glass_0.geometry} 
-          material={materials.PC_Glass}
-          castShadow
-          receiveShadow
+          material={optimizedMaterials.glass}
+          castShadow={!isMobile}
+          receiveShadow={!isMobile}
         />
         <mesh 
           geometry={nodes.Cube002_Floor_0.geometry} 
-          material={materials.Floor}
-          castShadow
-          receiveShadow
+          material={optimizedMaterials.floor}
+          castShadow={!isMobile}
+          receiveShadow={!isMobile}
         />
       </group>
     </group>
   )
-}
+})
 
 useGLTF.preload('/3D/low_poly_room.glb')

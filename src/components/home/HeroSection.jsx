@@ -12,6 +12,18 @@ const HeroSection = () => {
 
   const loading = profile?.image_url && !imageLoaded
 
+  // Fungsi untuk download CV
+  const handleDownloadCV = () => {
+    if (profile?.cv_url) {
+      const link = document.createElement('a')
+      link.href = profile.cv_url
+      link.download = 'CV Mohamad Fiky.pdf'
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  }
+
   // Dynamic typing sequence based on language
   const typingSequence =
     i18n.language === 'id'
@@ -106,12 +118,12 @@ const HeroSection = () => {
                   <Link to='/project'>
                     <Button className='w-full'>{t('hero.viewProjects')}</Button>
                   </Link>
-                  <Link
-                    to='/'
+                  <button
+                    onClick={handleDownloadCV}
                     className='w-full sm:w-auto text-center font-semibold px-6 py-3 rounded-lg border-2 border-white bg-transparent text-white hover:bg-white/10 hover:bg-gradient-to-br from-blue-400 to-cyan-400 transition'
                   >
                     {t('hero.downloadCV')}
-                  </Link>
+                  </button>
                 </div>
               </>
             )}

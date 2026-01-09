@@ -129,12 +129,12 @@ const AnimatedProjectCard = memo(({ project, t }) => {
   return (
     <div
       ref={ref}
-      className={`project-card-hover bg-slate-50 dark:bg-gray-800 rounded-xl border border-slate-200 dark:border-gray-700 overflow-hidden shadow-xl shadow-slate-200 dark:shadow-gray-900/50 transition-all duration-300 ${
+      className={`project-card-hover bg-slate-50 dark:bg-gray-800 rounded-xl border border-slate-200 dark:border-gray-700 overflow-hidden shadow-xl shadow-slate-200 dark:shadow-gray-900/50 transition-all duration-300 flex flex-col h-full ${
         inView ? 'animate__animated animate__fadeInUp' : ''
       }`}
     >
       {/* Image Container dengan Lazy Loading */}
-      <div className='h-48 bg-slate-100 dark:bg-gray-700 flex items-center justify-center p-4 relative'>
+      <div className='h-48 bg-slate-100 dark:bg-gray-700 flex items-center justify-center p-4 relative flex-shrink-0'>
         {/* Skeleton placeholder saat image loading */}
         {!imageLoaded && project.image_url && (
           <div className='absolute inset-0 bg-gray-200 dark:bg-gray-600 animate-pulse' />
@@ -185,8 +185,8 @@ const AnimatedProjectCard = memo(({ project, t }) => {
           {translatedProject.description}
         </p>
 
-        {/* Action Buttons */}
-        <div className='flex justify-center gap-3'>
+        {/* Action Buttons - Selalu di bawah dengan margin-top auto */}
+        <div className='flex justify-center gap-3 mt-auto'>
           {/* Conditional rendering: hanya tampilkan jika URL ada */}
           {project.referance_url && (
             <Button

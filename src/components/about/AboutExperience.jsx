@@ -20,51 +20,21 @@
  *    - Stars: Starfield background
  *    - useGLTF: Load GLTF/GLB 3D models
  * 
- * 3. GLTF MODEL LOADING
- *    - GLTF: GL Transmission Format (3D model format)
- *    - GLB: Binary version of GLTF (single file)
- *    - useGLTF hook untuk load model
- *    - Preload untuk faster loading
- *    - nodes: Geometries dari model
- *    - materials: Materials dari model
- * 
- * 4. 3D LIGHTING SYSTEM
- *    - ambientLight: Base lighting (no shadows)
- *    - directionalLight: Parallel rays (like sun)
- *    - pointLight: Omnidirectional (like bulb)
- *    - spotLight: Cone-shaped (like flashlight)
- *    - Environment: HDR lighting
- * 
- * 5. CAMERA & CONTROLS
- *    - PerspectiveCamera: Realistic camera projection
- *    - OrbitControls: Mouse/touch interaction
- *    - autoRotate: Automatic camera rotation
- *    - Zoom limits: minDistance, maxDistance
- * 
- * 6. PERFORMANCE OPTIMIZATION
+ * 3. PERFORMANCE OPTIMIZATION
+ *    - Suspense: Lazy loading untuk 3D models
  *    - useMemo: Cache expensive calculations
  *    - useFrame: Per-frame updates (60fps)
  *    - Float32Array: Efficient typed arrays
  *    - Points geometry: Efficient particles
  *    - Conditional rendering: Only render when needed
+ *    - dpr (device pixel ratio): Limit untuk mobile
+ *    - frameloop: Demand mode untuk better performance
  * 
- * 7. RESPONSIVE DESIGN
- *    - react-responsive: Media query hooks
- *    - Conditional features based on device
- *    - Mobile optimization (disable zoom, autoRotate)
- * 
- * 8. THEME INTEGRATION
- *    - useTheme: Context hook untuk dark/light mode
- *    - Conditional lighting based on theme
- *    - Dynamic colors and intensities
- * 
- * TIPS:
- * - GLTF models bisa di-render di Canvas (bukan HTML!)
- * - Place model di public/3D/ folder
- * - Adjust camera position untuk best view
- * - Use Environment untuk realistic lighting
- * - ContactShadows untuk ground effect
- * - Points geometry untuk particles (fireflies, stars)
+ * 4. LAZY LOADING
+ *    - Suspense boundary untuk async loading
+ *    - Fallback component saat loading
+ *    - Preload GLTF models
+ *    - Progressive enhancement
  * 
  * PACKAGE REQUIREMENTS:
  * - npm install @react-three/fiber @react-three/drei three react-responsive
@@ -79,6 +49,8 @@
  * - useFrame called every frame
  * - Optimize particle count for mobile
  * - Use LOD (Level of Detail) for complex models
+ * - Limit shadows on mobile
+ * - Use lower dpr on mobile
  */
 
 import { Canvas, useFrame } from '@react-three/fiber'
@@ -86,8 +58,25 @@ import { OrbitControls, Environment, ContactShadows, Stars } from '@react-three/
 import { useMediaQuery } from 'react-responsive'
 import { useTheme } from '../context/ThemeContext'
 import { Room } from './Room'
-import { useRef, useMemo } from 'react'
+import { useRef, useMemo, Suspense, useState, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
 import * as THREE from 'three'
+
+/**
+ * ============================================================================
+ * Loader Component - Loading Fallback
+ * ============================================================================
+ * Simple loading indicator saat 3D model sedang di-load
+ * Menampilkan placeholder yang ringan
+ */
+const Loader = () => {
+    return (
+        <mesh>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color="#888888" wireframe />
+        </mesh>
+    )
+}
 
 /**
  * ============================================================================
@@ -122,6 +111,7 @@ const AutoRotateBounce = ({ orbitControlsRef }) => {
     // useRef untuk menyimpan direction tanpa trigger re-render
     // 1 = rotate ke kanan, -1 = rotate ke kiri
     const direction = useRef(1)
+    const frameCount = useRef(0)
     
     // Batas rotasi dalam radians
     const minAzimuth = -Math.PI / 3 // -60 derajat (kiri)
@@ -130,10 +120,14 @@ const AutoRotateBounce = ({ orbitControlsRef }) => {
     // useFrame: Hook yang dipanggil setiap frame (60fps)
     // Digunakan untuk animasi smooth
     useFrame(() => {
+        // Optimize: Update setiap 2 frames untuk reduce CPU usage
+        frameCount.current++
+        if (frameCount.current % 2 !== 0) return
+        
         // Check apakah OrbitControls sudah ter-mount
         if (orbitControlsRef.current) {
             const controls = orbitControlsRef.current
-            const speed = 0.003 // Kecepatan rotasi (radians per frame)
+            const speed = 0.02 // Kecepatan rotasi (radians per frame) - reduced
             
             // Update azimuth angle (rotasi horizontal)
             // getAzimuthalAngle: Get current angle
@@ -254,6 +248,9 @@ const Fireflies = ({ count = 50, area = 'yard' }) => {
             const positions = pointsRef.current.geometry.attributes.position.array
             const time = state.clock.elapsedTime // Time in seconds
             
+            // Optimize: Update setiap 2 frames untuk reduce CPU usage
+            if (Math.floor(time * 60) % 2 !== 0) return
+            
             // Loop untuk update position setiap particle
             for (let i = 0; i < count; i++) {
                 const i3 = i * 3 // Index untuk x, y, z
@@ -263,9 +260,9 @@ const Fireflies = ({ count = 50, area = 'yard' }) => {
                     // Math.sin/cos: Smooth wave motion
                     // time * speed: Control animation speed
                     // + i: Offset untuk setiap particle (tidak sync)
-                    positions[i3 + 1] += Math.sin(time * 0.4 + i) * 0.0008 // y: vertical float
-                    positions[i3] += Math.cos(time * 0.25 + i) * 0.0006 // x: horizontal drift
-                    positions[i3 + 2] += Math.sin(time * 0.2 + i) * 0.0006 // z: depth movement
+                    positions[i3 + 1] += Math.sin(time * 0.4 + i) * 0.0005 // y: vertical float (reduced)
+                    positions[i3] += Math.cos(time * 0.25 + i) * 0.0004 // x: horizontal drift (reduced)
+                    positions[i3 + 2] += Math.sin(time * 0.2 + i) * 0.0004 // z: depth movement (reduced)
                     
                     // Keep dalam bounds (halaman rumput)
                     // Reset position jika keluar bounds
@@ -273,9 +270,9 @@ const Fireflies = ({ count = 50, area = 'yard' }) => {
                     if (positions[i3 + 1] < 0.2) positions[i3 + 1] = 1.8
                 } else {
                     // Gerakan lebih cepat untuk kunang-kunang di udara
-                    positions[i3 + 1] += Math.sin(time * 0.8 + i) * 0.0015 // y: faster vertical
-                    positions[i3] += Math.cos(time * 0.6 + i) * 0.0012 // x: faster horizontal
-                    positions[i3 + 2] += Math.sin(time * 0.5 + i) * 0.0012 // z: faster depth
+                    positions[i3 + 1] += Math.sin(time * 0.8 + i) * 0.001 // y: faster vertical (reduced)
+                    positions[i3] += Math.cos(time * 0.6 + i) * 0.0008 // x: faster horizontal (reduced)
+                    positions[i3 + 2] += Math.sin(time * 0.5 + i) * 0.0008 // z: faster depth (reduced)
                     
                     // Keep dalam bounds (udara)
                     if (positions[i3 + 1] > 4) positions[i3 + 1] = 1
@@ -287,9 +284,9 @@ const Fireflies = ({ count = 50, area = 'yard' }) => {
             // Tanpa ini, perubahan tidak akan ter-render
             pointsRef.current.geometry.attributes.position.needsUpdate = true
             
-            // Animasi berkedip (opacity pulse)
+            // Animasi berkedip (opacity pulse) - slower update
             // Math.sin untuk smooth oscillation
-            if (pointsRef.current.material) {
+            if (pointsRef.current.material && Math.floor(time * 30) % 5 === 0) {
                 pointsRef.current.material.opacity = 0.7 + Math.sin(time * 2) * 0.3
             }
         }
@@ -429,29 +426,17 @@ const Ground = ({ isDark }) => {
  * ============================================================================
  * Contains the Room model dengan conditional lighting based on theme
  * 
- * DARK MODE LIGHTING (Nighttime):
- * - Purple/blue ambient untuk nighttime atmosphere
- * - Purple directional light sebagai main light
- * - Multiple indoor lights (ceiling, desk, monitor, floor lamps)
- * - Starry sky background
- * - Fireflies (kunang-kunang) di halaman rumah
- * - Glowing grass ground
- * - Dramatic shadows
- * 
- * LIGHT MODE LIGHTING (Daytime):
- * - Bright ambient light untuk daylight
- * - Strong directional light (sun simulation)
- * - Multiple indoor lights (natural + artificial)
- * - Sunlight through windows
- * - Clear bright sky
- * - Natural grass ground
- * - Soft shadows
- * - NO fireflies (daytime)
+ * OPTIMIZATION:
+ * - Conditional particle count based on device
+ * - Reduced lighting on mobile
+ * - Lazy loading dengan Suspense
  * 
  * @param {Object} props - Component props
  * @param {boolean} props.isDark - Dark mode flag
+ * @param {boolean} props.isMobile - Mobile device flag
+ * @param {Object} props.fireflyCount - Firefly count { yard, scene }
  */
-const Scene = ({ isDark }) => {
+const Scene = ({ isDark, isMobile, fireflyCount }) => {
     return (
         <>
             {/* ========================================
@@ -461,13 +446,13 @@ const Scene = ({ isDark }) => {
             {/* Starry Sky Background - Hanya muncul di dark mode */}
             {isDark && (
                 <Stars 
-                    radius={100} // Radius dari sphere bintang
-                    depth={50} // Kedalaman field bintang
-                    count={5000} // Jumlah bintang
-                    factor={4} // Ukuran bintang
-                    saturation={0} // 0 = putih, 1 = colorful
-                    fade // Fade effect berdasarkan jarak
-                    speed={1} // Kecepatan animasi twinkle
+                    radius={100}
+                    depth={50}
+                    count={isMobile ? 2000 : 5000} // Reduced stars on mobile
+                    factor={4}
+                    saturation={0}
+                    fade
+                    speed={1}
                 />
             )}
             
@@ -481,10 +466,10 @@ const Scene = ({ isDark }) => {
             {/* Fireflies - Kunang-kunang di halaman rumah (HANYA DARK MODE) */}
             {isDark && (
                 <>
-                    {/* Kunang-kunang di halaman rumah (banyak, rendah) */}
-                    <Fireflies count={120} area="yard" />
-                    {/* Kunang-kunang terbang lebih tinggi */}
-                    <Fireflies count={50} area="scene" />
+                    {/* Kunang-kunang di halaman rumah (responsive count) */}
+                    <Fireflies count={fireflyCount.yard} area="yard" />
+                    {/* Kunang-kunang terbang lebih tinggi (responsive count) */}
+                    <Fireflies count={fireflyCount.scene} area="scene" />
                 </>
             )}
             
@@ -495,138 +480,149 @@ const Scene = ({ isDark }) => {
             {/* Conditional Lighting Based on Theme */}
             {isDark ? (
                 // ========================================
-                // DARK MODE - Nighttime with indoor lights
+                // DARK MODE - MALAM HARI (Nighttime)
+                // Kamar terang dengan lampu, luar gelap dengan kunang-kunang
                 // ========================================
                 <>
-                    {/* Purple/Blue Ambient - Base nighttime lighting (dikurangi) */}
-                    <ambientLight color="#0a0a1e" intensity={0.15} />
+                    {/* Ambient Light - Sangat gelap untuk suasana malam */}
+                    <ambientLight color="#0a0a1a" intensity={0.03} />
                     
-                    {/* Purple Directional Light - Main light source (dikurangi) */}
+                    {/* Moonlight - Cahaya bulan dari atas (subtle) */}
                     <directionalLight 
-                        position={[5, 8, 5]} 
-                        color="#4a4a6e"
-                        intensity={0.4}
-                        castShadow
-                        shadow-mapSize-width={2048}
-                        shadow-mapSize-height={2048}
-                        shadow-camera-far={50}
-                        shadow-camera-left={-10}
-                        shadow-camera-right={10}
-                        shadow-camera-top={10}
-                        shadow-camera-bottom={-10}
+                        position={[3, 10, 2]} 
+                        color="#4466aa" // Cool blue moonlight
+                        intensity={0.15}
+                        castShadow={!isMobile}
+                        shadow-mapSize-width={1024}
+                        shadow-mapSize-height={1024}
                     />
                     
-                    {/* === INDOOR LIGHTING - Lampu dalam rumah (INTENSIFIED) === */}
+                    {/* ============================================
+                        INDOOR LIGHTING - Lampu Kamar Malam
+                        Pencahayaan hangat dari dalam kamar
+                    ============================================ */}
                     
-                    {/* Main Ceiling Light - Lampu plafon utama (BRIGHT) */}
+                    {/* Main Ceiling Light - Lampu plafon utama */}
                     <pointLight 
-                        position={[0, 0.8, 0]} 
-                        color="#ffcc66" // Warm orange-yellow
-                        intensity={8}
+                        position={[0, 1, 0]} 
+                        color="#ffeeaa" // Warm yellow
+                        intensity={isMobile ? 10 : 12}
                         distance={5}
                         decay={1.5}
                     />
                     
-                    {/* Monitor/Screen Glow - Cahaya monitor (CYAN BRIGHT) */}
+                    {/* Monitor Glow - Cahaya monitor cyan */}
                     <pointLight 
-                        position={[-0.3, 0.3, 0.5]} 
-                        color="#00ffff" // Bright cyan
-                        intensity={6}
+                        position={[-0.3, 0.4, 0.6]} 
+                        color="#00ddff" // Bright cyan
+                        intensity={isMobile ? 6 : 8}
                         distance={3}
-                        decay={1.8}
+                        decay={2}
                     />
                     
-                    {/* Desk Lamp - Lampu meja (WARM BRIGHT) */}
+                    {/* Desk Lamp - Lampu meja */}
                     <pointLight 
-                        position={[-0.6, 0.4, 0.3]} 
-                        color="#ffaa44" // Warm orange
-                        intensity={5}
-                        distance={2.5}
+                        position={[-0.6, 0.5, 0.4]} 
+                        color="#ffbb44" // Warm orange
+                        intensity={isMobile ? 5 : 7}
+                        distance={3}
                         decay={2}
                     />
                     
                     {/* Bedside Lamp - Lampu samping tempat tidur */}
                     <pointLight 
-                        position={[0.7, 0.3, -0.6]} 
-                        color="#ffbb55" // Soft warm
-                        intensity={4}
+                        position={[0.7, 0.4, -0.6]} 
+                        color="#ffcc66" // Soft warm
+                        intensity={isMobile ? 4 : 6}
                         distance={2.5}
                         decay={2}
                     />
                     
-                    {/* Floor Lamp - Lampu lantai sudut */}
+                    {/* Floor Lamp - Lampu lantai */}
                     <pointLight 
-                        position={[-0.9, 0.5, -0.7]} 
+                        position={[-0.9, 0.6, -0.7]} 
                         color="#ffd699" // Very warm
-                        intensity={5}
-                        distance={3}
+                        intensity={isMobile ? 5 : 7}
+                        distance={3.5}
                         decay={1.8}
                     />
                     
-                    {/* Ceiling Spot 1 - Lampu spot plafon */}
-                    <spotLight 
-                        position={[0.5, 1, 0.5]} 
-                        target-position={[0, 0, 0]}
-                        color="#ffdd88" // Warm white
-                        angle={0.6} 
-                        penumbra={0.5} 
-                        intensity={6}
-                        distance={4}
-                    />
+                    {!isMobile && (
+                        <>
+                            {/* Ceiling Spot 1 - Lampu spot plafon */}
+                            <spotLight 
+                                position={[0.6, 1.5, 0.6]} 
+                                target-position={[0, 0, 0]}
+                                color="#ffffee" // Warm white
+                                angle={0.7} 
+                                penumbra={0.4} 
+                                intensity={10}
+                                distance={5}
+                            />
+                            
+                            {/* Ceiling Spot 2 - Lampu spot plafon 2 */}
+                            <spotLight 
+                                position={[-0.6, 1.5, -0.6]} 
+                                target-position={[0, 0, 0]}
+                                color="#ffffee" // Warm white
+                                angle={0.7} 
+                                penumbra={0.4} 
+                                intensity={10}
+                                distance={5}
+                            />
+                            
+                            {/* RGB LED Strip - LED strip gaming */}
+                            <pointLight 
+                                position={[-0.4, 0.3, 0.8]} 
+                                color="#ff00ff" // Magenta
+                                intensity={4}
+                                distance={2}
+                                decay={2}
+                            />
+                            
+                            {/* Wall Lights - Lampu dinding */}
+                            <pointLight 
+                                position={[0.8, 0.5, 0]} 
+                                color="#ffeecc"
+                                intensity={5}
+                                distance={2.5}
+                                decay={2}
+                            />
+                            
+                            <pointLight 
+                                position={[-0.8, 0.5, 0]} 
+                                color="#ffeecc"
+                                intensity={5}
+                                distance={2.5}
+                                decay={2}
+                            />
+                        </>
+                    )}
                     
-                    {/* Ceiling Spot 2 - Lampu spot plafon 2 */}
-                    <spotLight 
-                        position={[-0.5, 1, -0.5]} 
-                        target-position={[0, 0, 0]}
-                        color="#ffdd88" // Warm white
-                        angle={0.6} 
-                        penumbra={0.5} 
-                        intensity={6}
-                        distance={4}
-                    />
-                    
-                    {/* RGB LED Strip - LED strip di belakang monitor/meja */}
+                    {/* Room Fill Light - Cahaya fill dalam ruangan */}
                     <pointLight 
-                        position={[-0.4, 0.2, 0.7]} 
-                        color="#ff00ff" // Magenta/Purple
-                        intensity={3}
-                        distance={2}
-                        decay={2}
-                    />
-                    
-                    {/* Window Moonlight - Cahaya bulan dari jendela (subtle) */}
-                    <spotLight 
-                        position={[1.5, 1, 0]} 
-                        target-position={[0, 0, 0]}
-                        color="#6699ff" // Cool blue moonlight
-                        angle={0.5} 
-                        penumbra={0.8} 
-                        intensity={2}
-                    />
-                    
-                    {/* Ambient Fill Light - Cahaya pantulan dari lampu */}
-                    <pointLight 
-                        position={[0, 0.5, 0]} 
-                        color="#ffeecc" // Soft warm ambient
-                        intensity={3}
+                        position={[0, 0.6, 0]} 
+                        color="#fff8e6"
+                        intensity={isMobile ? 5 : 7}
                         distance={6}
-                        decay={2}
+                        decay={1.8}
                     />
                 </>
             ) : (
                 // ========================================
-                // LIGHT MODE - Bright Daytime with sunlight
+                // LIGHT MODE - SIANG HARI (Daytime)
+                // Cahaya matahari terang, natural lighting
                 // ========================================
                 <>
-                    {/* Bright Ambient Light - Strong daylight base */}
-                    <ambientLight color="#ffffff" intensity={1.2} />
+                    {/* Sky Ambient - Cahaya langit siang hari */}
+                    <ambientLight color="#e6f2ff" intensity={0.8} />
                     
-                    {/* Main Sun Light - Strong directional sunlight */}
+                    {/* Main Sunlight - Matahari utama */}
                     <directionalLight 
-                        position={[8, 12, 6]} 
+                        position={[10, 15, 8]} 
                         color="#fffaed" // Warm sunlight
-                        intensity={2.5}
-                        castShadow
+                        intensity={isMobile ? 1.8 : 2.2}
+                        castShadow={!isMobile}
                         shadow-mapSize-width={2048}
                         shadow-mapSize-height={2048}
                         shadow-camera-far={50}
@@ -636,97 +632,125 @@ const Scene = ({ isDark }) => {
                         shadow-camera-bottom={-10}
                     />
                     
-                    {/* Secondary Sun Light - Fill light dari sisi lain */}
+                    {/* Sky Light - Cahaya dari langit (diffuse) */}
                     <directionalLight 
-                        position={[-6, 8, -4]} 
+                        position={[0, 20, 0]} 
+                        color="#b3d9ff" // Sky blue
+                        intensity={0.6}
+                    />
+                    
+                    {/* Fill Light - Cahaya pantulan dari sisi lain */}
+                    <directionalLight 
+                        position={[-8, 10, -6]} 
                         color="#e6f2ff" // Cool sky light
-                        intensity={1.2}
+                        intensity={0.8}
                     />
                     
-                    {/* === INDOOR LIGHTING - Cahaya dalam ruangan (BRIGHT) === */}
+                    {/* ============================================
+                        SUNLIGHT THROUGH WINDOWS
+                        Cahaya matahari masuk melalui jendela
+                    ============================================ */}
                     
-                    {/* Sunlight Through Window 1 - Cahaya matahari masuk jendela */}
+                    {/* Window Sunlight 1 - Jendela utama */}
                     <spotLight 
-                        position={[2, 3, 1]} 
-                        target-position={[0, 0, 0]}
-                        color="#fff9e6" // Warm sunlight
-                        angle={0.5} 
-                        penumbra={0.4} 
-                        intensity={8}
-                        distance={6}
-                        castShadow
-                    />
-                    
-                    {/* Sunlight Through Window 2 - Cahaya dari jendela lain */}
-                    <spotLight 
-                        position={[-1.5, 3, 2]} 
-                        target-position={[0, 0, 0]}
+                        position={[2.5, 3, 1.5]} 
+                        target-position={[-0.5, 0, -0.5]}
                         color="#fff9e6" // Warm sunlight
                         angle={0.6} 
-                        penumbra={0.5} 
-                        intensity={7}
+                        penumbra={0.3} 
+                        intensity={isMobile ? 5 : 7}
+                        distance={6}
+                        castShadow={!isMobile}
+                    />
+                    
+                    {/* Window Sunlight 2 - Jendela samping */}
+                    <spotLight 
+                        position={[-1.5, 3.5, 2]} 
+                        target-position={[0.5, 0, -0.5]}
+                        color="#fff9e6" // Warm sunlight
+                        angle={0.7} 
+                        penumbra={0.4} 
+                        intensity={isMobile ? 4 : 6}
                         distance={5}
                     />
                     
-                    {/* Ceiling Light - Lampu plafon (tetap nyala di siang hari) */}
-                    <pointLight 
-                        position={[0, 0.8, 0]} 
-                        color="#ffffee" // Soft white
-                        intensity={4}
-                        distance={5}
-                        decay={2}
-                    />
+                    {!isMobile && (
+                        <>
+                            {/* Window Sunlight 3 - Cahaya tambahan */}
+                            <spotLight 
+                                position={[1, 4, -1]} 
+                                target-position={[0, 0, 0.5]}
+                                color="#fffaed"
+                                angle={0.5} 
+                                penumbra={0.5} 
+                                intensity={4}
+                                distance={5}
+                            />
+                        </>
+                    )}
                     
-                    {/* Room Ambient Fill - Cahaya pantulan dalam ruangan */}
+                    {/* ============================================
+                        INDOOR AMBIENT - Cahaya dalam ruangan siang
+                    ============================================ */}
+                    
+                    {/* Room Ambient - Cahaya pantulan dalam ruangan */}
                     <pointLight 
                         position={[0, 0.5, 0]} 
-                        color="#fff5e6" // Very soft warm
-                        intensity={3}
-                        distance={6}
+                        color="#fffef5" // Very soft warm
+                        intensity={isMobile ? 1.5 : 2}
+                        distance={5}
                         decay={2}
                     />
                     
                     {/* Desk Area Light - Cahaya di area meja */}
                     <pointLight 
                         position={[-0.5, 0.4, 0.5]} 
-                        color="#ffffff" // Pure white
-                        intensity={3}
-                        distance={3}
+                        color="#ffffff"
+                        intensity={isMobile ? 1 : 1.5}
+                        distance={2.5}
                         decay={2}
                     />
                     
-                    {/* Sky Light - Cahaya dari atas (simulasi langit) */}
+                    {/* Bounce Light from Ground - Cahaya pantulan dari rumput */}
                     <directionalLight 
-                        position={[0, 15, 0]} 
-                        color="#e6f7ff" // Sky blue tint
-                        intensity={1.5}
+                        position={[0, -3, 0]} 
+                        color="#c8e6c8" // Green tint dari rumput
+                        intensity={0.4}
                     />
                     
-                    {/* Bounce Light - Cahaya pantulan dari ground */}
-                    <directionalLight 
-                        position={[0, -5, 0]} 
-                        color="#d4f1d4" // Green tint dari rumput
-                        intensity={0.8}
-                    />
+                    {!isMobile && (
+                        <>
+                            {/* Ceiling Light (OFF/DIM) - Lampu plafon redup di siang */}
+                            <pointLight 
+                                position={[0, 0.8, 0]} 
+                                color="#ffffee"
+                                intensity={0.5} // Very dim, almost off
+                                distance={3}
+                                decay={2}
+                            />
+                        </>
+                    )}
                 </>
             )}
             
-            {/* Low Poly Room Model */}
+            {/* Low Poly Room Model - Wrapped in Suspense */}
             <Room 
                 position={[0, -1, 0]} 
                 scale={0.02}
                 rotation={[0, Math.PI / 4, 0]}
             />
             
-            {/* Contact Shadows dengan conditional color - Lebih subtle */}
-            <ContactShadows
-                position={[0, -1.49, 0]} // Sedikit di atas ground
-                opacity={isDark ? 0.5 : 0.4}
-                scale={15}
-                blur={2}
-                far={3}
-                color={isDark ? "#0a1f14" : "#000000"}
-            />
+            {/* Contact Shadows - Disabled on mobile untuk performance */}
+            {!isMobile && (
+                <ContactShadows
+                    position={[0, -1.49, 0]}
+                    opacity={isDark ? 0.5 : 0.4}
+                    scale={15}
+                    blur={2}
+                    far={3}
+                    color={isDark ? "#0a1f14" : "#000000"}
+                />
+            )}
         </>
     )
 }
@@ -741,42 +765,94 @@ const AboutExperience = () => {
     
     // Ref untuk OrbitControls
     const orbitControlsRef = useRef()
+    
+    // Intersection Observer untuk detect visibility
+    const { ref: containerRef, inView } = useInView({
+        threshold: 0.1,
+        triggerOnce: false, // Keep monitoring
+    })
+    
+    // State untuk track apakah Canvas pernah di-render
+    const [hasRendered, setHasRendered] = useState(false)
+    
+    // Set hasRendered saat pertama kali inView
+    useEffect(() => {
+        if (inView && !hasRendered) {
+            setHasRendered(true)
+        }
+    }, [inView, hasRendered])
+    
+    // Optimize particle count untuk mobile
+    const fireflyCount = useMemo(() => {
+        if (isMobile) return { yard: 30, scene: 15 } // Further reduced for mobile
+        if (isTablet) return { yard: 50, scene: 20 } // Further reduced for tablet
+        return { yard: 80, scene: 35 } // Reduced for desktop
+    }, [isMobile, isTablet])
 
     return(
         // Container dengan width full dan height yang lebih besar
-        <div className='w-full h-[600px] md:h-[700px] lg:h-[800px] rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 shadow-lg'>
-            {/* Enable shadows di Canvas level */}
-            <Canvas 
-                shadows 
-                camera={{ position: [5, 2, 5], fov: 45 }}
-                gl={{ 
-                    antialias: true,
-                    alpha: true
-                }}
-            >
-                {/* Environment Map - Conditional preset based on theme */}
-                <Environment preset={isDark ? "night" : "sunset"} />
-                
-                {/* OrbitControls untuk interaksi kamera */}
-                <OrbitControls 
-                    ref={orbitControlsRef}
-                    enableZoom={!isTablet} 
-                    enablePan={false} 
-                    maxDistance={20} 
-                    minDistance={3} 
-                    minPolarAngle={0} 
-                    maxPolarAngle={Math.PI / 2}
-                    autoRotate={false} // Disable default autoRotate
-                    enableDamping
-                    dampingFactor={0.05}
-                />
-                
-                {/* Custom Auto-Rotate Bounce (hanya di desktop) */}
-                {!isMobile && <AutoRotateBounce orbitControlsRef={orbitControlsRef} />}
-                
-                {/* 3D Scene dengan conditional lighting */}
-                <Scene isDark={isDark} />
-            </Canvas>
+        <div 
+            ref={containerRef}
+            className='w-full h-[600px] md:h-[700px] lg:h-[800px] rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 shadow-lg'
+        >
+            {/* Hanya render Canvas jika pernah inView (lazy load) */}
+            {hasRendered && (
+                <Canvas 
+                    shadows={!isMobile} // Disable shadows on mobile untuk performance
+                    camera={{ position: [5, 2, 5], fov: 45 }}
+                    dpr={isMobile ? [0.5, 1] : [1, 1.5]} // Lower pixel ratio
+                    gl={{ 
+                        antialias: false, // Disable antialiasing untuk performance
+                        alpha: false, // Disable alpha untuk performance
+                        powerPreference: 'high-performance',
+                        stencil: false, // Disable stencil buffer
+                        depth: true,
+                    }}
+                    performance={{ min: 0.5 }} // Allow frame rate to drop to 30fps if needed
+                    frameloop={inView ? 'always' : 'demand'} // Stop rendering saat tidak visible
+                >
+                    {/* Suspense boundary untuk lazy loading */}
+                    <Suspense fallback={<Loader />}>
+                        {/* Environment Map - Conditional preset based on theme */}
+                        {/* DARK MODE: Intensity sangat rendah agar tidak override indoor lights */}
+                        {/* LIGHT MODE: Intensity normal untuk realistic reflections */}
+                        <Environment 
+                            preset={isDark ? "night" : "sunset"} 
+                            background={false} // Disable background (kita pakai Stars)
+                            environmentIntensity={isDark ? 0.05 : 0.5} // Further reduced
+                        />
+                        
+                        {/* OrbitControls untuk interaksi kamera */}
+                        <OrbitControls 
+                            ref={orbitControlsRef}
+                            enableZoom={!isTablet} 
+                            enablePan={false} 
+                            maxDistance={20} 
+                            minDistance={3} 
+                            minPolarAngle={0} 
+                            maxPolarAngle={Math.PI / 2}
+                            autoRotate={false} // Disable default autoRotate
+                            enableDamping
+                            dampingFactor={0.05}
+                        />
+                        
+                        {/* Custom Auto-Rotate Bounce (hanya di desktop dan saat visible) */}
+                        {!isMobile && inView && <AutoRotateBounce orbitControlsRef={orbitControlsRef} />}
+                        
+                        {/* 3D Scene dengan conditional lighting */}
+                        <Scene isDark={isDark} isMobile={isMobile} fireflyCount={fireflyCount} />
+                    </Suspense>
+                </Canvas>
+            )}
+            
+            {/* Placeholder saat belum di-render */}
+            {!hasRendered && (
+                <div className='w-full h-full flex items-center justify-center'>
+                    <div className='text-gray-400 dark:text-gray-500'>
+                        <div className='animate-pulse'>Loading 3D Scene...</div>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
