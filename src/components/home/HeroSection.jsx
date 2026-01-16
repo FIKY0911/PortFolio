@@ -102,15 +102,16 @@ const HeroSection = () => {
               </div>
             ) : (
               <>
-                <TypeAnimation
-                  key={i18n.language}
-                  sequence={typingSequence}
-                  wrapper='div'
-                  cursor={true}
-                  repeat={Infinity}
-                  className='text-3xl sm:text-4xl font-semibold mb-15 leading-tight'
-                  style={{ whiteSpace: 'pre-line' }}
-                />
+                <div className='text-3xl sm:text-4xl font-semibold mb-8 leading-tight'>
+                  <TypeAnimation
+                    key={i18n.language}
+                    sequence={typingSequence}
+                    wrapper='span'
+                    cursor={true}
+                    repeat={Infinity}
+                    style={{ whiteSpace: 'pre-line' }}
+                  />
+                </div>
 
                 <p className='text-lg my-8'>{t('hero.description')}</p>
 
