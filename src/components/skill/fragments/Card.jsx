@@ -40,11 +40,7 @@ const Card = () => {
 
   return (
     <div className="w-full mx-auto">
-      <Marquee
-        className="w-full"
-        pauseOnHover={!hoveredId}
-        repeat={2}
-        isPaused={hoveredId !== null}>
+      <Marquee className="w-full" repeat={2} isPaused={hoveredId !== null}>
         {skills.map((skill) => (
           <Link
             key={skill.id}
@@ -53,7 +49,7 @@ const Card = () => {
             onMouseEnter={() => setHoveredId(skill.id)}
             onMouseLeave={() => setHoveredId(null)}>
             <div
-              className={`bg-slate-100 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 flex items-center p-3 sm:p-4 group cursor-pointer overflow-hidden min-w-fit ${hoveredId === skill.id ? "border-blue-500 dark:border-blue-400 shadow-md scale-[1.02]" : ""}`}>
+              className={`bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 flex items-center p-3 sm:p-4 group cursor-pointer overflow-hidden min-w-fit ${hoveredId === skill.id ? "border-blue-500 shadow-md scale-[1.02]" : ""}`}>
               <div className="shrink-0 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center mr-2 sm:mr-3 relative">
                 {skill.image_url ? (
                   <img
@@ -71,7 +67,7 @@ const Card = () => {
 
               <div className="flex flex-col justify-center min-w-0">
                 <h3
-                  className={`text-black dark:text-white font-semibold text-xs sm:text-sm md:text-base transition-colors truncate ${hoveredId === skill.id ? "text-blue-600 dark:text-blue-400" : ""}`}>
+                  className={`text-black dark:text-white font-semibold text-xs sm:text-sm md:text-base transition-colors truncate ${hoveredId === skill.id ? "text-blue-600" : ""}`}>
                   {skill.name}
                 </h3>
                 <p className="text-gray-500 dark:text-gray-400 text-xs mt-0.5 sm:mt-1">
