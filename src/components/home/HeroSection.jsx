@@ -121,7 +121,7 @@ const HeroSection = () => {
                   </Link>
                   <button
                     onClick={handleDownloadCV}
-                    className='w-full sm:w-auto text-center font-semibold px-6 py-3 rounded-lg border-2 border-white bg-transparent text-white hover:bg-white/10 hover:bg-gradient-to-br from-blue-400 to-cyan-400 transition'
+                    className='w-full sm:w-auto text-center font-semibold px-6 py-3 rounded-lg border-2 border-white bg-transparent text-white hover:cursor-pointer hover:bg-white/10 hover:bg-gradient-to-br from-blue-400 to-cyan-400 transition'
                   >
                     {t('hero.downloadCV')}
                   </button>
