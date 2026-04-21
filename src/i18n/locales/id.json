@@ -1,20 +1,39 @@
 {
+  "home": {
+    "tabTitle": "Portofolio"
+  },
+  "about": {
+    "tabTitle": "Tentang - Fiky"
+  },
+  "skill": {
+    "tabTitle": "Skills - Fiky"
+  },
+  "project": {
+    "tabTitle": "Proyek - Fiky"
+  },
+  "contact": {
+    "tabTitle": "Kontak - Fiky"
+  },
   "hero": {
-    "greeting": "Halo, Saya Fiky!☺️",
+    "greeting": "Halo, Saya Fiky! ☺️",
     "welcome": "Selamat Datang di Portofolio Saya!",
-    "role": "Student | Web Developer🧑‍💻",
-    "passion": "Antusias | CyberSecurity",
-    "description": "Saya adalah seorang pengembang web yang bersemangat dalam belajar dan menciptakan solusi digital yang inovatif dan efisien. Dengan keahlian dalam berbagai teknologi web, saya berkomitmen untuk menghadirkan pengalaman pengguna yang luar biasa melalui desain yang responsif dan fungsionalitas yang handal.",
+    "role": "Mahasiswa | Web Developer 🧑‍💻",
+    "passion": "Antusias | Cyber Security",
+    "description": "Saya adalah seorang web developer yang bersemangat dalam belajar dan menciptakan solusi digital yang inovatif serta efisien. Dengan pengalaman dalam berbagai teknologi web, saya berkomitmen menghadirkan pengalaman pengguna yang optimal melalui desain responsif dan fungsionalitas yang andal.",
     "viewProjects": "Lihat Proyek",
-    "downloadCV": "Download CV"
+    "downloadCV": "Unduh CV"
+  },
+  "home": {
+    "metaDescription": "Portofolio profesional Fiky, seorang Fullstack Developer. Jelajahi proyek web modern, keahlian teknis, dan pengalaman kerja saya. Hubungi saya untuk peluang kolaborasi."
   },
   "skills": {
-    "title": "Tools saya!",
+    "title": "Tools Saya!",
     "noSkills": "Tidak ada skill tersedia",
     "noDescription": "Tidak ada deskripsi",
+    "metaDescription": "Tools yang digunakan.",
     "tools": {
       "nextjs": {
-        "name": "Nextjs",
+        "name": "Next.js",
         "level": "Pemula"
       },
       "typescript": {
@@ -26,19 +45,19 @@
         "level": "Pemula"
       },
       "tailwind": {
-        "name": "Tailwind Css",
+        "name": "Tailwind CSS",
         "level": "Pemula"
       },
       "html": {
-        "name": "Html",
+        "name": "HTML",
         "level": "Mahir"
       },
       "css": {
-        "name": "Css",
+        "name": "CSS",
         "level": "Menengah"
       },
       "javascript": {
-        "name": "Javascript",
+        "name": "JavaScript",
         "level": "Pemula"
       },
       "react": {
@@ -48,48 +67,50 @@
     }
   },
   "projects": {
-    "title": "Projek Saya!",
-    "viewProject": "Lihat Project",
-    "noProjects": "Tidak ada projek tersedia",
+    "title": "Proyek Saya!",
+    "viewProject": "Lihat Proyek",
+    "noProjects": "Tidak ada proyek tersedia",
     "noDescription": "Tidak ada deskripsi",
+    "metaDescription": "Proyek yang pernah saya kerjakan.",
     "list": {
       "grocerystore": {
         "title": "Grocerystore",
-        "description": "Ini adalah project e-commerce UAS-RPL saya terinspirasi dari youtube dengan konsep ATM(Amati Tiru Modifikasi).",
-        "tools": ["Next js", "TypeScript", "Clerk", "Tailwind"]
+        "description": "Proyek e-commerce UAS RPL yang terinspirasi dari YouTube dengan konsep ATM (Amati, Tiru, Modifikasi).",
+        "tools": ["Next.js", "TypeScript", "Clerk", "Tailwind"]
       },
       "coffeshop": {
-        "title": "Coffeshop",
-        "description": "Ini adalah project Bahasa Pemrograman saya bersama temen saya",
-        "tools": ["Html", "Css", "Javascript"]
+        "title": "Coffeeshop",
+        "description": "Proyek mata kuliah Bahasa Pemrograman yang dikerjakan bersama tim.",
+        "tools": ["HTML", "CSS", "JavaScript"]
       }
     }
   },
   "skillDetail": {
     "title": "Teknologi yang Saya Gunakan",
-    "description": "Setiap proyek dibangun dengan alat yang tepat. Berikut detail framework dan bahasa pemrograman yang saya gunakan dalam pengembangan.",
-    "features": "Fitur Unggulan:",
+    "description": "Setiap proyek dibangun menggunakan teknologi yang tepat. Berikut detail framework dan bahasa pemrograman yang saya gunakan.",
+    "features": "Fitur Utama:",
     "visitSite": "Kunjungi Situs Resmi →",
-    "back": "Kembali ke Skill",
+    "back": "Kembali ke Skills",
+    "metaDescription": "Detail keahlian yang saya kuasai.",
     "technologies": {
       "nextjs": {
         "name": "Next.js",
         "type": "Framework",
-        "description": "Next.js adalah framework React yang memungkinkan pembuatan aplikasi web server-rendered (SSR), static-generated (SSG), dan hybrid. Cocok untuk SEO, performa tinggi, dan pengembangan cepat.",
+        "description": "Next.js adalah framework React yang mendukung SSR, SSG, dan hybrid rendering. Cocok untuk SEO, performa tinggi, dan pengembangan cepat.",
         "features": [
           "Server-Side Rendering (SSR)",
           "Static Site Generation (SSG)",
           "Routing otomatis",
-          "API Routes built-in",
-          "Image Optimization"
+          "API Routes bawaan",
+          "Optimasi gambar"
         ]
       },
       "typescript": {
         "name": "TypeScript",
         "type": "Bahasa Pemrograman",
-        "description": "TypeScript adalah superset dari JavaScript yang menambahkan fitur tiping statis. Membantu menangkap error lebih awal dan membuat kode lebih mudah dipelihara, terutama di proyek besar.",
+        "description": "TypeScript adalah pengembangan dari JavaScript dengan fitur static typing untuk meningkatkan kualitas dan maintainability kode.",
         "features": [
-          "Tiping statis (static typing)",
+          "Static typing",
           "IntelliSense & autocomplete",
           "Kompatibel dengan JavaScript",
           "Interface & type inference",
@@ -99,115 +120,116 @@
       "clerk": {
         "name": "Clerk",
         "type": "Framework",
-        "description": "Clerk adalah layanan autentikasi siap pakai untuk aplikasi modern. Menyediakan login, register, manajemen sesi, dan keamanan tanpa harus mengatur backend sendiri.",
+        "description": "Clerk menyediakan sistem autentikasi siap pakai seperti login, register, dan manajemen user tanpa perlu backend kompleks.",
         "features": [
           "Login & Register siap pakai",
           "Multi-factor authentication",
-          "Social login (Google, GitHub, dll)",
-          "Manajemen pengguna & peran",
-          "Keamanan tingkat enterprise"
+          "Social login",
+          "Manajemen user & role",
+          "Keamanan tingkat tinggi"
         ]
       },
       "tailwind": {
         "name": "Tailwind CSS",
         "type": "Framework",
-        "description": "Tailwind CSS adalah framework CSS utility-first yang memungkinkan styling langsung di markup HTML. Sangat fleksibel, cocok untuk desain custom, dan sangat cepat dikembangkan.",
+        "description": "Framework CSS utility-first untuk membangun UI dengan cepat dan fleksibel langsung dari HTML.",
         "features": [
-          "Utility-first approach",
-          "Responsif out-of-the-box",
-          "Customizable theme",
-          "JIT compiler (cepat & ringan)",
-          "Plugin ecosystem luas"
+          "Utility-first",
+          "Responsif secara default",
+          "Customizable",
+          "JIT compiler",
+          "Ekosistem plugin luas"
         ]
       },
       "html": {
         "name": "HTML",
         "type": "Bahasa Markup",
-        "description": "HTML (HyperText Markup Language) adalah fondasi dari setiap halaman web. Digunakan untuk mendefinisikan struktur konten seperti heading, paragraf, gambar, dan form.",
+        "description": "Dasar dari semua halaman web untuk membangun struktur konten.",
         "features": [
-          "Struktur dasar halaman web",
-          "Semantic elements (<header>, <article>, dll.)",
-          "Aksesibilitas (accessibility) yang baik",
-          "Kompatibel di semua browser",
-          "Ringan dan mudah dipelajari"
+          "Struktur halaman",
+          "Semantic element",
+          "Aksesibilitas baik",
+          "Kompatibel semua browser",
+          "Ringan"
         ]
       },
       "css": {
         "name": "CSS",
         "type": "Bahasa Styling",
-        "description": "CSS (Cascading Style Sheets) digunakan untuk mengatur tampilan dan tata letak halaman web. Memisahkan konten (HTML) dari desain, memungkinkan konsistensi visual dan responsivitas.",
+        "description": "Digunakan untuk mengatur tampilan dan layout halaman web.",
         "features": [
-          "Styling visual (warna, font, layout)",
-          "Responsive design dengan media queries",
-          "Animasi & transisi",
-          "Flexbox & Grid untuk layout modern",
-          "Dukungan penuh di semua perangkat"
+          "Styling visual",
+          "Responsive design",
+          "Animasi",
+          "Flexbox & Grid",
+          "Cross-device support"
         ]
       },
       "javascript": {
         "name": "JavaScript",
         "type": "Bahasa Pemrograman",
-        "description": "JavaScript adalah bahasa pemrograman inti web yang membuat halaman web interaktif dan dinamis. Bisa dijalankan di browser (frontend) maupun server (Node.js), menjadikannya serbaguna dan wajib dikuasai.",
+        "description": "Bahasa utama untuk membuat web interaktif, baik di frontend maupun backend.",
         "features": [
-          "Interaktivitas di sisi klien (frontend)",
-          "Manipulasi DOM secara real-time",
-          "Asynchronous programming (Promise, async/await)",
-          "Kompatibel dengan semua browser modern",
-          "Ekosistem luas (React, Node.js, dll.)"
+          "Interaktivitas",
+          "DOM manipulation",
+          "Async programming",
+          "Cross-browser",
+          "Ekosistem luas"
         ]
       },
       "react": {
         "name": "React",
         "type": "Library JavaScript",
-        "description": "React adalah library JavaScript untuk membangun user interface yang interaktif dan dinamis. Dikembangkan oleh Facebook, React menggunakan konsep component-based dan virtual DOM untuk performa optimal. Sangat populer dan memiliki ekosistem yang luas untuk pengembangan aplikasi web modern.",
+        "description": "Library untuk membangun UI modern dengan pendekatan component-based dan Virtual DOM.",
         "features": [
-          "Component-based architecture",
-          "Virtual DOM untuk performa tinggi",
-          "JSX syntax untuk menulis UI",
-          "Hooks untuk state management",
-          "Ekosistem luas (React Router, Redux, dll.)"
+          "Component-based",
+          "Virtual DOM",
+          "JSX",
+          "Hooks",
+          "Ekosistem luas"
         ]
       }
     }
   },
   "about": {
     "title": "Tentang Saya",
-    "subtitle": "Pengembang web yang percaya pada kesederhanaan, keamanan, dan pengalaman pengguna yang menyenangkan.",
+    "subtitle": "Web developer yang percaya pada kesederhanaan, keamanan, dan pengalaman pengguna yang menyenangkan.",
     "intro": "Halo, saya",
-    "description1": "— seorang developer yang fokus membangun aplikasi web modern dengan React, JavaScript, dll.",
-    "description2": "Saya menyukai hal-hal yang",
+    "description1": "— developer yang fokus membangun aplikasi web modern dengan React dan JavaScript.",
+    "description2": "Saya menyukai hal yang",
     "highlight": "ringan, cepat, dan aman",
-    "description3": ". Setiap baris kode yang saya tulis bertujuan untuk menyelesaikan masalah nyata tanpa menambah kerumitan.",
-    "viewProjects": "Lihat Projek Saya →"
+    "description3": ". Setiap kode yang saya tulis bertujuan menyelesaikan masalah tanpa menambah kompleksitas.",
+    "viewProjects": "Lihat Proyek Saya →",
+    "metaDescription": "Pelajari lebih lanjut tentang Fiky sebagai Fullstack Developer."
   },
   "contact": {
     "title": "Hubungi Saya",
-    "subtitle": "Kirim pesan, saya akan balas secepatnya!",
+    "subtitle": "Kirim pesan, saya akan merespons secepat mungkin!",
     "fullName": "Nama Lengkap",
-    "fullNamePlaceholder": "Masukkan nama lengkap Anda",
+    "fullNamePlaceholder": "Masukkan nama Anda",
     "email": "Email",
     "emailPlaceholder": "nama@email.com",
     "message": "Pesan",
-    "messagePlaceholder": "Tulis pesan Anda di sini...",
+    "messagePlaceholder": "Tulis pesan Anda...",
     "send": "Kirim Pesan",
-    "successMessage": "Email berhasil terkirim",
-    "errorMessage": "Email error/tidak terkirim"
+    "successMessage": "Pesan berhasil dikirim",
+    "errorMessage": "Gagal mengirim pesan"
   },
   "footer": {
-    "description": "Membangun pengalaman web yang ringan, aman, dan menyenangkan — satu baris kode pada satu waktu.",
+    "description": "Membangun pengalaman web yang ringan, aman, dan menyenangkan — satu baris kode setiap waktu.",
     "navigation": "Navigasi",
     "contactTitle": "Kontak",
     "collaborate": "Ingin Berkolaborasi?",
-    "collaborateDesc": "Saya terbuka untuk proyek menarik, diskusi teknologi, atau sekadar ngobrol soal otomatisasi keamanan.",
+    "collaborateDesc": "Terbuka untuk proyek menarik, diskusi teknologi, atau sekadar ngobrol tentang security.",
     "contactMe": "Hubungi Saya",
-    "copyright": "All rights reserved. Crafted with",
-    "and": "and Tailwind CSS."
+    "copyright": "Hak cipta dilindungi. Dibuat dengan",
+    "and": "dan Tailwind CSS."
   },
   "nav": {
     "home": "Beranda",
     "about": "Tentang",
-    "skill": "Keahlian",
-    "project": "Projek",
+    "skill": "Skill",
+    "project": "Proyek",
     "contact": "Kontak"
   },
   "common": {

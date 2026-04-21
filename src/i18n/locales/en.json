@@ -1,4 +1,19 @@
 {
+  "home": {
+    "tabTitle": "Portfolio"
+  },
+  "about": {
+    "tabTitle": "About - Fiky"
+  },
+  "skill": {
+    "tabTitle": "Skills - Fiky"
+  },
+  "project": {
+    "tabTitle": "Projects - Fiky"
+  },
+  "contact": {
+    "tabTitle": "Contact - Fiky"
+  },
   "hero": {
     "greeting": "Hi, I am Fiky!☺️",
     "welcome": "Welcome to My Portfolio!",
@@ -8,10 +23,14 @@
     "viewProjects": "View Projects",
     "downloadCV": "Download CV"
   },
+  "home": {
+    "metaDescription": "Professional portfolio of Fiky, a Fullstack Developer. Explore my modern web projects, technical skills, and work experience. Contact me for collaboration opportunities."
+  },
   "skills": {
     "title": "My Tools!",
     "noSkills": "No skills available",
     "noDescription": "No description",
+    "metaDescription": "Tools used.",
     "tools": {
       "nextjs": {
         "name": "Nextjs",
@@ -52,6 +71,7 @@
     "viewProject": "View Project",
     "noProjects": "No projects available",
     "noDescription": "No description available",
+    "metaDescription": "Projects I've worked on.",
     "list": {
       "grocerystore": {
         "title": "Grocerystore",
@@ -71,6 +91,7 @@
     "features": "Key Features:",
     "visitSite": "Visit Official Site →",
     "back": "Back to Skills",
+    "metaDescription": "Details of the skills I have mastered.",
     "technologies": {
       "nextjs": {
         "name": "Next.js",
@@ -178,7 +199,8 @@
     "description2": "I love things that are",
     "highlight": "lightweight, fast, and secure",
     "description3": ". Every line of code I write aims to solve real problems without adding complexity.",
-    "viewProjects": "View My Projects →"
+    "viewProjects": "View My Projects →",
+    "metaDescription": "Learn more about Fiky, a full-stack developer specializing in modern web application development using React and Next.js."
   },
   "contact": {
     "title": "Contact Me",
@@ -191,7 +213,8 @@
     "messagePlaceholder": "Write your message here...",
     "send": "Send Message",
     "successMessage": "Email sent successfully",
-    "errorMessage": "Email error/not sent"
+    "errorMessage": "Email error/not sent",
+    "metaDescription": "The contact information is an email address."
   },
   "footer": {
     "description": "Building lightweight, secure, and delightful web experiences — one line of code at a time.",

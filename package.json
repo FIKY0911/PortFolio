@@ -25,6 +25,7 @@
     "motion": "^12.26.2",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
+    "react-helmet": "^6.1.0",
     "react-i18next": "^16.5.0",
     "react-intersection-observer": "^10.0.0",
     "react-redux": "^9.2.0",

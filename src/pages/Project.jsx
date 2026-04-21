@@ -93,177 +93,183 @@ import { listProject } from '../data/data'
  * AnimatedProjectCard Component
  * ==============================
  * Memoized card component untuk setiap project.
- * 
+ *
  * OPTIMIZATION TECHNIQUES:
  * 1. React.memo untuk prevent re-render
  * 2. Lazy loading images
  * 3. Intersection Observer untuk animasi
  * 4. Conditional rendering untuk performance
- * 
+ *
  * Props:
  * - project: Object {id, title, image_url, referance_url, github_url, descripstion, tools}
  * - t: Translation function dari i18n
  */
 const AnimatedProjectCard = memo(({ project, t }) => {
   // Local state untuk track image loading status
-  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   // Intersection Observer untuk detect visibility
   const { ref, inView } = useInView({
     triggerOnce: true, // Animasi hanya sekali (performance)
-    threshold: 0.1,    // Trigger saat 10% card visible
-  })
-  
+    threshold: 0.1, // Trigger saat 10% card visible
+  });
+
   // Get translated project data based on project title
   const getTranslatedProject = (projectTitle) => {
-    const projectKey = projectTitle.toLowerCase().replace(/\s+/g, '')
+    const projectKey = projectTitle.toLowerCase().replace(/\s+/g, "");
     return {
       title: t(`projects.list.${projectKey}.title`, projectTitle),
-      description: t(`projects.list.${projectKey}.description`, project.descripstion),
-      tools: t(`projects.list.${projectKey}.tools`, { returnObjects: true, defaultValue: project.tools })
-    }
-  }
-  
-  const translatedProject = getTranslatedProject(project.title)
+      description: t(
+        `projects.list.${projectKey}.description`,
+        project.descripstion,
+      ),
+      tools: t(`projects.list.${projectKey}.tools`, {
+        returnObjects: true,
+        defaultValue: project.tools,
+      }),
+    };
+  };
+
+  const translatedProject = getTranslatedProject(project.title);
 
   return (
     <div
       ref={ref}
       className={`project-card-hover bg-slate-50 dark:bg-gray-800 rounded-xl border border-slate-200 dark:border-gray-700 overflow-hidden shadow-xl shadow-slate-200 dark:shadow-gray-900/50 transition-all duration-300 flex flex-col h-full ${
-        inView ? 'animate__animated animate__fadeInUp' : ''
-      }`}
-    >
+        inView ? "animate__animated animate__fadeInUp" : ""
+      }`}>
       {/* Image Container dengan Lazy Loading */}
-      <div className='h-48 bg-slate-100 dark:bg-gray-700 flex items-center justify-center p-4 relative flex-shrink-0'>
+      <div className="h-48 bg-slate-100 dark:bg-gray-700 flex items-center justify-center p-4 relative flex-shrink-0">
         {/* Skeleton placeholder saat image loading */}
         {!imageLoaded && project.image_url && (
-          <div className='absolute inset-0 bg-gray-200 dark:bg-gray-600 animate-pulse' />
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-600 animate-pulse" />
         )}
 
         {project.image_url ? (
           <img
             src={project.image_url}
             alt={translatedProject.title}
-            loading='lazy' // Native lazy loading (browser feature)
-            onLoad={() => setImageLoaded(true)}  // Set state saat image loaded
+            loading="lazy" // Native lazy loading (browser feature)
+            onLoad={() => setImageLoaded(true)} // Set state saat image loaded
             onError={() => setImageLoaded(true)} // Handle error gracefully
             className={`w-full h-full object-contain max-w-[90%] max-h-[90%] transition-opacity duration-300 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
+              imageLoaded ? "opacity-100" : "opacity-0"
             }`}
           />
         ) : (
           // Fallback jika tidak ada image
-          <div className='w-full h-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center'>
-            <span className='text-gray-400'>{t('common.noImage')}</span>
+          <div className="w-full h-full bg-gray-200 dark:bg-gray-600 flex items-center justify-center">
+            <span className="text-gray-400">{t("common.noImage")}</span>
           </div>
         )}
       </div>
 
       {/* Content Container */}
-      <div className='p-6 flex flex-col flex-grow'>
-        <h3 className='text-lg sm:text-xl font-semibold text-gray-800 dark:text-white mb-3'>
+      <div className="p-6 flex flex-col flex-grow">
+        <h3 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white mb-3">
           {translatedProject.title}
         </h3>
 
         {/* Tools/Tech Stack Tags */}
         {/* Optional chaining (?.) untuk safe access */}
-        {Array.isArray(translatedProject.tools) && translatedProject.tools.length > 0 && (
-          <div className='flex flex-wrap gap-2 mb-5'>
-            {translatedProject.tools.map((tool, id) => (
-              <span
-                key={id}
-                className='px-2 py-1 text-xs font-medium bg-slate-100 dark:bg-gray-700 text-slate-600 dark:text-gray-300 rounded-full'
-              >
-                {tool}
-              </span>
-            ))}
-          </div>
-        )}
+        {Array.isArray(translatedProject.tools) &&
+          translatedProject.tools.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-5">
+              {translatedProject.tools.map((tool, id) => (
+                <span
+                  key={id}
+                  className="px-2 py-1 text-xs font-medium bg-slate-100 dark:bg-gray-700 text-slate-600 dark:text-gray-300 rounded-full">
+                  {tool}
+                </span>
+              ))}
+            </div>
+          )}
 
         {/* Description dengan fallback */}
-        <p className='text-slate-600 dark:text-gray-400 text-sm mb-6 flex-grow leading-relaxed'>
+        <p className="text-slate-600 dark:text-gray-400 text-sm mb-6 flex-grow leading-relaxed">
           {translatedProject.description}
         </p>
 
         {/* Action Buttons - Selalu di bawah dengan margin-top auto */}
-        <div className='flex justify-center gap-3 mt-auto'>
+        <div className="flex justify-center gap-3 mt-auto">
           {/* Conditional rendering: hanya tampilkan jika URL ada */}
           {project.referance_url && (
             <Button
               onClick={() =>
                 // Security: noopener,noreferrer untuk prevent window.opener access
-                window.open(project.referance_url, '_blank', 'noopener,noreferrer')
-              }
-            >
-              {t('projects.viewProject')}
+                window.open(
+                  project.referance_url,
+                  "_blank",
+                  "noopener,noreferrer",
+                )
+              }>
+              {t("projects.viewProject")}
             </Button>
           )}
           {project.github_url && (
             <button
               onClick={() =>
-                window.open(project.github_url, '_blank', 'noopener,noreferrer')
+                window.open(project.github_url, "_blank", "noopener,noreferrer")
               }
-              className='px-4 py-3 text-sm font-semibold border-2 border-gray-300 dark:border-gray-500 rounded-xl bg-transparent text-gray-700 dark:text-gray-200 hover:border-transparent hover:bg-gradient-to-br hover:from-blue-400 hover:to-cyan-400 hover:text-white transition-all duration-300 flex items-center gap-2 cursor-pointer'
-            >
-              <i className='ri-github-fill text-xl' />
+              className="px-4 py-3 text-sm font-semibold border-2 border-gray-300 dark:border-gray-500 rounded-xl bg-transparent text-gray-700 dark:text-gray-200 hover:border-transparent hover:bg-gradient-to-br hover:from-blue-400 hover:to-cyan-400 hover:text-white transition-all duration-300 flex items-center gap-2 cursor-pointer">
+              <i className="ri-github-fill text-xl" />
               GitHub
             </button>
           )}
         </div>
       </div>
     </div>
-  )
-})
+  );
+});
 
 // DisplayName untuk React DevTools debugging
-AnimatedProjectCard.displayName = 'AnimatedProjectCard'
+AnimatedProjectCard.displayName = "AnimatedProjectCard";
 
 /**
  * LoadingSkeleton Component
  * =========================
  * Skeleton loading state untuk better UX.
- * 
+ *
  * SKELETON PATTERN BENEFITS:
  * - Show layout structure saat loading
  * - Reduce perceived loading time
  * - Better UX daripada spinner
  * - User tahu apa yang akan muncul
- * 
+ *
  * IMPLEMENTATION:
  * - Replicate actual layout structure
  * - Use animate-pulse untuk shimmer effect
  * - Match dimensions dengan actual content
  */
 const LoadingSkeleton = () => (
-  <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     {/* Array(6) untuk create 6 skeleton cards */}
     {[...Array(6)].map((_, index) => (
       <div
         key={index}
-        className='bg-slate-50 dark:bg-gray-800 rounded-xl border border-slate-200 dark:border-gray-700 overflow-hidden shadow-xl shadow-slate-200 dark:shadow-gray-900/50 animate-pulse'
-      >
+        className="bg-slate-50 dark:bg-gray-800 rounded-xl border border-slate-200 dark:border-gray-700 overflow-hidden shadow-xl shadow-slate-200 dark:shadow-gray-900/50 animate-pulse">
         {/* Skeleton image */}
-        <div className='h-48 bg-gray-200 dark:bg-gray-700' />
-        <div className='p-6'>
+        <div className="h-48 bg-gray-200 dark:bg-gray-700" />
+        <div className="p-6">
           {/* Skeleton title */}
-          <div className='h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-3' />
+          <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-3" />
           {/* Skeleton tags */}
-          <div className='flex gap-2 mb-5'>
-            <div className='h-6 bg-gray-200 dark:bg-gray-700 rounded-full w-16' />
-            <div className='h-6 bg-gray-200 dark:bg-gray-700 rounded-full w-20' />
+          <div className="flex gap-2 mb-5">
+            <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-full w-16" />
+            <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded-full w-20" />
           </div>
           {/* Skeleton description */}
-          <div className='space-y-2 mb-6'>
-            <div className='h-4 bg-gray-200 dark:bg-gray-700 rounded w-full' />
-            <div className='h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6' />
+          <div className="space-y-2 mb-6">
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-full" />
+            <div className="h-4 bg-gray-200 dark:bg-gray-700 rounded w-5/6" />
           </div>
           {/* Skeleton button */}
-          <div className='h-10 bg-gray-200 dark:bg-gray-700 rounded w-32 mx-auto' />
+          <div className="h-10 bg-gray-200 dark:bg-gray-700 rounded w-32 mx-auto" />
         </div>
       </div>
     ))}
   </div>
-)
+);
 
 /**
  * Project Component (Main)
