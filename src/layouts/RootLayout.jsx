@@ -41,7 +41,7 @@ const RootLayout = () => {
 
     const seoData = {
       '/': {
-        title: t('home.tabTitle', 'Mohamad Fiky Ba dafitro'),
+        title: t('home.tabTitle', 'Portfolio'),
         description: t('home.metaDescription', 'Professional portfolio of Fiky, a Fullstack Developer. Explore my modern web projects, technical skills, and work experience. Contact me for collaboration opportunities.'),
       },
       '/about': {
