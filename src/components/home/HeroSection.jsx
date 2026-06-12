@@ -3,10 +3,10 @@ import { TypeAnimation } from 'react-type-animation'
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Button from '../Button'
-import { profileData } from '../../data/data'
+import { useDataStore } from '../../store/dataStore'
 
 const HeroSection = () => {
-  const profile = profileData
+  const profile = useDataStore((state) => state.profile)
   const [imageLoaded, setImageLoaded] = useState(false)
   const { t, i18n } = useTranslation()
 
@@ -34,7 +34,7 @@ const HeroSection = () => {
           2000,
           'Student | Web Developer🧑‍💻',
           2000,
-          'Antusias | CyberSecurity',
+          'Antusias | Artificial Intelligence',
           2000,
         ]
       : [
@@ -44,7 +44,7 @@ const HeroSection = () => {
           2000,
           'Student | Web Developer🧑‍💻',
           2000,
-          'Enthusiast | CyberSecurity',
+          'Enthusiast | Artificial Intelligence',
           2000,
         ]
 

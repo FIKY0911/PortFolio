@@ -87,7 +87,7 @@ import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
 import 'remixicon/fonts/remixicon.css'
 import Button from '../components/Button'
-import { listProject } from '../data/data'
+import { useDataStore } from '../store/dataStore'
 
 /**
  * AnimatedProjectCard Component
@@ -287,7 +287,7 @@ const LoadingSkeleton = () => (
  * - Desktop (lg): 3 columns
  */
 const Project = () => {
-  const projects = listProject
+  const projects = useDataStore((state) => state.projects)
   const { t } = useTranslation()
 
   return (

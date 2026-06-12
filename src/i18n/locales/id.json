@@ -18,13 +18,13 @@
     "greeting": "Halo, Saya Fiky! ☺️",
     "welcome": "Selamat Datang di Portofolio Saya!",
     "role": "Mahasiswa | Web Developer 🧑‍💻",
-    "passion": "Antusias | Cyber Security",
-    "description": "Saya adalah seorang web developer yang bersemangat dalam belajar dan menciptakan solusi digital yang inovatif serta efisien. Dengan pengalaman dalam berbagai teknologi web, saya berkomitmen menghadirkan pengalaman pengguna yang optimal melalui desain responsif dan fungsionalitas yang andal.",
+    "passion": "Antusias | Artificial Intelligence",
+    "description": "Saya adalah seorang web developer yang bersemangat dalam belajar dan menciptakan solusi digital yang inovatif serta efisien. Dengan pengalcerdas dalam berbagai teknologi web, saya berkomitmen menghadirkan pengalcerdas pengguna yang optimal melalui desain responsif dan fungsionalitas yang andal.",
     "viewProjects": "Lihat Proyek",
     "downloadCV": "Unduh CV"
   },
   "home": {
-    "metaDescription": "Portofolio profesional Fiky, seorang Fullstack Developer. Jelajahi proyek web modern, keahlian teknis, dan pengalaman kerja saya. Hubungi saya untuk peluang kolaborasi."
+    "metaDescription": "Portofolio profesional Fiky, seorang Fullstack Developer. Jelajahi proyek web modern, keahlian teknis, dan pengalcerdas kerja saya. Hubungi saya untuk peluang kolaborasi."
   },
   "skills": {
     "title": "Tools Saya!",
@@ -69,9 +69,16 @@
   "projects": {
     "title": "Proyek Saya!",
     "viewProject": "Lihat Proyek",
+    "viewDetail": "Lihat detail",
     "noProjects": "Tidak ada proyek tersedia",
     "noDescription": "Tidak ada deskripsi",
     "metaDescription": "Proyek yang pernah saya kerjakan.",
+    "categories": {
+      "web_app": "Web Application",
+      "web_app_desc": "Membangun Website dengan teknologi yang canggih dan cepat",
+      "ui_design": "UI/UX Design",
+      "ui_design_desc": "Menciptakan antarmuka yang intuitif dan pengalaman pengguna yang luar biasa"
+    },
     "list": {
       "grocerystore": {
         "title": "Grocerystore",
@@ -80,14 +87,14 @@
       },
       "coffeshop": {
         "title": "Coffeeshop",
-        "description": "Proyek mata kuliah Bahasa Pemrograman yang dikerjakan bersama tim.",
+        "description": "Proyek mata kuliah Bahasa Pemrogrcerdas yang dikerjakan bersama tim.",
         "tools": ["HTML", "CSS", "JavaScript"]
       }
     }
   },
   "skillDetail": {
     "title": "Teknologi yang Saya Gunakan",
-    "description": "Setiap proyek dibangun menggunakan teknologi yang tepat. Berikut detail framework dan bahasa pemrograman yang saya gunakan.",
+    "description": "Setiap proyek dibangun menggunakan teknologi yang tepat. Berikut detail framework dan bahasa pemrogrcerdas yang saya gunakan.",
     "features": "Fitur Utama:",
     "visitSite": "Kunjungi Situs Resmi →",
     "back": "Kembali ke Skills",
@@ -107,7 +114,7 @@
       },
       "typescript": {
         "name": "TypeScript",
-        "type": "Bahasa Pemrograman",
+        "type": "Bahasa Pemrogrcerdas",
         "description": "TypeScript adalah pengembangan dari JavaScript dengan fitur static typing untuk meningkatkan kualitas dan maintainability kode.",
         "features": [
           "Static typing",
@@ -126,7 +133,7 @@
           "Multi-factor authentication",
           "Social login",
           "Manajemen user & role",
-          "Keamanan tingkat tinggi"
+          "Kecerdasan tingkat tinggi"
         ]
       },
       "tailwind": {
@@ -144,9 +151,9 @@
       "html": {
         "name": "HTML",
         "type": "Bahasa Markup",
-        "description": "Dasar dari semua halaman web untuk membangun struktur konten.",
+        "description": "Dasar dari semua halcerdas web untuk membangun struktur konten.",
         "features": [
-          "Struktur halaman",
+          "Struktur halcerdas",
           "Semantic element",
           "Aksesibilitas baik",
           "Kompatibel semua browser",
@@ -156,7 +163,7 @@
       "css": {
         "name": "CSS",
         "type": "Bahasa Styling",
-        "description": "Digunakan untuk mengatur tampilan dan layout halaman web.",
+        "description": "Digunakan untuk mengatur tampilan dan layout halcerdas web.",
         "features": [
           "Styling visual",
           "Responsive design",
@@ -167,7 +174,7 @@
       },
       "javascript": {
         "name": "JavaScript",
-        "type": "Bahasa Pemrograman",
+        "type": "Bahasa Pemrogrcerdas",
         "description": "Bahasa utama untuk membuat web interaktif, baik di frontend maupun backend.",
         "features": [
           "Interaktivitas",
@@ -193,14 +200,26 @@
   },
   "about": {
     "title": "Tentang Saya",
-    "subtitle": "Web developer yang percaya pada kesederhanaan, keamanan, dan pengalaman pengguna yang menyenangkan.",
-    "intro": "Halo, saya",
-    "description1": "— developer yang fokus membangun aplikasi web modern dengan React dan JavaScript.",
-    "description2": "Saya menyukai hal yang",
-    "highlight": "ringan, cepat, dan aman",
-    "description3": ". Setiap kode yang saya tulis bertujuan menyelesaikan masalah tanpa menambah kompleksitas.",
+    "subtitle": "Pengembang solusi digital yang mengintegrasikan efisiensi arsitektur web dengan kecerdasan buatan.",
+    "intro": "Halo, Saya",
+    "description1": "— pengembang perangkat lunak yang berfokus pada pembangunan aplikasi web modern menggunakan ekosistem React dan JavaScript.",
+    "description2": "Saya memiliki komitmen dalam menghadirkan solusi digital yang",
+    "highlight": "elegan, berperforma tinggi, dan terintegrasi AI",
+    "description3": ". Prioritas utama saya adalah mentransformasi kompleksitas teknis menjadi pengalaman pengguna yang intuitif dan fungsional.",
     "viewProjects": "Lihat Proyek Saya →",
-    "metaDescription": "Pelajari lebih lanjut tentang Fiky sebagai Fullstack Developer."
+    "metaDescription": "Pelajari lebih lanjut tentang Fiky sebagai Fullstack Developer.",
+    "education_title": "Pendidikan",
+    "education_desc": "Mahasiswa Teknologi Informasi yang fokus pada arsitektur web modern.",
+    "values_title": "Nilai",
+    "values_desc": "Antusias Clean Code dengan fokus pada kecerdasan buatan dan performa.",
+    "experience_title": "Misi",
+    "experience_desc": "Memanfaatkan Kecerdasan Buatan dan teknologi web modern untuk menciptakan solusi digital yang cerdas, otomatis, dan sangat efisien.",
+    "tech_stack_title": "Minat Utama",
+    "tech_stack_desc": "Pengembangan Web & Kecerdasan Buatan"
+  },
+  "certificates": {
+    "title": "Sertifikat Saya",
+    "description": "Koleksi sertifikasi dan pencapaian profesional yang memvalidasi keahlian teknis saya."
   },
   "contact": {
     "title": "Hubungi Saya",
@@ -216,11 +235,11 @@
     "errorMessage": "Gagal mengirim pesan"
   },
   "footer": {
-    "description": "Membangun pengalaman web yang ringan, aman, dan menyenangkan — satu baris kode setiap waktu.",
+    "description": "Membangun pengalcerdas web yang ringan, cerdas, dan menyenangkan — satu baris kode setiap waktu.",
     "navigation": "Navigasi",
     "contactTitle": "Kontak",
     "collaborate": "Ingin Berkolaborasi?",
-    "collaborateDesc": "Terbuka untuk proyek menarik, diskusi teknologi, atau sekadar ngobrol tentang security.",
+    "collaborateDesc": "Terbuka untuk proyek menarik, diskusi teknologi, atau sekadar ngobrol tentang AI automation.",
     "contactMe": "Hubungi Saya",
     "copyright": "Hak cipta dilindungi. Dibuat dengan",
     "and": "dan Tailwind CSS."

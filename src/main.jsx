@@ -46,25 +46,15 @@
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { Provider } from 'react-redux'
-import { store } from './store/store'
 import './index.css'
 import 'animate.css'
 import 'remixicon/fonts/remixicon.css'
 import './i18n' // Import i18n configuration (side effect import)
 import App from './App.jsx'
-import { ThemeProvider } from './components/context/ThemeContext'
 
 // Mount React app ke DOM element dengan id="root"
-// createRoot adalah React 18 API untuk concurrent features
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* Redux Provider: Membuat Redux store accessible di semua komponen */}
-    <Provider store={store}>
-      {/* ThemeProvider membungkus App agar dark mode accessible di semua komponen */}
-      <ThemeProvider>
-        <App />
-      </ThemeProvider>
-    </Provider>
+    <App />
   </StrictMode>
 )

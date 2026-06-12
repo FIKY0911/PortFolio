@@ -3,17 +3,6 @@
  * ========
  * File data statis untuk aplikasi portfolio.
  * Berisi semua data yang ditampilkan di aplikasi (tidak menggunakan API/backend).
- * 
- * DATA YANG TERSEDIA:
- * 1. Image - Gambar hero untuk HeroSection
- * 2. profileData - Data profil (nama, foto)
- * 3. listTools - List tools/teknologi yang dikuasai
- * 4. listProject - List portfolio project
- * 
- * CATATAN:
- * - Semua gambar diimport dari folder assets
- * - Data ini digunakan langsung tanpa API call
- * - Untuk menambah/edit data, edit langsung di file ini
  */
 
 import HeroImage from "../assets/hero/heroimage.webp"
@@ -28,6 +17,8 @@ import React from "../assets/tools/react-logo.webp"
 import Project1 from "../assets/project/project1.webp"
 import Project2 from "../assets/project/project2.webp"
 import CVFile from "../assets/cv_sertif/CV Mohamad Fiky.pdf"
+import Sertif1 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - Semi Finalist_page-0001.jpg"
+import Sertif2 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - SolveIT Together.jpeg"
 
 // Gambar untuk HeroSection
 export const Image = {
@@ -42,60 +33,18 @@ export const profileData = {
 };
 
 // List tools/teknologi yang dikuasai
-// Ditampilkan di section Skill (halaman Home)
 export const listTools = [
-  {
-    id: 1,
-    name: "Nextjs",
-    image_url: Nextjs,
-    keterangan: "Beginner",
-  },
-  {
-    id: 2,
-    image_url: TypeScript,
-    name: "TypeScript",
-    keterangan: "Beginner",
-  },
-  {
-    id: 3,
-    image_url: Clerk,
-    name: "Clerk",
-    keterangan: "Beginner",
-  },
-  {
-    id: 4,
-    image_url: Tailwind,
-    name: "Tailwind Css",
-    keterangan: "Beginner",
-  },
-  {
-    id: 5,
-    image_url: Html,
-    name: "Html",
-    keterangan: "Advanced",
-  },
-  {
-    id: 6,
-    image_url: Css,
-    name: "Css",
-    keterangan: "Intermediate",
-  },
-  {
-    id: 7,
-    image_url: Javascript,
-    name: "Javascript",
-    keterangan: "Beginner",
-  },
-  {
-    id: 8,
-    image_url: React,
-    name: "React",
-    keterangan: "Beginner",
-  }
+  { id: 1, name: "Nextjs", image_url: Nextjs, keterangan: "Beginner" },
+  { id: 2, name: "TypeScript", image_url: TypeScript, keterangan: "Beginner" },
+  { id: 3, name: "Clerk", image_url: Clerk, keterangan: "Beginner" },
+  { id: 4, name: "Tailwind Css", image_url: Tailwind, keterangan: "Beginner" },
+  { id: 5, name: "Html", image_url: Html, keterangan: "Advanced" },
+  { id: 6, name: "Css", image_url: Css, keterangan: "Intermediate" },
+  { id: 7, name: "Javascript", image_url: Javascript, keterangan: "Beginner" },
+  { id: 8, name: "React", image_url: React, keterangan: "Beginner" }
 ];
 
 // List portfolio project
-// Ditampilkan di section Project (halaman Home dan /project)
 export const listProject = [
   {
     id: 1,
@@ -115,4 +64,24 @@ export const listProject = [
     descripstion: "Ini adalah project Bahasa Pemrograman saya bersama temen saya",
     tools: ["Html", "Css", "Javascript"],
   }
+];
+
+// Kategori proyek untuk ditampilkan di halaman Home
+export const projectCategories = [
+  { id: 1, key: "web_app", title: "Web Application" }
+];
+
+// List Sertifikat
+export const listCertificates = [
+  {
+    id: 1,
+    title: "Semi Finalist Certificate",
+    image_url: Sertif1,
+  },
+  {
+    id: 2,
+    title: "SolveIT Together Certificate",
+    image_url: Sertif2,
+  },
+  // Tambahkan sertifikat lain di sini jika ada di masa depan
 ];

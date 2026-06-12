@@ -2,7 +2,6 @@ import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import Button from "../components/Button";
-import AboutExperience from "../components/about/AboutExperience";
 
 const About = () => {
   const { t } = useTranslation();
@@ -70,12 +69,67 @@ const About = () => {
             </div>
           </div>
 
-          {/* Gambar 3d */}
-          <figure>
-            <div className=".hero-3d-layout">
-              <AboutExperience />
+          {/* Bento Grid Info - Modern Replacement for Image */}
+          <div
+            ref={imageRef}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            {/* Card: Education */}
+            <div className={`bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 hover:scale-[1.02] transition-transform duration-300 ${
+              imageInView ? "animate__animated animate__fadeInUp animate__delay-100ms" : "opacity-0"
+            }`}>
+              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
+                <i className="ri-graduation-cap-line ri-xl"></i>
+              </div>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">{t("about.education_title")}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {t("about.education_desc")}
+              </p>
             </div>
-          </figure>
+
+            {/* Card: Values */}
+            <div className={`bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 hover:scale-[1.02] transition-transform duration-300 ${
+              imageInView ? "animate__animated animate__fadeInUp animate__delay-200ms" : "opacity-0"
+            }`}>
+              <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 rounded-xl flex items-center justify-center mb-4 text-cyan-600 dark:text-cyan-400">
+                <i className="ri-lightbulb-flash-line ri-xl"></i>
+              </div>
+              <h3 className="font-bold text-gray-900 dark:text-white mb-2">{t("about.values_title")}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                {t("about.values_desc")}
+              </p>
+            </div>
+
+            {/* Card: Experience (Large) - Mission focused on AI */}
+            <div className={`sm:col-span-2 bg-gradient-to-br from-blue-600 to-cyan-600 p-6 rounded-2xl shadow-xl text-white hover:scale-[1.01] transition-transform duration-300 ${
+              imageInView ? "animate__animated animate__fadeInUp animate__delay-300ms" : "opacity-0"
+            }`}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                  <i className="ri-brain-line ri-xl"></i>
+                </div>
+                <h3 className="font-bold text-xl">{t("about.experience_title")}</h3>
+              </div>
+              <p className="text-blue-50/90">
+                {t("about.experience_desc")}
+              </p>
+            </div>
+
+            {/* Card: Hobbies/Interests - Focused on AI Integration */}
+            <div className={`sm:col-span-2 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 flex items-center justify-between hover:scale-[1.01] transition-transform duration-300 ${
+              imageInView ? "animate__animated animate__fadeInUp animate__delay-400ms" : "opacity-0"
+            }`}>
+               <div>
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-1">{t("about.tech_stack_title")}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{t("about.tech_stack_desc")}</p>
+               </div>
+               <div className="flex -space-x-2">
+                  <div className="w-10 h-10 rounded-full bg-blue-500 border-2 border-white dark:border-gray-800 flex items-center justify-center text-xs font-bold text-white">JS</div>
+                  <div className="w-10 h-10 rounded-full bg-cyan-500 border-2 border-white dark:border-gray-800 flex items-center justify-center text-xs font-bold text-white">RE</div>
+                  <div className="w-10 h-10 rounded-full bg-gray-700 border-2 border-white dark:border-gray-800 flex items-center justify-center text-xs font-bold text-white">NX</div>
+               </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

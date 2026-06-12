@@ -18,7 +18,7 @@
     "greeting": "Hi, I am Fiky!☺️",
     "welcome": "Welcome to My Portfolio!",
     "role": "Student | Web Developer🧑‍💻",
-    "passion": "Enthusiast | CyberSecurity",
+    "passion": "Enthusiast | Artificial Intelligence",
     "description": "I am a passionate web developer who loves learning and creating innovative and efficient digital solutions. With expertise in various web technologies, I am committed to delivering exceptional user experiences through responsive design and reliable functionality.",
     "viewProjects": "View Projects",
     "downloadCV": "Download CV"
@@ -69,9 +69,16 @@
   "projects": {
     "title": "My Projects!",
     "viewProject": "View Project",
+    "viewDetail": "View detail",
     "noProjects": "No projects available",
     "noDescription": "No description available",
     "metaDescription": "Projects I've worked on.",
+    "categories": {
+      "web_app": "Web Application",
+      "web_app_desc": "Building Websites with advanced and fast technology",
+      "ui_design": "UI/UX Design",
+      "ui_design_desc": "Creating intuitive interfaces and exceptional user experiences"
+    },
     "list": {
       "grocerystore": {
         "title": "Grocerystore",
@@ -120,13 +127,13 @@
       "clerk": {
         "name": "Clerk",
         "type": "Framework",
-        "description": "Clerk is a ready-to-use authentication service for modern applications. Provides login, registration, session management, and security without having to set up your own backend.",
+        "description": "Clerk is a ready-to-use authentication service for modern applications. Provides login, registration, session management, and AI without having to set up your own backend.",
         "features": [
           "Ready-to-use Login & Register",
           "Multi-factor authentication",
           "Social login (Google, GitHub, etc.)",
           "User & role management",
-          "Enterprise-level security"
+          "Enterprise-level AI"
         ]
       },
       "tailwind": {
@@ -193,14 +200,26 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "A web developer who believes in simplicity, security, and delightful user experiences.",
+    "subtitle": "Digital solution developer integrating web architecture efficiency with artificial intelligence.",
     "intro": "Hi, I am",
-    "description1": "— a developer focused on building modern web applications with React, JavaScript, etc.",
-    "description2": "I love things that are",
-    "highlight": "lightweight, fast, and secure",
-    "description3": ". Every line of code I write aims to solve real problems without adding complexity.",
+    "description1": "— a software developer focused on building modern web applications using the React and JavaScript ecosystem.",
+    "description2": "I am committed to delivering digital solutions that are",
+    "highlight": "elegant, high-performance, and AI-integrated",
+    "description3": ". My primary priority is transforming technical complexity into intuitive and functional user experiences.",
     "viewProjects": "View My Projects →",
-    "metaDescription": "Learn more about Fiky, a full-stack developer specializing in modern web application development using React and Next.js."
+    "metaDescription": "Learn more about Fiky, a full-stack developer specializing in modern web application development and AI integration.",
+    "education_title": "Education",
+    "education_desc": "Information Technology Student focused on modern web architectures.",
+    "values_title": "Values",
+    "values_desc": "Clean code enthusiast with a focus on Artificial Intelligence and performance.",
+    "experience_title": "Mission",
+    "experience_desc": "To leverage Artificial Intelligence and modern web technologies to create intelligent, automated, and highly efficient digital solutions.",
+    "tech_stack_title": "Core Interest",
+    "tech_stack_desc": "Web Development & Artificial Intelligence"
+    },
+  "certificates": {
+    "title": "My Certificates",
+    "description": "A collection of professional certifications and achievements validating my technical expertise."
   },
   "contact": {
     "title": "Contact Me",
@@ -217,11 +236,11 @@
     "metaDescription": "The contact information is an email address."
   },
   "footer": {
-    "description": "Building lightweight, secure, and delightful web experiences — one line of code at a time.",
+    "description": "Building lightweight, intelligent, and delightful web experiences — one line of code at a time.",
     "navigation": "Navigation",
     "contactTitle": "Contact",
     "collaborate": "Want to Collaborate?",
-    "collaborateDesc": "I'm open to interesting projects, tech discussions, or just chatting about security automation.",
+    "collaborateDesc": "I'm open to interesting projects, tech discussions, or just chatting about AI automation.",
     "contactMe": "Contact Me",
     "copyright": "All rights reserved. Crafted with",
     "and": "and Tailwind CSS."

@@ -20,9 +20,9 @@ import React, { Suspense } from 'react'
 const HeroSection = React.lazy(() => import('../components/home/HeroSection'))
 import Skill from './Skill'
 import About from './About'
-import Project from './Project'
+import CertificateSection from '../components/home/CertificateSection'
+import HomeProject from '../components/home/HomeProject'
 const Container = React.lazy(() => import('../components/Container'))
-import Contact from './Contact'
 import { SkeletonLoading } from '../components/loading/SkeletonLoading'
 
 const Home = () => {
@@ -32,9 +32,9 @@ const Home = () => {
         <HeroSection />
           <Container>
             <About/>
+            <CertificateSection/>
             <Skill/>
-            <Project/>
-            <Contact/>
+            <HomeProject/>
           </Container>
         </Suspense>
     </div>
