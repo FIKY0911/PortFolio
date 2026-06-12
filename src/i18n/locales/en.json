@@ -89,6 +89,11 @@
         "title": "Coffeshop",
         "description": "This is my Programming Language project with my friends",
         "tools": ["Html", "Css", "Javascript"]
+      },
+      "relecta": {
+        "title": "Relecta",
+        "description": "Relecta is a website used for collecting electronic waste to be sorted again, and items that are totally damaged will be handed over to the government. Relecta was created for the IndoCeis competition.",
+        "tools": ["Html", "Typescript", "Tailwind", "React", "AI Agent"]
       }
     }
   },

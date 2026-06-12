@@ -89,6 +89,11 @@
         "title": "Coffeeshop",
         "description": "Proyek mata kuliah Bahasa Pemrogrcerdas yang dikerjakan bersama tim.",
         "tools": ["HTML", "CSS", "JavaScript"]
+      },
+      "relecta": {
+        "title": "Relecta",
+        "description": "Relecta merupakan sebuah website yang digunakan untuk melakukan pengumpulan sampah elektronik untuk disortir kembali, dan barang yang rusak secara total akan diserahkan ke pemerintah. Relecta dibuat untuk perlombaan IndoCeis.",
+        "tools": ["Html", "Typescript", "Tailwind", "React", "AI Agent"]
       }
     }
   },
