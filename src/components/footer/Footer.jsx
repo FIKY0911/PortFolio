@@ -51,8 +51,6 @@ const Footer = () => {
               {t('footer.contactTitle')}
             </h3>
             <address className='not-italic text-gray-600 dark:text-gray-400 text-sm space-y-2'>
-              <p>Jl. Merdeka No. 10</p>
-              <p>Jakarta, DKI 12345</p>
               <p>
                 Email:{' '}
                 <a

@@ -29,23 +29,23 @@ const HeroSection = () => {
     i18n.language === 'id'
       ? [
           'Halo, Saya Fiky!☺️',
-          2000,
+          1500,
           'Selamat Datang di Portofolio Saya!',
-          2000,
+          1500,
           'Student | Web Developer🧑‍💻',
-          2000,
+          1500,
           'Antusias | Artificial Intelligence',
-          2000,
+          1500,
         ]
       : [
           'Hi, I am Fiky!☺️',
-          2000,
+          1500,
           'Welcome to My Portfolio!',
-          2000,
+          1500,
           'Student | Web Developer🧑‍💻',
-          2000,
+          1500,
           'Enthusiast | Artificial Intelligence',
-          2000,
+          1500,
         ]
 
   return (
@@ -109,7 +109,13 @@ const HeroSection = () => {
                     wrapper='span'
                     cursor={true}
                     repeat={Infinity}
-                    style={{ whiteSpace: 'pre-line' }}
+                    speed={50}
+                    deletionSpeed={65}
+                    style={{ 
+                      whiteSpace: 'pre-line',
+                      display: 'inline-block',
+                      minHeight: '1.2em'
+                    }}
                   />
                 </div>
 
