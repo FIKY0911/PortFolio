@@ -14,8 +14,9 @@ import TypeScript from "../assets/tools/Typescript-tools.webp"
 import Clerk from "../assets/tools/clrek-tools.webp"
 import Tailwind from "../assets/tools/tailwind-css-tools.webp"
 import React from "../assets/tools/react-logo.webp"
-import Project1 from "../assets/project/project1.webp"
-import Project2 from "../assets/project/project2.webp"
+import Project1 from "../assets/project/GroceryStrore.webp"
+import Project2 from "../assets/project/CoffeShop.webp"
+import Project3 from "../assets/project/Relecta.webp"
 import CVFile from "../assets/cv_sertif/CV Mohamad Fiky.pdf"
 import Sertif1 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - Semi Finalist_page-0001.jpg"
 import Sertif2 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - SolveIT Together.jpeg"
@@ -52,7 +53,7 @@ export const listProject = [
     image_url: Project1,
     referance_url: "https://grocerystore-rpl-kel13.vercel.app/",
     github_url: "",
-    descripstion: "Ini adalah project e-commerce UAS-RPL saya terinspirasi dari youtube dengan konsep ATM(Amati Tiru Modifikasi).",
+    descripstion: "Grocerystore merupakan sebuah E-commerce yang menjual berbagai macam kebutuhan pokok sehari-hari. Grocerystore dibuat sebagai tugas project Rekayasa Perangkat Lunak.",
     tools: ["Next js", "TypeScript", "Clerk", "Tailwind"],
   },
   {
@@ -61,8 +62,17 @@ export const listProject = [
     image_url: Project2,
     referance_url: "https://tugas-bahasa-pemrograman.vercel.app/",
     github_url: "",
-    descripstion: "Ini adalah project Bahasa Pemrograman saya bersama temen saya",
+    descripstion: "CoffeShop merupakan sebuah website yang menjual berbagai macam kopi. Coffeshop dibuat sebagai tugas project Bahasa Pemrograman.",
     tools: ["Html", "Css", "Javascript"],
+  },
+  {
+    id: 3,
+    title: "Relecta",
+    image_url: Project3,
+    referance_url: "https://relecta-ui.vercel.app//",
+    github_url: "",
+    descripstion: "Relecta merupakan sebuah website yang digunakan untuk melakukan pengumpalan sampah Elektronik untuk disortir kembali, dan barang yang rusak secara total akan diserahkan ke pemerintah. Relecta dibuat untuk perlombaan IndoCeis.",
+    tools: ["Html", "Typescript", "Tailwind", "React", "AI Agent"],
   }
 ];
 
