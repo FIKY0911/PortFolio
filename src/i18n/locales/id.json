@@ -210,7 +210,20 @@
     "messagePlaceholder": "Tulis pesan Anda...",
     "send": "Kirim Pesan",
     "successMessage": "Pesan berhasil dikirim",
-    "errorMessage": "Gagal mengirim pesan"
+    "errorMessage": "Gagal mengirim pesan",
+    "errors": {
+      "nameRequired": "Nama wajib diisi",
+      "nameMinLength": "Nama minimal 2 karakter",
+      "nameMaxLength": "Nama maksimal 50 karakter",
+      "nameInvalid": "Nama hanya boleh berisi huruf, spasi, atau tanda hubung",
+      "emailRequired": "Email wajib diisi",
+      "emailInvalid": "Format email tidak valid",
+      "emailMaxLength": "Email maksimal 254 karakter",
+      "messageRequired": "Pesan wajib diisi",
+      "messageMinLength": "Pesan minimal 10 karakter",
+      "messageMaxLength": "Pesan maksimal 2000 karakter",
+      "suspiciousContent": "Pesan mengandung konten yang tidak valid"
+    }
   },
   "footer": {
     "description": "Membangun pengalcerdas web yang ringan, cerdas, dan menyenangkan — satu baris kode setiap waktu.",

@@ -39,22 +39,23 @@ const TechStackCards = () => {
     }
   ]
 
-  const renderToolIcon = (tool) => {
-    const icon = tool.image_url ? (
-      <img
-        src={tool.image_url}
-        alt={tool.name}
-        className='w-16 h-16 object-contain'
-      />
-    ) : (
-      <div className='w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-sm flex items-center justify-center'>
-        <i className='ri-git-branch-line text-3xl text-orange-500' />
-      </div>
-    )
-
+const renderToolIcon = (tool) => {
+    if (tool.image_url) {
+      return (
+        <Link to='/skill' className='group'>
+          <img
+            src={tool.image_url}
+            alt={tool.name}
+            className='w-16 h-16 object-contain'
+          />
+        </Link>
+      )
+    }
     return (
       <Link to='/skill' className='group'>
-        {icon}
+        <div className='w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-sm flex items-center justify-center'>
+          <i className='ri-git-branch-line text-xl text-orange-500' />
+        </div>
       </Link>
     )
   }
@@ -75,7 +76,7 @@ const TechStackCards = () => {
           {categories.map((category) => (
             <div
               key={category.key}
-              className='bg-white dark:bg-gray-800 rounded-3xl shadow-lg p-8 border border-gray-100 dark:border-gray-700 w-full sm:w-auto min-w-[280px] flex-1'
+              className='bg-white dark:bg-gray-800 rounded-3xl shadow-lg p-8 border border-gray-100 dark:border-gray-700 w-full sm:w-auto min-w-[280px] flex-1 flex flex-col min-h-[380px]'
             >
               <div className={`bg-gradient-to-br ${category.bgColor} -mx-8 -mt-8 px-8 pt-8 pb-6 rounded-t-3xl mb-6`}>
                 <div className='flex items-center gap-4'>
@@ -93,7 +94,7 @@ const TechStackCards = () => {
                 </div>
               </div>
 
-              <div className='grid grid-cols-2 gap-4'>
+              <div className='grid grid-cols-2 gap-4 items-start'>
                 {category.items.map((tool) => (
                   <Link
                     key={tool.id}
@@ -102,7 +103,7 @@ const TechStackCards = () => {
                     title={tool.name}
                   >
                     {renderToolIcon(tool)}
-                    <span className='text-sm font-semibold text-gray-800 dark:text-gray-200 text-center'>
+                    <span className='text-sm font-semibold text-gray-800 dark:text-gray-200 text-center whitespace-nowrap'>
                       {tool.name}
                     </span>
                   </Link>

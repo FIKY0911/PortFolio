@@ -199,7 +199,7 @@
     "title": "My Certificates",
     "description": "A collection of professional certifications and achievements validating my technical expertise."
   },
-  "contact": {
+"contact": {
     "title": "Contact Me",
     "subtitle": "Send a message, I'll reply as soon as possible!",
     "fullName": "Full Name",
@@ -211,7 +211,19 @@
     "send": "Send Message",
     "successMessage": "Email sent successfully",
     "errorMessage": "Email error/not sent",
-    "metaDescription": "The contact information is an email address."
+    "errors": {
+      "nameRequired": "Name is required",
+      "nameMinLength": "Name must be at least 2 characters",
+      "nameMaxLength": "Name must be at most 50 characters",
+      "nameInvalid": "Name can only contain letters, spaces, or hyphens",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "emailMaxLength": "Email must be at most 254 characters",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must be at least 10 characters",
+      "messageMaxLength": "Message must be at most 2000 characters",
+      "suspiciousContent": "Message contains invalid content"
+    }
   },
   "footer": {
     "description": "Building lightweight, intelligent, and delightful web experiences — one line of code at a time.",
