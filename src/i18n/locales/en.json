@@ -1,6 +1,7 @@
 {
   "home": {
-    "tabTitle": "Mohamad Fiky Ba'dafitro"
+    "tabTitle": "Mohamad Fiky Ba'dafitro",
+    "metaDescription": "Professional portfolio of Fiky, a Fullstack Developer. Explore my modern web projects, technical skills, and work experience. Contact me for collaboration opportunities."
   },
   "about": {
     "tabTitle": "About - Fiky"
@@ -21,50 +22,22 @@
     "passion": "Enthusiast | Artificial Intelligence",
     "description": "Professional web developer focused on creating innovative and efficient digital solutions. With expertise in various modern web technologies, I am committed to delivering optimal user experiences through responsive design and reliable functionality.",
     "viewProjects": "View Projects",
-    "downloadCV": "Download CV"
-  },
-  "home": {
-    "metaDescription": "Professional portfolio of Fiky, a Fullstack Developer. Explore my modern web projects, technical skills, and work experience. Contact me for collaboration opportunities."
+    "downloadCV": "Download CV",
+    "usedLanguages": "Languages Used",
+    "frameworks": "Frameworks",
+    "tools": "Tools",
+    "levels": "Skill Levels"
   },
   "skills": {
-    "title": "My Tools!",
+    "title": "Tech Stack",
     "noSkills": "No skills available",
     "noDescription": "No description",
     "metaDescription": "Tools used.",
-    "tools": {
-      "nextjs": {
-        "name": "Nextjs",
-        "level": "Beginner"
-      },
-      "typescript": {
-        "name": "TypeScript",
-        "level": "Beginner"
-      },
-      "clerk": {
-        "name": "Clerk",
-        "level": "Beginner"
-      },
-      "tailwind": {
-        "name": "Tailwind Css",
-        "level": "Beginner"
-      },
-      "html": {
-        "name": "Html",
-        "level": "Advanced"
-      },
-      "css": {
-        "name": "Css",
-        "level": "Intermediate"
-      },
-      "javascript": {
-        "name": "Javascript",
-        "level": "Beginner"
-      },
-      "react": {
-        "name": "React",
-        "level": "Beginner"
-      }
-    }
+    "techStack": "Tech Stack",
+    "techStackDesc": "Technologies I use in modern web development.",
+    "languages": "Programming Languages",
+    "frameworks": "Frameworks & Libraries",
+    "versionControl": "Version Control"
   },
   "projects": {
     "title": "My Projects!",

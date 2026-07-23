@@ -42,7 +42,8 @@ export const listTools = [
   { id: 5, name: "Html", image_url: Html, keterangan: "Advanced" },
   { id: 6, name: "Css", image_url: Css, keterangan: "Intermediate" },
   { id: 7, name: "Javascript", image_url: Javascript, keterangan: "Beginner" },
-  { id: 8, name: "React", image_url: React, keterangan: "Beginner" }
+  { id: 8, name: "React", image_url: React, keterangan: "Beginner" },
+  { id: 9, name: "Git", image_url: null, keterangan: "Beginner" }
 ];
 
 // List portfolio project

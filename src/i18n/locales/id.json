@@ -1,6 +1,7 @@
 {
   "home": {
-    "tabTitle": "Mohamad Fiky Ba'dafitro"
+    "tabTitle": "Mohamad Fiky Ba'dafitro",
+    "metaDescription": "Portofolio profesional Fiky, seorang Fullstack Developer. Jelajahi proyek web modern, keahlian teknis, dan pengalcerdas kerja saya. Hubungi saya untuk peluang kolaborasi."
   },
   "about": {
     "tabTitle": "Tentang - Fiky"
@@ -21,50 +22,22 @@
     "passion": "Antusias | Artificial Intelligence",
     "description": "Pengembang web profesional yang berfokus pada penciptaan solusi digital inovatif dan efisien. Dengan keahlian dalam berbagai teknologi web modern, saya berkomitmen menghadirkan pengalaman pengguna yang optimal melalui desain responsif dan fungsionalitas yang andal.",
     "viewProjects": "Lihat Proyek",
-    "downloadCV": "Unduh CV"
-  },
-  "home": {
-    "metaDescription": "Portofolio profesional Fiky, seorang Fullstack Developer. Jelajahi proyek web modern, keahlian teknis, dan pengalcerdas kerja saya. Hubungi saya untuk peluang kolaborasi."
+    "downloadCV": "Unduh CV",
+    "usedLanguages": "Bahasa Digunakan",
+    "frameworks": "Framework",
+    "tools": "Tools",
+    "levels": "Level Keahlian"
   },
   "skills": {
-    "title": "Tools Saya!",
+    "title": "Tech Stack",
     "noSkills": "Tidak ada skill tersedia",
     "noDescription": "Tidak ada deskripsi",
     "metaDescription": "Tools yang digunakan.",
-    "tools": {
-      "nextjs": {
-        "name": "Next.js",
-        "level": "Pemula"
-      },
-      "typescript": {
-        "name": "TypeScript",
-        "level": "Pemula"
-      },
-      "clerk": {
-        "name": "Clerk",
-        "level": "Pemula"
-      },
-      "tailwind": {
-        "name": "Tailwind CSS",
-        "level": "Pemula"
-      },
-      "html": {
-        "name": "HTML",
-        "level": "Mahir"
-      },
-      "css": {
-        "name": "CSS",
-        "level": "Menengah"
-      },
-      "javascript": {
-        "name": "JavaScript",
-        "level": "Pemula"
-      },
-      "react": {
-        "name": "React",
-        "level": "Pemula"
-      }
-    }
+    "techStack": "Tech Stack",
+    "techStackDesc": "Teknologi yang saya kuasai dalam pengembangan web modern.",
+    "languages": "Bahasa Pemrograman",
+    "frameworks": "Framework & Library",
+    "versionControl": "Version Control"
   },
   "projects": {
     "title": "Proyek Saya!",

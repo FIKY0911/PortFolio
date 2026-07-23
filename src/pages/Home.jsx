@@ -18,7 +18,7 @@
 
 import React, { Suspense } from 'react'
 const HeroSection = React.lazy(() => import('../components/home/HeroSection'))
-import Skill from './Skill'
+const TechStackCards = React.lazy(() => import('../components/home/TechStackCards'))
 import About from './About'
 import CertificateSection from '../components/home/CertificateSection'
 import HomeProject from '../components/home/HomeProject'
@@ -32,8 +32,8 @@ const Home = () => {
         <HeroSection />
           <Container>
             <About/>
+            <TechStackCards/>
             <CertificateSection/>
-            <Skill/>
             <HomeProject/>
           </Container>
         </Suspense>
