@@ -1,0 +1,38 @@
+<div class="toolbar">
+  <h2>Daftar Projects</h2>
+  <a class="btn btn-primary btn-sm" href="<%= base %>/create">+ Tambah Project</a>
+</div>
+
+<table class="data">
+  <thead>
+    <tr><th>ID</th><th></th><th>Judul</th><th>Kategori</th><th>Tools</th><th style="width:160px">Aksi</th></tr>
+  </thead>
+  <tbody>
+    <% if (!records.length) { %>
+      <tr><td colspan="6" class="empty">Belum ada project.</td></tr>
+    <% } %>
+    <% for (const p of records) { %>
+      <tr>
+        <td><%= p.id %></td>
+        <td>
+          <% if (p.imageUrl) { %><img class="thumb" src="<%= p.imageUrl %>" alt="<%= p.title %>">
+          <% } else { %><span class="hint">—</span><% } %>
+        </td>
+        <td><strong><%= p.title %></strong></td>
+        <td><%= p.category ? p.category.title : '<span class="hint">—</span>' %></td>
+        <td>
+          <% if (p.tools.length) { %>
+            <% for (const t of p.tools) { %><span class="badge" style="margin-right:4px"><%= t.name %></span><% } %>
+          <% } else { %><span class="hint">—</span><% } %>
+        </td>
+        <td>
+          <a class="btn btn-sm btn-outline" href="<%= base %>/<%= p.id %>/edit">Edit</a>
+          <form method="post" action="<%= base %>/<%= p.id %>/delete" class="inline-form"
+                onsubmit="return confirm('Hapus project ini?')">
+            <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>

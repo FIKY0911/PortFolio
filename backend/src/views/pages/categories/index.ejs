@@ -1,0 +1,30 @@
+<div class="toolbar">
+  <h2>Daftar Categories</h2>
+  <a class="btn btn-primary btn-sm" href="<%= base %>/create">+ Tambah Category</a>
+</div>
+
+<table class="data">
+  <thead>
+    <tr><th>ID</th><th>Key</th><th>Title</th><th>Jumlah Project</th><th style="width:150px">Aksi</th></tr>
+  </thead>
+  <tbody>
+    <% if (!records.length) { %>
+      <tr><td colspan="5" class="empty">Belum ada category.</td></tr>
+    <% } %>
+    <% for (const c of records) { %>
+      <tr>
+        <td><%= c.id %></td>
+        <td><code><%= c.key %></code></td>
+        <td><strong><%= c.title %></strong></td>
+        <td><span class="badge"><%= c.projectCount %></span></td>
+        <td>
+          <a class="btn btn-sm btn-outline" href="<%= base %>/<%= c.id %>/edit">Edit</a>
+          <form method="post" action="<%= base %>/<%= c.id %>/delete" class="inline-form"
+                onsubmit="return confirm('Hapus category ini? Project terkait akan kehilangan kategori.')">
+            <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>

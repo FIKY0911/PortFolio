@@ -1,0 +1,33 @@
+<div class="toolbar">
+  <h2>Daftar Tools</h2>
+  <a class="btn btn-primary btn-sm" href="<%= base %>/create">+ Tambah Tool</a>
+</div>
+
+<table class="data">
+  <thead>
+    <tr><th>ID</th><th></th><th>Nama</th><th>Level</th><th style="width:150px">Aksi</th></tr>
+  </thead>
+  <tbody>
+    <% if (!records.length) { %>
+      <tr><td colspan="5" class="empty">Belum ada tool.</td></tr>
+    <% } %>
+    <% for (const t of records) { %>
+      <tr>
+        <td><%= t.id %></td>
+        <td>
+          <% if (t.imageUrl) { %><img class="thumb" src="<%= t.imageUrl %>" alt="<%= t.name %>">
+          <% } else { %><span class="hint">—</span><% } %>
+        </td>
+        <td><strong><%= t.name %></strong></td>
+        <td><span class="badge badge-<%= t.keterangan.toLowerCase() %>"><%= t.keterangan %></span></td>
+        <td>
+          <a class="btn btn-sm btn-outline" href="<%= base %>/<%= t.id %>/edit">Edit</a>
+          <form method="post" action="<%= base %>/<%= t.id %>/delete" class="inline-form"
+                onsubmit="return confirm('Hapus tool ini?')">
+            <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>

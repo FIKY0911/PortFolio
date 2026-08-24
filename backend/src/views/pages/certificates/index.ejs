@@ -1,0 +1,32 @@
+<div class="toolbar">
+  <h2>Daftar Certificates</h2>
+  <a class="btn btn-primary btn-sm" href="<%= base %>/create">+ Tambah Certificate</a>
+</div>
+
+<table class="data">
+  <thead>
+    <tr><th>ID</th><th></th><th>Judul</th><th style="width:150px">Aksi</th></tr>
+  </thead>
+  <tbody>
+    <% if (!records.length) { %>
+      <tr><td colspan="4" class="empty">Belum ada certificate.</td></tr>
+    <% } %>
+    <% for (const c of records) { %>
+      <tr>
+        <td><%= c.id %></td>
+        <td>
+          <% if (c.imageUrl) { %><img class="thumb" src="<%= c.imageUrl %>" alt="<%= c.title %>">
+          <% } else { %><span class="hint">—</span><% } %>
+        </td>
+        <td><strong><%= c.title %></strong></td>
+        <td>
+          <a class="btn btn-sm btn-outline" href="<%= base %>/<%= c.id %>/edit">Edit</a>
+          <form method="post" action="<%= base %>/<%= c.id %>/delete" class="inline-form"
+                onsubmit="return confirm('Hapus certificate ini?')">
+            <button class="btn btn-sm btn-danger" type="submit">Hapus</button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </tbody>
+</table>

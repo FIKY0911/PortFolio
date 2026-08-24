@@ -1,0 +1,36 @@
+<div class="card" style="max-width:640px">
+  <h2 style="margin-bottom:16px">Edit Profil</h2>
+  <form method="post" action="/admin/profile" enctype="multipart/form-data">
+    <div class="field">
+      <label for="name">Nama</label>
+      <input type="text" id="name" name="name" value="<%= old.name ?? profile.name %>" required maxlength="100">
+      <% if (errors?.name) { %><p class="field-error"><%= errors.name %></p><% } %>
+    </div>
+
+    <div class="field preview">
+      <label>Gambar Hero Saat Ini</label>
+      <% if (profile.imageUrl) { %>
+        <img src="<%= profile.imageUrl %>" alt="Hero saat ini">
+      <% } else { %><p class="hint">Belum ada gambar.</p><% } %>
+    </div>
+    <div class="field">
+      <label for="image">Gambar Hero Baru <span class="hint">(opsional — jpeg/png/webp/svg, maks 5 MB)</span></label>
+      <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png,.webp,.svg">
+    </div>
+
+    <div class="field preview">
+      <label>CV Saat Ini</label>
+      <% if (profile.cvUrl) { %>
+        <a href="<%= profile.cvUrl %>" target="_blank" rel="noopener">Lihat CV</a>
+      <% } else { %><p class="hint">Belum ada CV.</p><% } %>
+    </div>
+    <div class="field">
+      <label for="cv">CV Baru <span class="hint">(opsional — pdf, maks 5 MB)</span></label>
+      <input type="file" id="cv" name="cv" accept=".pdf">
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Simpan</button>
+    </div>
+  </form>
+</div>

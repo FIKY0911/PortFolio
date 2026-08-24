@@ -1,0 +1,4 @@
+<% if (flash) { %>
+  <div class="flash <%= flash.type %>" role="alert"><%= flash.message %></div>
+  <script>setTimeout(() => document.querySelector('.flash')?.remove(), 4000);</script>
+<% } %>

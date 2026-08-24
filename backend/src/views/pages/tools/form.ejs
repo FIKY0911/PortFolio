@@ -1,0 +1,37 @@
+<div class="card" style="max-width:640px">
+  <h2 style="margin-bottom:16px"><%= record ? 'Edit Tool' : 'Tambah Tool' %></h2>
+  <form method="post"
+        action="<%= record ? `${base}/${record.id}/update` : base %>"
+        enctype="multipart/form-data">
+    <div class="field">
+      <label for="name">Nama</label>
+      <input type="text" id="name" name="name" value="<%= old.name ?? record?.name ?? '' %>" required maxlength="100">
+      <% if (errors?.name) { %><p class="field-error"><%= errors.name %></p><% } %>
+    </div>
+
+    <div class="field">
+      <label for="keterangan">Level</label>
+      <select id="keterangan" name="keterangan">
+        <% for (const k of ['Beginner', 'Intermediate', 'Advanced']) { %>
+          <option value="<%= k %>" <%= (old.keterangan ?? record?.keterangan ?? 'Beginner') === k ? 'selected' : '' %>><%= k %></option>
+        <% } %>
+      </select>
+      <% if (errors?.keterangan) { %><p class="field-error"><%= errors.keterangan %></p><% } %>
+    </div>
+
+    <div class="field preview">
+      <label>Gambar Saat Ini</label>
+      <% if (record?.imageUrl) { %><img src="<%= record.imageUrl %>" alt="<%= record.name %>">
+      <% } else { %><p class="hint">Belum ada gambar.</p><% } %>
+    </div>
+    <div class="field">
+      <label for="image">Gambar<% if (record) { %> <span class="hint">(kosongkan jika tidak diganti)</span><% } %></label>
+      <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png,.webp,.svg">
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Simpan</button>
+      <a class="btn btn-outline" href="<%= base %>">Batal</a>
+    </div>
+  </form>
+</div>

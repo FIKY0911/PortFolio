@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ✅ Sitemap successfully generated on 2026-07-23 -->
+<!-- ✅ Sitemap successfully generated on 2026-08-24 -->
 <!-- 📍 Generated from: ./src/routers/router.jsx -->
 <!-- 🔗 Total URLs: 5 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://portfolio-fiky.vercel.app/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://portfolio-fiky.vercel.app/about</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://portfolio-fiky.vercel.app/skill</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://portfolio-fiky.vercel.app/project</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://portfolio-fiky.vercel.app/contact</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

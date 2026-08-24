@@ -1,0 +1,88 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Profile {
+  id        Int      @id @default(autoincrement())
+  name      String
+  imageUrl  String?  @map("image_url")
+  cvUrl     String?  @map("cv_url")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("profiles")
+}
+
+model Tool {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  imageUrl    String?  @map("image_url")
+  keterangan  String   @default("Beginner")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  projects    ProjectTool[]
+
+  @@map("tools")
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  title     String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  projects  Project[]
+
+  @@map("categories")
+}
+
+model Project {
+  id           Int      @id @default(autoincrement())
+  title        String
+  imageUrl     String?  @map("image_url")
+  referanceUrl String?  @map("referance_url")
+  githubUrl    String?  @map("github_url")
+  description  String?  @db.Text @map("description")
+  categoryId   Int?     @map("category_id")
+  category     Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  tools        ProjectTool[]
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("projects")
+}
+
+model ProjectTool {
+  projectId Int   @map("project_id")
+  toolId    Int   @map("tool_id")
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  tool      Tool    @relation(fields: [toolId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, toolId])
+  @@map("project_tools")
+}
+
+model Certificate {
+  id        Int      @id @default(autoincrement())
+  title     String
+  imageUrl  String?  @map("image_url")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("certificates")
+}
+
+model AdminUser {
+  id           Int      @id @default(autoincrement())
+  username     String   @unique
+  passwordHash String   @map("password_hash")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("admin_users")
+}

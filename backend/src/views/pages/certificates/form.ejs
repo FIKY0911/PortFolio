@@ -1,0 +1,27 @@
+<div class="card" style="max-width:640px">
+  <h2 style="margin-bottom:16px"><%= record ? 'Edit Certificate' : 'Tambah Certificate' %></h2>
+  <form method="post"
+        action="<%= record ? `${base}/${record.id}/update` : base %>"
+        enctype="multipart/form-data">
+    <div class="field">
+      <label for="title">Judul</label>
+      <input type="text" id="title" name="title" value="<%= old.title ?? record?.title ?? '' %>" required maxlength="150">
+      <% if (errors?.title) { %><p class="field-error"><%= errors.title %></p><% } %>
+    </div>
+
+    <div class="field preview">
+      <label>Gambar Saat Ini</label>
+      <% if (record?.imageUrl) { %><img src="<%= record.imageUrl %>" alt="<%= record.title %>">
+      <% } else { %><p class="hint">Belum ada gambar.</p><% } %>
+    </div>
+    <div class="field">
+      <label for="image">Gambar<% if (record) { %> <span class="hint">(kosongkan jika tidak diganti)</span><% } %></label>
+      <input type="file" id="image" name="image" accept=".jpg,.jpeg,.png,.webp,.svg">
+    </div>
+
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Simpan</button>
+      <a class="btn btn-outline" href="<%= base %>">Batal</a>
+    </div>
+  </form>
+</div>
