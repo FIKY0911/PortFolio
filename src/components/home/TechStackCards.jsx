@@ -42,21 +42,17 @@ const TechStackCards = () => {
 const renderToolIcon = (tool) => {
     if (tool.image_url) {
       return (
-        <Link to='/skill' className='group'>
-          <img
-            src={tool.image_url}
-            alt={tool.name}
-            className='w-16 h-16 object-contain'
-          />
-        </Link>
+        <img
+          src={tool.image_url}
+          alt={tool.name}
+          className='w-16 h-16 object-contain'
+        />
       )
     }
     return (
-      <Link to='/skill' className='group'>
-        <div className='w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-sm flex items-center justify-center'>
-          <i className='ri-git-branch-line text-xl text-orange-500' />
-        </div>
-      </Link>
+      <div className='w-16 h-16 bg-white dark:bg-gray-800 rounded-2xl shadow-sm flex items-center justify-center'>
+        <i className='ri-git-branch-line text-xl text-orange-500' />
+      </div>
     )
   }
 

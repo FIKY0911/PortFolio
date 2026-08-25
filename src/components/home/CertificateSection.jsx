@@ -53,6 +53,8 @@ const CertificateSection = () => {
           <img 
             src={image} 
             alt="Certificate Full View" 
+            width={800}
+            height={600}
             className="max-w-full max-h-full object-contain rounded-lg shadow-[0_0_50px_rgba(0,0,0,0.8)] border border-white/10 pointer-events-auto"
           />
         </motion.div>
@@ -92,16 +94,18 @@ const CertificateSection = () => {
                 <button 
                   onClick={prevSlide}
                   disabled={currentIndex === 0}
+                  aria-label="Previous certificate"
                   className={`absolute -left-4 sm:-left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-blue-500 disabled:opacity-30 disabled:cursor-not-allowed transition-all ${currentIndex === 0 ? 'invisible' : 'visible'}`}
                 >
-                  <i className="ri-arrow-left-s-line text-2xl"></i>
+                  <i className="ri-arrow-left-s-line text-2xl" aria-hidden="true"></i>
                 </button>
                 <button 
                   onClick={nextSlide}
                   disabled={currentIndex >= certificates.length - 1}
+                  aria-label="Next certificate"
                   className={`absolute -right-4 sm:-right-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-100 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:text-blue-500 disabled:opacity-30 disabled:cursor-not-allowed transition-all ${currentIndex >= certificates.length - 1 ? 'invisible' : 'visible'}`}
                 >
-                  <i className="ri-arrow-right-s-line text-2xl"></i>
+                  <i className="ri-arrow-right-s-line text-2xl" aria-hidden="true"></i>
                 </button>
               </>
             )}
@@ -127,6 +131,9 @@ const CertificateSection = () => {
                       <img 
                         src={cert.image_url} 
                         alt={cert.title}
+                        width={400}
+                        height={300}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -141,11 +148,14 @@ const CertificateSection = () => {
 
           {/* Pagination Dots */}
           {certificates.length > 1 && (
-            <div className="flex justify-center gap-2 mt-8">
+            <div className="flex justify-center gap-2 mt-8" role="tablist" aria-label="Certificate navigation">
               {certificates.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
+                  role="tab"
+                  aria-selected={currentIndex === idx}
+                  aria-label={`Certificate ${idx + 1}`}
                   className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${currentIndex === idx ? 'w-8 bg-blue-500' : 'bg-gray-300 dark:bg-gray-700'}`}
                 />
               ))}

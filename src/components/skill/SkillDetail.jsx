@@ -22,14 +22,14 @@ import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
 
 // Import gambar dari assets
-import Html from '../../assets/tools/Html-tools.webp'
-import Css from '../../assets/tools/Css-tools.webp'
-import Nextjs from '../../assets/tools/next-js-tools.webp'
-import TypeScript from '../../assets/tools/Typescript-tools.webp'
-import Javascript from '../../assets/tools/JS-tools.webp'
-import Clerk from '../../assets/tools/clrek-tools.webp'
-import Tailwind from '../../assets/tools/tailwind-css-tools.webp'
-import ReactLogo from '../../assets/tools/react-logo.webp'
+import Html from '../../assets/tools/Html-tools_compressed.webp'
+import Css from '../../assets/tools/Css-tools_compressed.webp'
+import Nextjs from '../../assets/tools/next-js-tools_compressed.webp'
+import TypeScript from '../../assets/tools/Typescript-tools_compressed.webp'
+import Javascript from '../../assets/tools/JS-tools_compressed.webp'
+import Clerk from '../../assets/tools/clrek-tools_compressed.webp'
+import Tailwind from '../../assets/tools/tailwind-css-tools_compressed.webp'
+import ReactLogo from '../../assets/tools/react-logo_compressed.webp'
 import Button from '../Button'
 
 // Mapping gambar berdasarkan key teknologi
@@ -96,6 +96,9 @@ const AnimatedSkillCard = ({ techKey, index, t }) => {
         <img
           src={techImages[techKey]}
           alt={tech.name}
+          width={48}
+          height={48}
+          loading="lazy"
           className='w-12 h-12 rounded-lg object-contain'
         />
         <div>

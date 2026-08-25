@@ -21,10 +21,10 @@ const Header = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  // Deteksi scroll
+  // Deteksi scroll (passive untuk performa)
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8)
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -56,7 +56,7 @@ const Header = () => {
       {mobileMenuOpen && (
         <div
           className='fixed inset-0 bg-black/30 z-40 lg:hidden'
-          onClick={() => setMobileMenuOpen(true)}
+          onClick={() => setMobileMenuOpen(false)}
         ></div>
       )}
 

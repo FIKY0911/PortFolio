@@ -20,14 +20,14 @@ import React, { Suspense } from 'react'
 const HeroSection = React.lazy(() => import('../components/home/HeroSection'))
 const TechStackCards = React.lazy(() => import('../components/home/TechStackCards'))
 import About from './About'
-import CertificateSection from '../components/home/CertificateSection'
-import HomeProject from '../components/home/HomeProject'
+const CertificateSection = React.lazy(() => import('../components/home/CertificateSection'))
+const HomeProject = React.lazy(() => import('../components/home/HomeProject'))
 const Container = React.lazy(() => import('../components/Container'))
 import { SkeletonLoading } from '../components/loading/SkeletonLoading'
 
 const Home = () => {
   return (
-    <div className='sticky top-0'>
+    <div>
       <Suspense fallback={<SkeletonLoading />}>
         <HeroSection />
           <Container>

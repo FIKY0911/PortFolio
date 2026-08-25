@@ -191,11 +191,13 @@ const Contact = () => {
                 setName(e.target.value)
                 if (errors.name) setErrors({ ...errors, name: '' })
               }}
+              aria-describedby={errors.name ? 'fullName-error' : undefined}
+              aria-invalid={errors.name ? 'true' : undefined}
               className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 ${errors.name ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'}`}
               placeholder={t('contact.fullNamePlaceholder')}
             />
             {errors.name && (
-              <p className='mt-1 text-sm text-red-600 dark:text-red-400'>{t(errors.name)}</p>
+              <p id='fullName-error' className='mt-1 text-sm text-red-600 dark:text-red-400' role='alert'>{t(errors.name)}</p>
             )}
           </div>
 
@@ -217,11 +219,13 @@ const Contact = () => {
                 setEmail(e.target.value)
                 if (errors.email) setErrors({ ...errors, email: '' })
               }}
+              aria-describedby={errors.email ? 'email-error' : undefined}
+              aria-invalid={errors.email ? 'true' : undefined}
               className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 ${errors.email ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'}`}
               placeholder={t('contact.emailPlaceholder')}
             />
             {errors.email && (
-              <p className='mt-1 text-sm text-red-600 dark:text-red-400'>{t(errors.email)}</p>
+              <p id='email-error' className='mt-1 text-sm text-red-600 dark:text-red-400' role='alert'>{t(errors.email)}</p>
             )}
           </div>
 
@@ -242,22 +246,24 @@ const Contact = () => {
                 setMessage(e.target.value)
                 if (errors.message) setErrors({ ...errors, message: '' })
               }}
+              aria-describedby={errors.message ? 'message-error' : undefined}
+              aria-invalid={errors.message ? 'true' : undefined}
               className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder:text-gray-500 dark:placeholder:text-gray-400 ${errors.message ? 'border-red-500 dark:border-red-400' : 'border-gray-300 dark:border-gray-600'}`}
               placeholder={t('contact.messagePlaceholder')}
             />
             {errors.message && (
-              <p className='mt-1 text-sm text-red-600 dark:text-red-400'>{t(errors.message)}</p>
+              <p id='message-error' className='mt-1 text-sm text-red-600 dark:text-red-400' role='alert'>{t(errors.message)}</p>
             )}
           </div>
 
           {/* Form Status Message */}
           {status === 'success' && (
-            <div className='mb-4 p-3 bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-600 rounded-lg text-green-800 dark:text-green-200'>
+            <div className='mb-4 p-3 bg-green-100 dark:bg-green-900/30 border border-green-400 dark:border-green-600 rounded-lg text-green-800 dark:text-green-200' role='status' aria-live='polite'>
               {t('contact.successMessage')}
             </div>
           )}
           {status === 'error' && (
-            <div className='mb-4 p-3 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-600 rounded-lg text-red-800 dark:text-red-200'>
+            <div className='mb-4 p-3 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-600 rounded-lg text-red-800 dark:text-red-200' role='alert' aria-live='assertive'>
               {t('contact.errorMessage')}
             </div>
           )}

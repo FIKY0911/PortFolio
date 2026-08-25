@@ -45,17 +45,12 @@
  */
 
 import './index.css'
-import { Suspense, useEffect } from 'react'
+import { Suspense } from 'react'
 import { router } from './routers/router'
 import { RouterProvider } from 'react-router-dom'
 import { SkeletonLoading } from './components/loading/SkeletonLoading'
-import { useDataStore } from './store/dataStore'
 
 function App() {
-  useEffect(() => {
-    useDataStore.getState().fetchAll()
-  }, [])
-
   return (
     <div>
       {/* Suspense boundary untuk handle lazy loading routes */}

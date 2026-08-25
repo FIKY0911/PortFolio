@@ -41,11 +41,9 @@ const HomeProject = () => {
                 {t(`projects.categories.${category.key}_desc`)}
               </p>
               
-              <Link to="/project">
-                <button className="flex items-center gap-2 text-cyan-500 font-semibold hover:gap-3 transition-all duration-300 cursor-pointer">
+              <Link to="/project" className="flex items-center gap-2 text-cyan-500 font-semibold hover:gap-3 transition-all duration-300">
                   {t('projects.viewDetail', 'Lihat detail')} 
-                  <i className="ri-arrow-right-line"></i>
-                </button>
+                  <i className="ri-arrow-right-line" aria-hidden="true"></i>
               </Link>
             </div>
           ))}

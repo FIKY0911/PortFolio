@@ -14,16 +14,20 @@
  * - Menggunakan RootLayout sebagai wrapper (Header + Footer)
  * - Error handling dengan ErrorPage
  * - Nested routes dengan Outlet di RootLayout
+ * - Lazy loading untuk page components (code splitting)
  */
 
+import React from 'react';
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import ErrorPage from "../components/ErrorPage"
 import Home from "../pages/Home"
-import About from "../pages/About"
-import Project from "../pages/Project";
-import Contact from "../pages/Contact"
-import SkillDetail from "../components/skill/SkillDetail";
+
+// Lazy load pages that aren't needed on initial render
+const About = React.lazy(() => import("../pages/About"));
+const Project = React.lazy(() => import("../pages/Project"));
+const Contact = React.lazy(() => import("../pages/Contact"));
+const SkillDetail = React.lazy(() => import("../components/skill/SkillDetail"));
 
 export const router = createBrowserRouter([
   {
@@ -37,19 +41,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />
+        element: <React.Suspense fallback={null}><About /></React.Suspense>
       },
       {
         path: "/skill",
-        element: <SkillDetail/>
+        element: <React.Suspense fallback={null}><SkillDetail/></React.Suspense>
       },
       {
         path: "/project",
-        element: <Project />
+        element: <React.Suspense fallback={null}><Project /></React.Suspense>
       },
       {
         path: "/contact",
-        element: <Contact/>
+        element: <React.Suspense fallback={null}><Contact/></React.Suspense>
       }
     ]
   }

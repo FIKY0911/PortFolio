@@ -55,19 +55,21 @@ const Navbar = ({ scrolled = false, onLinkClick }) => {
   return (
     <>
       {/* Desktop Navbar */}
-      <div className='hidden lg:flex gap-6 font-semibold text-xl'>
+      <div className='hidden lg:flex gap-6 font-semibold text-xl' role="menubar">
         {navItems.map((item) => (
           <Link
             key={item.path}
             to={item.path}
             onClick={onLinkClick}
+            role="menuitem"
+            aria-current={isActive(item.path) ? 'page' : undefined}
             className={`px-4 py-2 rounded-xl transition-all duration-300 relative
               ${
                 isActive(item.path)
                   ? 'text-white bg-gradient-to-br from-cyan-400 to-blue-400 ring-2 ring-cyan-300/70 shadow-[0_0_12px_2px_rgba(56,189,248,0.5)]'
                   : scrolled
                   ? 'text-slate-100 hover:text-slate-100 hover:bg-gradient-to-br hover:from-cyan-400 hover:to-blue-400 hover:ring-2 hover:ring-cyan-300/70 hover:shadow-[0_0_12px_2px_rgba(56,189,248,0.5)]'
-                  : 'text-slate-400 dark:text-gray-300 hover:text-slate-100 hover:bg-gradient-to-br hover:from-cyan-400 hover:to-blue-400 hover:ring-2 hover:ring-cyan-300/70 hover:shadow-[0_0_12px_2px_rgba(56,189,248,0.5)]'
+                  : 'text-slate-600 dark:text-gray-300 hover:text-slate-100 hover:bg-gradient-to-br hover:from-cyan-400 hover:to-blue-400 hover:ring-2 hover:ring-cyan-300/70 hover:shadow-[0_0_12px_2px_rgba(56,189,248,0.5)]'
               }
             `}
           >
@@ -77,12 +79,14 @@ const Navbar = ({ scrolled = false, onLinkClick }) => {
       </div>
 
       {/* Mobile Menu */}
-      <div className='lg:hidden flex flex-col gap-5 py-2'>
+      <div className='lg:hidden flex flex-col gap-5 py-2' role="menu">
         {navItems.map((item) => (
           <Link
             key={item.path}
             to={item.path}
             onClick={onLinkClick}
+            role="menuitem"
+            aria-current={isActive(item.path) ? 'page' : undefined}
             className={`text-xl font-semibold transition ${
               isActive(item.path)
                 ? 'text-cyan-600 dark:text-cyan-400 font-bold'

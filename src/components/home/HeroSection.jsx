@@ -68,6 +68,10 @@ const HeroSection = () => {
                 <img
                   src={profile.image_url}
                   alt={profile.name || 'Profile Image'}
+                  width={384}
+                  height={300}
+                  loading="eager"
+                  fetchPriority="high"
                   onLoad={() => setImageLoaded(true)}
                   onError={() => setImageLoaded(true)}
                   className={`w-full h-full object-cover bg-white transition-opacity duration-500 ${
@@ -102,7 +106,7 @@ const HeroSection = () => {
               </div>
             ) : (
               <>
-                <div className='text-3xl sm:text-4xl font-semibold mb-8 leading-tight'>
+                <h1 className='text-3xl sm:text-4xl font-semibold mb-8 leading-tight'>
                   <TypeAnimation
                     key={i18n.language}
                     sequence={typingSequence}
@@ -117,17 +121,20 @@ const HeroSection = () => {
                       minHeight: '1.2em'
                     }}
                   />
-                </div>
+                </h1>
 
                 <p className='text-lg my-8'>{t('hero.description')}</p>
 
                 <div className='flex flex-col sm:flex-row justify-center lg:justify-start gap-4 w-full'>
-                  <Link to='/project'>
-                    <Button className='w-full'>{t('hero.viewProjects')}</Button>
+                  <Link
+                    to='/project'
+                    className='inline-flex items-center justify-center px-6 py-3 font-medium rounded-xl bg-white dark:bg-gray-800 shadow-md shadow-slate-200 dark:shadow-lg dark:shadow-gray-900/50 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 hover:bg-gradient-to-br hover:from-cyan-400 hover:to-blue-500 hover:text-white hover:border-transparent transition-all duration-300'
+                  >
+                    {t('hero.viewProjects')}
                   </Link>
                   <button
                     onClick={handleDownloadCV}
-                    className='w-full sm:w-auto text-center font-semibold px-6 py-3 rounded-lg border-2 border-white bg-transparent text-white hover:cursor-pointer hover:bg-white/10 hover:bg-gradient-to-br from-blue-400 to-cyan-400 transition'
+                    className='w-full sm:w-auto min-h-[48px] text-center font-semibold px-6 py-3 rounded-lg border-2 border-white bg-transparent text-white hover:cursor-pointer hover:bg-white/10 hover:bg-gradient-to-br from-blue-400 to-cyan-400 transition'
                   >
                     {t('hero.downloadCV')}
                   </button>

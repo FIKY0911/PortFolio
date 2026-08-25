@@ -149,9 +149,11 @@ const AnimatedProjectCard = memo(({ project, t }) => {
           <img
             src={project.image_url}
             alt={translatedProject.title}
-            loading="lazy" // Native lazy loading (browser feature)
-            onLoad={() => setImageLoaded(true)} // Set state saat image loaded
-            onError={() => setImageLoaded(true)} // Handle error gracefully
+            width={400}
+            height={192}
+            loading="lazy"
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setImageLoaded(true)}
             className={`w-full h-full object-contain max-w-[90%] max-h-[90%] transition-opacity duration-300 ${
               imageLoaded ? "opacity-100" : "opacity-0"
             }`}
@@ -294,9 +296,9 @@ const Project = () => {
     <div className='w-full py-20 px-4 sm:px-6 bg-white dark:bg-gray-900 transition-colors duration-300'>
       <div className='max-w-6xl mx-auto'>
         {/* Page Title dengan gradient text */}
-        <h2 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-16 text-center'>
+        <h1 className='text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent mb-16 text-center'>
           {t('projects.title')}
-        </h2>
+        </h1>
 
         {/* Conditional Rendering: Projects Grid atau Empty State */}
         {projects.length > 0 ? (

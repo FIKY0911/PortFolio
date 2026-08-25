@@ -13,6 +13,7 @@
  * 
  * STRUKTUR:
  * - ScrollToTop (invisible, hanya logic)
+ * - Skip to content link (accessibility)
  * - Header (fixed di atas)
  * - Main content (Outlet)
  * - Footer (di bawah)
@@ -125,17 +126,26 @@ const RootLayout = () => {
         </script>
       </Helmet>
       <ScrollToTop />
+      
+      {/* Skip to content link for accessibility */}
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:p-4 focus:bg-white focus:text-blue-600 dark:focus:bg-gray-800 dark:focus:text-blue-400"
+      >
+        Lewati ke konten utama
+      </a>
+      
       <header>
-              <nav>
-                <Header/>
-              </nav>
+        <nav>
+          <Header/>
+        </nav>
       </header>
-      <main>
+      <main id="main-content">
         <Container>
-            <Outlet/>
+          <Outlet/>
         </Container>
         <div className='pt-20'>
-        <Footer/>
+          <Footer/>
         </div>
       </main>
     </div>

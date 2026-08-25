@@ -6,19 +6,19 @@
  */
 
 import HeroImage from "../assets/hero/heroimage.webp"
-import Html from "../assets/tools/Html-tools.webp"
-import Css from "../assets/tools/Css-tools.webp"
-import Javascript from "../assets/tools/JS-tools.webp"
-import Nextjs from "../assets/tools/next-js-tools.webp"
-import TypeScript from "../assets/tools/Typescript-tools.webp"
-import Clerk from "../assets/tools/clrek-tools.webp"
-import Tailwind from "../assets/tools/tailwind-css-tools.webp"
-import React from "../assets/tools/react-logo.webp"
+import Html from "../assets/tools/Html-tools_compressed.webp"
+import Css from "../assets/tools/Css-tools_compressed.webp"
+import Javascript from "../assets/tools/JS-tools_compressed.webp"
+import Nextjs from "../assets/tools/next-js-tools_compressed.webp"
+import TypeScript from "../assets/tools/Typescript-tools_compressed.webp"
+import Clerk from "../assets/tools/clrek-tools_compressed.webp"
+import Tailwind from "../assets/tools/tailwind-css-tools_compressed.webp"
+import React from "../assets/tools/react-logo_compressed.webp"
 import Project1 from "../assets/project/GroceryStrore.webp"
 import Project2 from "../assets/project/CoffeShop.webp"
 import Project3 from "../assets/project/Relecta.webp"
 import CVFile from "../assets/cv_sertif/CV Mohamad Fiky.pdf"
-import Sertif1 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - Semi Finalist_page-0001.jpg"
+import Sertif1 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - Semi Finalist_page-0001_compressed.jpg"
 import Sertif2 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - SolveIT Together.jpeg"
 
 // Gambar untuk HeroSection
