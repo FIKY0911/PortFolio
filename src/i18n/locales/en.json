@@ -1,19 +1,63 @@
 {
   "home": {
-    "tabTitle": "Mohamad Fiky Ba'dafitro",
+    "tabTitle": "Mohamad Fiky Ba'dafitro | Fullstack Developer Portfolio",
     "metaDescription": "Professional portfolio of Fiky, a Fullstack Developer. Explore my modern web projects, technical skills, and work experience. Contact me for collaboration opportunities."
   },
   "about": {
-    "tabTitle": "About - Fiky"
+    "title": "About Me",
+    "subtitle": "Digital solution developer integrating web architecture efficiency with artificial intelligence.",
+    "intro": "Hi, I am",
+    "description1": ", a software developer focused on building modern web applications using the React and JavaScript ecosystem.",
+    "description2": "I am committed to delivering digital solutions that are",
+    "highlight": "elegant, high-performance, and AI-integrated",
+    "description3": ". My primary priority is transforming technical complexity into intuitive and functional user experiences.",
+    "viewProjects": "View My Projects →",
+    "metaDescription": "Learn more about Mohamad Fiky Ba'dafitro, a Fullstack Developer specializing in modern web application development, React ecosystem, and AI integration.",
+    "education_title": "Education",
+    "education_desc": "Information Technology Student focused on modern web architectures.",
+    "values_title": "Values",
+    "values_desc": "Clean code enthusiast with a focus on Artificial Intelligence and performance.",
+    "experience_title": "Mission",
+    "experience_desc": "To leverage Artificial Intelligence and modern web technologies to create intelligent, automated, and highly efficient digital solutions.",
+    "tech_stack_title": "Core Interest",
+    "tech_stack_desc": "Web Development & Artificial Intelligence",
+    "tabTitle": "About Me | Mohamad Fiky"
   },
   "skill": {
-    "tabTitle": "Skills - Fiky"
+    "tabTitle": "Skills & Tech Stack | Mohamad Fiky",
+    "metaDescription": "Technical skills and tools mastered by Mohamad Fiky including Next.js, React, TypeScript, Tailwind CSS, Node.js, and modern AI development tools."
   },
   "project": {
-    "tabTitle": "Projects - Fiky"
+    "tabTitle": "Projects Portfolio | Mohamad Fiky",
+    "metaDescription": "Browse through Mohamad Fiky's portfolio of web development projects, ranging from modern web apps and e-commerce platforms to AI integrations."
   },
   "contact": {
-    "tabTitle": "Contact - Fiky"
+    "title": "Contact Me",
+    "subtitle": "Send a message, I'll reply as soon as possible!",
+    "fullName": "Full Name",
+    "fullNamePlaceholder": "Enter your full name",
+    "email": "Email",
+    "emailPlaceholder": "name@email.com",
+    "message": "Message",
+    "messagePlaceholder": "Write your message here...",
+    "send": "Send Message",
+    "successMessage": "Email sent successfully",
+    "errorMessage": "Email error/not sent",
+    "errors": {
+      "nameRequired": "Name is required",
+      "nameMinLength": "Name must be at least 2 characters",
+      "nameMaxLength": "Name must be at most 50 characters",
+      "nameInvalid": "Name can only contain letters, spaces, or hyphens",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "emailMaxLength": "Email must be at most 254 characters",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must be at least 10 characters",
+      "messageMaxLength": "Message must be at most 2000 characters",
+      "suspiciousContent": "Message contains invalid content"
+    },
+    "tabTitle": "Contact Me | Mohamad Fiky",
+    "metaDescription": "Get in touch with Mohamad Fiky for web development collaborations, job opportunities, project inquiries, or technical consultations."
   },
   "hero": {
     "greeting": "Hi, I am Fiky!☺️",
@@ -32,7 +76,7 @@
     "title": "Tech Stack",
     "noSkills": "No skills available",
     "noDescription": "No description",
-    "metaDescription": "Tools used.",
+    "metaDescription": "Technical skills and tools mastered by Mohamad Fiky including Next.js, React, TypeScript, Tailwind CSS, Node.js, and modern AI development tools.",
     "techStack": "Tech Stack",
     "techStackDesc": "Technologies I use in modern web development.",
     "languages": "Programming Languages",
@@ -45,7 +89,7 @@
     "viewDetail": "View detail",
     "noProjects": "No projects available",
     "noDescription": "No description available",
-    "metaDescription": "Projects I've worked on.",
+    "metaDescription": "Browse through Mohamad Fiky's portfolio of web development projects, ranging from modern web apps and e-commerce platforms to AI integrations.",
     "categories": {
       "web_app": "Web Application",
       "web_app_desc": "Building Websites with advanced and fast technology",
@@ -56,17 +100,32 @@
       "grocerystore": {
         "title": "Grocerystore",
         "description": "This is my UAS-RPL e-commerce project inspired by YouTube with the ATM concept (Observe, Imitate, Modify).",
-        "tools": ["Next js", "TypeScript", "Clerk", "Tailwind"]
+        "tools": [
+          "Next js",
+          "TypeScript",
+          "Clerk",
+          "Tailwind"
+        ]
       },
       "coffeshop": {
         "title": "Coffeshop",
         "description": "This is my Programming Language project with my friends",
-        "tools": ["Html", "Css", "Javascript"]
+        "tools": [
+          "Html",
+          "Css",
+          "Javascript"
+        ]
       },
       "relecta": {
         "title": "Relecta",
         "description": "Relecta is a website used for collecting electronic waste to be sorted again, and items that are totally damaged will be handed over to the government. Relecta was created for the IndoCeis competition.",
-        "tools": ["Html", "Typescript", "Tailwind", "React", "AI Agent"]
+        "tools": [
+          "Html",
+          "Typescript",
+          "Tailwind",
+          "React",
+          "AI Agent"
+        ]
       }
     }
   },
@@ -105,13 +164,13 @@
       "clerk": {
         "name": "Clerk",
         "type": "Framework",
-        "description": "Clerk is a ready-to-use authentication service for modern applications. Provides login, registration, session management, and AI without having to set up your own backend.",
+        "description": "Clerk is a ready-to-use authentication service for modern applications. Provides login, registration, session management, and security without having to set up your own backend.",
         "features": [
           "Ready-to-use Login & Register",
           "Multi-factor authentication",
           "Social login (Google, GitHub, etc.)",
           "User & role management",
-          "Enterprise-level AI"
+          "Enterprise-level security"
         ]
       },
       "tailwind": {
@@ -173,60 +232,159 @@
           "Hooks for state management",
           "Extensive ecosystem (React Router, Redux, etc.)"
         ]
+      },
+      "nodejs": {
+        "name": "Node.js",
+        "type": "Runtime Environment",
+        "description": "JavaScript runtime built on Chrome:s V8 engine to execute JavaScript on the server with an efficient event-driven non-blocking I/O model.",
+        "features": [
+          "Event-driven & asynchronous",
+          "Non-blocking I/O architecture",
+          "Massive NPM package ecosystem",
+          "High performance for microservices",
+          "Single-threaded concurrency"
+        ]
+      },
+      "express": {
+        "name": "Express.js",
+        "type": "Backend Framework",
+        "description": "Minimalist and flexible Node.js web application framework providing a robust set of features for building modular web APIs and backends.",
+        "features": [
+          "Modular routing & middleware",
+          "Extensive ecosystem plugins",
+          "Fast RESTful API integration",
+          "Structured error handling",
+          "Lightweight & high throughput"
+        ]
+      },
+      "postgresql": {
+        "name": "PostgreSQL",
+        "type": "Relational Database",
+        "description": "Enterprise-grade open-source relational database supporting complex SQL queries, high data integrity, and ACID transactional reliability.",
+        "features": [
+          "Full ACID transaction compliance",
+          "Flexible JSONB data type support",
+          "Advanced indexing (B-tree, GIN, GiST)",
+          "High concurrency with MVCC",
+          "Strict relational integrity"
+        ]
+      },
+      "mysql": {
+        "name": "MySQL",
+        "type": "Relational Database",
+        "description": "Popular, fast, and dependable relational database management system widely adopted across modern web applications.",
+        "features": [
+          "Robust InnoDB storage engine",
+          "High availability & replication",
+          "Structured table relationships",
+          "Granular access control & security",
+          "Broad cross-platform compatibility"
+        ]
+      },
+      "prisma": {
+        "name": "Prisma ORM",
+        "type": "Database ORM",
+        "description": "Next-generation ORM for Node.js and TypeScript simplifying database workflows with declarative schemas and complete type safety.",
+        "features": [
+          "Automated type-safe query builder",
+          "Declarative Prisma Schema",
+          "Prisma Migrate for schema evolution",
+          "Prisma Studio visual GUI inspector",
+          "Prevents runtime database errors"
+        ]
+      },
+      "restapi": {
+        "name": "RESTful API",
+        "type": "Architecture Standard",
+        "description": "Architectural style for stateless, structured, and standardized HTTP communication enforcing clean client-server separation.",
+        "features": [
+          "Stateless & structured architecture",
+          "Standard HTTP methods (GET, POST, PUT, DELETE)",
+          "Consistent JSON payload conventions",
+          "Semantic HTTP status codes",
+          "Strict separation of client and server"
+        ]
+      },
+      "aiagent": {
+        "name": "AI Agent Integration",
+        "type": "AI Engineering",
+        "description": "Autonomous agent workflows and LLM integrations accelerating development lifecycles, structured data extraction, and contextual reasoning.",
+        "features": [
+          "Tool calling & workflow automation",
+          "Context-aware reasoning loops",
+          "Structured prompt engineering",
+          "Modern LLM API integration",
+          "Autonomous evaluation feedback loops"
+        ]
+      },
+      "git": {
+        "name": "Git & GitHub",
+        "type": "Version Control",
+        "description": "Distributed version control system for tracking source code changes, team collaboration, and structured branching workflows.",
+        "features": [
+          "Distributed version control",
+          "Branching and merging workflows",
+          "Collaboration via pull requests",
+          "Full commit history audit trail",
+          "CI/CD pipeline integrations"
+        ]
+      },
+      "docker": {
+        "name": "Docker",
+        "type": "Containerization",
+        "description": "Containerization platform to package applications and their dependencies into lightweight, isolated containers that run reliably anywhere.",
+        "features": [
+          "Consistent dependency isolation",
+          "Docker Compose for multi-container services",
+          "Identical dev-to-prod parity",
+          "Cross-platform portability",
+          "Resource governance"
+        ]
+      },
+      "postman": {
+        "name": "Postman",
+        "type": "API Platform",
+        "description": "Collaborative API development platform to design, test, document, and monitor RESTful APIs with automated test suites.",
+        "features": [
+          "Interactive HTTP endpoint testing",
+          "Automated collection runners",
+          "Environment variable management",
+          "Mock servers and documentation",
+          "Header and payload inspection"
+        ]
+      },
+      "vercel": {
+        "name": "Vercel",
+        "type": "Deployment Platform",
+        "description": "Frontend cloud platform optimized for deploying React and Next.js applications seamlessly with edge routing and automatic CI/CD.",
+        "features": [
+          "Automatic Git continuous deployment",
+          "Global low-latency Edge Network",
+          "Built-in Serverless Functions",
+          "Instant preview deployments per PR",
+          "Secure environment variables management"
+        ]
+      },
+      "sanity": {
+        "name": "Sanity CMS",
+        "type": "Headless CMS",
+        "description": "Cloud-hosted structured content platform with a customizable real-time studio and fast APIs for modern web content management.",
+        "features": [
+          "Declarative content schema (GROQ/GraphQL)",
+          "Real-time collaborative workspace",
+          "Fully customizable Sanity Studio",
+          "High-speed global asset pipeline",
+          "Seamless React and Next.js integration"
+        ]
       }
     }
   },
-  "about": {
-    "title": "About Me",
-    "subtitle": "Digital solution developer integrating web architecture efficiency with artificial intelligence.",
-    "intro": "Hi, I am",
-    "description1": "— a software developer focused on building modern web applications using the React and JavaScript ecosystem.",
-    "description2": "I am committed to delivering digital solutions that are",
-    "highlight": "elegant, high-performance, and AI-integrated",
-    "description3": ". My primary priority is transforming technical complexity into intuitive and functional user experiences.",
-    "viewProjects": "View My Projects →",
-    "metaDescription": "Learn more about Fiky, a full-stack developer specializing in modern web application development and AI integration.",
-    "education_title": "Education",
-    "education_desc": "Information Technology Student focused on modern web architectures.",
-    "values_title": "Values",
-    "values_desc": "Clean code enthusiast with a focus on Artificial Intelligence and performance.",
-    "experience_title": "Mission",
-    "experience_desc": "To leverage Artificial Intelligence and modern web technologies to create intelligent, automated, and highly efficient digital solutions.",
-    "tech_stack_title": "Core Interest",
-    "tech_stack_desc": "Web Development & Artificial Intelligence"
-    },
   "certificates": {
     "title": "My Certificates",
     "description": "A collection of professional certifications and achievements validating my technical expertise."
   },
-"contact": {
-    "title": "Contact Me",
-    "subtitle": "Send a message, I'll reply as soon as possible!",
-    "fullName": "Full Name",
-    "fullNamePlaceholder": "Enter your full name",
-    "email": "Email",
-    "emailPlaceholder": "name@email.com",
-    "message": "Message",
-    "messagePlaceholder": "Write your message here...",
-    "send": "Send Message",
-    "successMessage": "Email sent successfully",
-    "errorMessage": "Email error/not sent",
-    "errors": {
-      "nameRequired": "Name is required",
-      "nameMinLength": "Name must be at least 2 characters",
-      "nameMaxLength": "Name must be at most 50 characters",
-      "nameInvalid": "Name can only contain letters, spaces, or hyphens",
-      "emailRequired": "Email is required",
-      "emailInvalid": "Invalid email format",
-      "emailMaxLength": "Email must be at most 254 characters",
-      "messageRequired": "Message is required",
-      "messageMinLength": "Message must be at least 10 characters",
-      "messageMaxLength": "Message must be at most 2000 characters",
-      "suspiciousContent": "Message contains invalid content"
-    }
-  },
   "footer": {
-    "description": "Building lightweight, intelligent, and delightful web experiences — one line of code at a time.",
+    "description": "Building web experiences that are fast, accessible, and delightful, one line of code at a time.",
     "navigation": "Navigation",
     "contactTitle": "Contact",
     "collaborate": "Want to Collaborate?",

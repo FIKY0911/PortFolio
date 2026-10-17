@@ -1,35 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- ✅ Sitemap successfully generated on 2026-08-25 -->
+<!-- ✅ Sitemap successfully generated on 2026-10-17 -->
 <!-- 📍 Generated from: ./src/routers/router.jsx -->
-<!-- 🔗 Total URLs: 5 -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- 🔗 Total URLs: 15 (5 routes x 3 language variants) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://portfolio-fiky.vercel.app/</loc>
-    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app?lang=id</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/" />
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>https://portfolio-fiky.vercel.app/about</loc>
-    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/about?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/about?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/about" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app/about?lang=id</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/about?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/about?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/about" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app/about?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/about?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/about?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/about" />
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://portfolio-fiky.vercel.app/skill</loc>
-    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/skill?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/skill?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/skill" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app/skill?lang=id</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/skill?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/skill?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/skill" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app/skill?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/skill?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/skill?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/skill" />
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://portfolio-fiky.vercel.app/project</loc>
-    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/project?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/project?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/project" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app/project?lang=id</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/project?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/project?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/project" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app/project?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/project?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/project?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/project" />
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://portfolio-fiky.vercel.app/contact</loc>
-    <lastmod>2026-08-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/contact?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/contact?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/contact" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app/contact?lang=id</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/contact?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/contact?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/contact" />
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://portfolio-fiky.vercel.app/contact?lang=en</loc>
+    <xhtml:link rel="alternate" hreflang="id" href="https://portfolio-fiky.vercel.app/contact?lang=id" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://portfolio-fiky.vercel.app/contact?lang=en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://portfolio-fiky.vercel.app/contact" />
+    <lastmod>2026-10-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

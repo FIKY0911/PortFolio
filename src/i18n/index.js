@@ -81,8 +81,34 @@ import { initReactI18next } from 'react-i18next'
 import id from './locales/id.json'
 import en from './locales/en.json'
 
-// Get saved language dari localStorage, default ke 'id'
-const savedLanguage = localStorage.getItem('language') || 'id'
+// Resolusi bahasa awal: Prioritas URL query (?lang= / ?lng=) > localStorage > browser language > default 'id'
+export const getInitialLanguage = () => {
+  if (typeof window !== 'undefined') {
+    // 1. Cek parameter URL (memungkinkan crawling Google/Bing dan direct sharing rute bahasa)
+    const params = new URLSearchParams(window.location.search)
+    const urlLang = params.get('lang') || params.get('lng')
+    if (urlLang && (urlLang === 'id' || urlLang === 'en')) {
+      return urlLang
+    }
+
+    // 2. Cek preferensi tersimpan di localStorage
+    const saved = localStorage.getItem('language')
+    if (saved && (saved === 'id' || saved === 'en')) {
+      return saved
+    }
+
+    // 3. Cek bahasa bawaan browser pengguna
+    const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase()
+    if (browserLang.startsWith('en')) {
+      return 'en'
+    }
+  }
+
+  // 4. Default bahasa Indonesia
+  return 'id'
+}
+
+const initialLanguage = getInitialLanguage()
 
 // Initialize i18next dengan react-i18next plugin
 i18n.use(initReactI18next).init({
@@ -92,8 +118,8 @@ i18n.use(initReactI18next).init({
     en: { translation: en }, // English
   },
   
-  // Current language (dari localStorage atau default)
-  lng: savedLanguage,
+  // Current language (dari URL param, localStorage, browser, atau default)
+  lng: initialLanguage,
   
   // Fallback language jika translation tidak ditemukan
   fallbackLng: 'id',
@@ -104,10 +130,18 @@ i18n.use(initReactI18next).init({
   },
 })
 
-// Event listener: Save language ke localStorage saat berubah
-// Ini memastikan preference user persist across sessions
+// Set initial document language
+if (typeof document !== 'undefined') {
+  document.documentElement.lang = initialLanguage
+}
+
+// Event listener: Save language ke localStorage saat berubah dan sinkronisasi <html lang="...">
+// Ini memastikan preference user persist across sessions dan SEO / browser accessibility akurat
 i18n.on('languageChanged', (lng) => {
   localStorage.setItem('language', lng)
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = lng
+  }
 })
 
 export default i18n

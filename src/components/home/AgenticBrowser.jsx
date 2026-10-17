@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate, useLocation } from 'react-router-dom'
 import AgentEngine from '../lib/agentEngine'
 import Button from '../components/Button'
+import { useDataStore } from '../../store/dataStore'
 
 const AgenticBrowser = () => {
   const { t, i18n } = useTranslation()
@@ -46,9 +47,10 @@ const AgenticBrowser = () => {
     } else if (result.scroll === 'up') {
       window.scrollBy({ top: -window.innerHeight * 0.8, behavior: 'smooth' })
     } else if (result.download) {
+      const cvUrl = useDataStore.getState().profile?.cv_url || '/CV - Mohamad Fiky.pdf'
       const link = document.createElement('a')
-      link.href = '/CV Mohamad Fiky.pdf'
-      link.download = 'CV Mohamad Fiky.pdf'
+      link.href = cvUrl
+      link.download = 'CV - Mohamad Fiky.pdf'
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)

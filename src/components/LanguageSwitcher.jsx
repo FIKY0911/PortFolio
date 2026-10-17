@@ -3,10 +3,11 @@ import { useLanguageStore } from '../store/languageStore'
 
 const LanguageSwitcher = ({ className = '' }) => {
   const { i18n } = useTranslation()
-  const { language, setLanguage } = useLanguageStore()
+  const { setLanguage } = useLanguageStore()
+  const isEn = i18n.language?.startsWith('en')
 
   const toggleLanguage = () => {
-    const newLang = language === 'id' ? 'en' : 'id'
+    const newLang = isEn ? 'id' : 'en'
     setLanguage(newLang)
   }
 
@@ -20,11 +21,11 @@ const LanguageSwitcher = ({ className = '' }) => {
         transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
         dark:focus:ring-offset-gray-900 ${className}
       `}
-      aria-label={language === 'id' ? 'Switch to English' : 'Ganti ke Indonesia'}
-      title={language === 'id' ? 'Switch to English' : 'Ganti ke Indonesia'}
+      aria-label={isEn ? 'Ganti ke Indonesia' : 'Switch to English'}
+      title={isEn ? 'Ganti ke Indonesia' : 'Switch to English'}
     >
       <span className='text-sm font-semibold text-gray-700 dark:text-gray-200'>
-        {language === 'id' ? '🇮🇩 ID' : '🇬🇧 EN'}
+        {isEn ? '🇬🇧 EN' : '🇮🇩 ID'}
       </span>
     </button>
   )
@@ -32,10 +33,11 @@ const LanguageSwitcher = ({ className = '' }) => {
 
 export const LanguageSwitcherMinimal = ({ className = '' }) => {
   const { i18n } = useTranslation()
-  const { language, setLanguage } = useLanguageStore()
+  const { setLanguage } = useLanguageStore()
+  const isEn = i18n.language?.startsWith('en')
 
   const toggleLanguage = () => {
-    const newLang = language === 'id' ? 'en' : 'id'
+    const newLang = isEn ? 'id' : 'en'
     setLanguage(newLang)
   }
 
@@ -43,9 +45,9 @@ export const LanguageSwitcherMinimal = ({ className = '' }) => {
     <button
       onClick={toggleLanguage}
       className={`p-2 rounded-full transition-colors duration-200 hover:bg-gray-200 dark:hover:bg-gray-700 ${className}`}
-      aria-label={language === 'id' ? 'Switch to English' : 'Ganti ke Indonesia'}
+      aria-label={isEn ? 'Ganti ke Indonesia' : 'Switch to English'}
     >
-      <span className='text-lg'>{language === 'id' ? '🇮🇩' : '🇬🇧'}</span>
+      <span className='text-lg'>{isEn ? '🇬🇧' : '🇮🇩'}</span>
     </button>
   )
 }

@@ -6,8 +6,8 @@
  */
 
 import HeroImage from "../assets/hero/heroimage.webp"
-import Html from "../assets/tools/Html-tools_compressed.webp"
-import Css from "../assets/tools/Css-tools_compressed.webp"
+
+
 import Javascript from "../assets/tools/JS-tools_compressed.webp"
 import Nextjs from "../assets/tools/next-js-tools_compressed.webp"
 import TypeScript from "../assets/tools/Typescript-tools_compressed.webp"
@@ -17,7 +17,7 @@ import React from "../assets/tools/react-logo_compressed.webp"
 import Project1 from "../assets/project/GroceryStrore.webp"
 import Project2 from "../assets/project/CoffeShop.webp"
 import Project3 from "../assets/project/Relecta.webp"
-import CVFile from "../assets/cv_sertif/CV Mohamad Fiky.pdf"
+import CVFile from "../assets/cv_sertif/CV - Mohamad Fiky.pdf"
 import Sertif1 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - Semi Finalist_page-0001_compressed.jpg"
 import Sertif2 from "../assets/sertifikat/Mohamad Fiky Ba'dafitro - SolveIT Together.jpeg"
 
@@ -35,15 +35,24 @@ export const profileData = {
 
 // List tools/teknologi yang dikuasai
 export const listTools = [
-  { id: 1, name: "Nextjs", image_url: Nextjs, keterangan: "Beginner" },
-  { id: 2, name: "TypeScript", image_url: TypeScript, keterangan: "Beginner" },
-  { id: 3, name: "Clerk", image_url: Clerk, keterangan: "Beginner" },
-  { id: 4, name: "Tailwind Css", image_url: Tailwind, keterangan: "Beginner" },
-  { id: 5, name: "Html", image_url: Html, keterangan: "Advanced" },
-  { id: 6, name: "Css", image_url: Css, keterangan: "Intermediate" },
-  { id: 7, name: "Javascript", image_url: Javascript, keterangan: "Beginner" },
-  { id: 8, name: "React", image_url: React, keterangan: "Beginner" },
-  { id: 9, name: "Git", image_url: null, keterangan: "Beginner" }
+  { id: 1, name: "React.js", image_url: React, keterangan: "Advanced" },
+  { id: 2, name: "Next.js", image_url: Nextjs, keterangan: "Intermediate" },
+  { id: 3, name: "TypeScript", image_url: TypeScript, keterangan: "Intermediate" },
+  { id: 4, name: "JavaScript (ES6+)", image_url: Javascript, keterangan: "Advanced" },
+
+
+  { id: 5, name: "Tailwind CSS", image_url: Tailwind, keterangan: "Advanced" },
+  { id: 6, name: "Node.js", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg", keterangan: "Intermediate" },
+  { id: 7, name: "Express.js", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg", keterangan: "Intermediate" },
+  { id: 8, name: "PostgreSQL", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg", keterangan: "Intermediate" },
+  { id: 9, name: "MySQL", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg", keterangan: "Intermediate" },
+  { id: 10, name: "Prisma ORM", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg", keterangan: "Intermediate" },
+  { id: 11, name: "Git & GitHub", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", keterangan: "Advanced" },
+  { id: 12, name: "Clerk Auth", image_url: Clerk, keterangan: "Intermediate" },
+  { id: 13, name: "Docker", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg", keterangan: "Beginner" },
+  { id: 14, name: "Postman", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg", keterangan: "Intermediate" },
+  { id: 15, name: "Sanity CMS", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sanity/sanity-original.svg", keterangan: "Intermediate" },
+  { id: 16, name: "Vercel", image_url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg", keterangan: "Advanced" }
 ];
 
 // List portfolio project

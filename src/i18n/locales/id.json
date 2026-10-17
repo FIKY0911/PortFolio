@@ -1,203 +1,35 @@
 {
   "home": {
-    "tabTitle": "Mohamad Fiky Ba'dafitro",
-    "metaDescription": "Portofolio profesional Fiky, seorang Fullstack Developer. Jelajahi proyek web modern, keahlian teknis, dan pengalcerdas kerja saya. Hubungi saya untuk peluang kolaborasi."
-  },
-  "about": {
-    "tabTitle": "Tentang - Fiky"
-  },
-  "skill": {
-    "tabTitle": "Skills - Fiky"
-  },
-  "project": {
-    "tabTitle": "Proyek - Fiky"
-  },
-  "contact": {
-    "tabTitle": "Kontak - Fiky"
-  },
-  "hero": {
-    "greeting": "Halo, Saya Fiky! ☺️",
-    "welcome": "Selamat Datang di Portofolio Saya!",
-    "role": "Mahasiswa | Web Developer 🧑‍💻",
-    "passion": "Antusias | Artificial Intelligence",
-    "description": "Pengembang web profesional yang berfokus pada penciptaan solusi digital inovatif dan efisien. Dengan keahlian dalam berbagai teknologi web modern, saya berkomitmen menghadirkan pengalaman pengguna yang optimal melalui desain responsif dan fungsionalitas yang andal.",
-    "viewProjects": "Lihat Proyek",
-    "downloadCV": "Unduh CV",
-    "usedLanguages": "Bahasa Digunakan",
-    "frameworks": "Framework",
-    "tools": "Tools",
-    "levels": "Level Keahlian"
-  },
-  "skills": {
-    "title": "Tech Stack",
-    "noSkills": "Tidak ada skill tersedia",
-    "noDescription": "Tidak ada deskripsi",
-    "metaDescription": "Tools yang digunakan.",
-    "techStack": "Tech Stack",
-    "techStackDesc": "Teknologi yang saya kuasai dalam pengembangan web modern.",
-    "languages": "Bahasa Pemrograman",
-    "frameworks": "Framework & Library",
-    "versionControl": "Version Control"
-  },
-  "projects": {
-    "title": "Proyek Saya!",
-    "viewProject": "Lihat Proyek",
-    "viewDetail": "Lihat detail",
-    "noProjects": "Tidak ada proyek tersedia",
-    "noDescription": "Tidak ada deskripsi",
-    "metaDescription": "Proyek yang pernah saya kerjakan.",
-    "categories": {
-      "web_app": "Web Application",
-      "web_app_desc": "Membangun Website dengan teknologi yang canggih dan cepat",
-      "ui_design": "UI/UX Design",
-      "ui_design_desc": "Menciptakan antarmuka yang intuitif dan pengalaman pengguna yang luar biasa"
-    },
-    "list": {
-      "grocerystore": {
-        "title": "Grocerystore",
-        "description": "Proyek e-commerce UAS RPL yang terinspirasi dari YouTube dengan konsep ATM (Amati, Tiru, Modifikasi).",
-        "tools": ["Next.js", "TypeScript", "Clerk", "Tailwind"]
-      },
-      "coffeshop": {
-        "title": "Coffeeshop",
-        "description": "Proyek mata kuliah Bahasa Pemrogrcerdas yang dikerjakan bersama tim.",
-        "tools": ["HTML", "CSS", "JavaScript"]
-      },
-      "relecta": {
-        "title": "Relecta",
-        "description": "Relecta merupakan sebuah website yang digunakan untuk melakukan pengumpulan sampah elektronik untuk disortir kembali, dan barang yang rusak secara total akan diserahkan ke pemerintah. Relecta dibuat untuk perlombaan IndoCeis.",
-        "tools": ["Html", "Typescript", "Tailwind", "React", "AI Agent"]
-      }
-    }
-  },
-  "skillDetail": {
-    "title": "Teknologi yang Saya Gunakan",
-    "description": "Setiap proyek dibangun menggunakan teknologi yang tepat. Berikut detail framework dan bahasa pemrogrcerdas yang saya gunakan.",
-    "features": "Fitur Utama:",
-    "visitSite": "Kunjungi Situs Resmi →",
-    "back": "Kembali ke Skills",
-    "metaDescription": "Detail keahlian yang saya kuasai.",
-    "technologies": {
-      "nextjs": {
-        "name": "Next.js",
-        "type": "Framework",
-        "description": "Next.js adalah framework React yang mendukung SSR, SSG, dan hybrid rendering. Cocok untuk SEO, performa tinggi, dan pengembangan cepat.",
-        "features": [
-          "Server-Side Rendering (SSR)",
-          "Static Site Generation (SSG)",
-          "Routing otomatis",
-          "API Routes bawaan",
-          "Optimasi gambar"
-        ]
-      },
-      "typescript": {
-        "name": "TypeScript",
-        "type": "Bahasa Pemrogrcerdas",
-        "description": "TypeScript adalah pengembangan dari JavaScript dengan fitur static typing untuk meningkatkan kualitas dan maintainability kode.",
-        "features": [
-          "Static typing",
-          "IntelliSense & autocomplete",
-          "Kompatibel dengan JavaScript",
-          "Interface & type inference",
-          "Meningkatkan kualitas kode"
-        ]
-      },
-      "clerk": {
-        "name": "Clerk",
-        "type": "Framework",
-        "description": "Clerk menyediakan sistem autentikasi siap pakai seperti login, register, dan manajemen user tanpa perlu backend kompleks.",
-        "features": [
-          "Login & Register siap pakai",
-          "Multi-factor authentication",
-          "Social login",
-          "Manajemen user & role",
-          "Kecerdasan tingkat tinggi"
-        ]
-      },
-      "tailwind": {
-        "name": "Tailwind CSS",
-        "type": "Framework",
-        "description": "Framework CSS utility-first untuk membangun UI dengan cepat dan fleksibel langsung dari HTML.",
-        "features": [
-          "Utility-first",
-          "Responsif secara default",
-          "Customizable",
-          "JIT compiler",
-          "Ekosistem plugin luas"
-        ]
-      },
-      "html": {
-        "name": "HTML",
-        "type": "Bahasa Markup",
-        "description": "Dasar dari semua halcerdas web untuk membangun struktur konten.",
-        "features": [
-          "Struktur halcerdas",
-          "Semantic element",
-          "Aksesibilitas baik",
-          "Kompatibel semua browser",
-          "Ringan"
-        ]
-      },
-      "css": {
-        "name": "CSS",
-        "type": "Bahasa Styling",
-        "description": "Digunakan untuk mengatur tampilan dan layout halcerdas web.",
-        "features": [
-          "Styling visual",
-          "Responsive design",
-          "Animasi",
-          "Flexbox & Grid",
-          "Cross-device support"
-        ]
-      },
-      "javascript": {
-        "name": "JavaScript",
-        "type": "Bahasa Pemrogrcerdas",
-        "description": "Bahasa utama untuk membuat web interaktif, baik di frontend maupun backend.",
-        "features": [
-          "Interaktivitas",
-          "DOM manipulation",
-          "Async programming",
-          "Cross-browser",
-          "Ekosistem luas"
-        ]
-      },
-      "react": {
-        "name": "React",
-        "type": "Library JavaScript",
-        "description": "Library untuk membangun UI modern dengan pendekatan component-based dan Virtual DOM.",
-        "features": [
-          "Component-based",
-          "Virtual DOM",
-          "JSX",
-          "Hooks",
-          "Ekosistem luas"
-        ]
-      }
-    }
+    "tabTitle": "Mohamad Fiky Ba'dafitro | Portofolio Fullstack Developer",
+    "metaDescription": "Portofolio profesional Fiky, seorang Fullstack Developer. Jelajahi proyek web modern, keahlian teknis, dan pengalaman kerja saya. Hubungi saya untuk peluang kolaborasi."
   },
   "about": {
     "title": "Tentang Saya",
     "subtitle": "Pengembang solusi digital yang mengintegrasikan efisiensi arsitektur web dengan kecerdasan buatan.",
     "intro": "Halo, Saya",
-    "description1": "— pengembang perangkat lunak yang berfokus pada pembangunan aplikasi web modern menggunakan ekosistem React dan JavaScript.",
+    "description1": ", seorang pengembang perangkat lunak yang berfokus pada pembangunan aplikasi web modern menggunakan ekosistem React dan JavaScript.",
     "description2": "Saya memiliki komitmen dalam menghadirkan solusi digital yang",
     "highlight": "elegan, berperforma tinggi, dan terintegrasi AI",
     "description3": ". Prioritas utama saya adalah mentransformasi kompleksitas teknis menjadi pengalaman pengguna yang intuitif dan fungsional.",
     "viewProjects": "Lihat Proyek Saya →",
-    "metaDescription": "Pelajari lebih lanjut tentang Fiky sebagai Fullstack Developer.",
+    "metaDescription": "Pelajari lebih lanjut tentang Mohamad Fiky Ba'dafitro, seorang Fullstack Developer yang berfokus pada ekosistem React, integrasi AI, dan solusi web modern.",
     "education_title": "Pendidikan",
-    "education_desc": "Mahasiswa Teknologi Informasi yang fokus pada arsitektur web modern.",
+    "education_desc": "Mahasiswa Teknik Informatika Universitas Esa Unggul (Semester 4, IPK 3.88).",
     "values_title": "Nilai",
     "values_desc": "Antusias Clean Code dengan fokus pada kecerdasan buatan dan performa.",
     "experience_title": "Misi",
     "experience_desc": "Memanfaatkan Kecerdasan Buatan dan teknologi web modern untuk menciptakan solusi digital yang cerdas, otomatis, dan sangat efisien.",
     "tech_stack_title": "Minat Utama",
-    "tech_stack_desc": "Pengembangan Web & Kecerdasan Buatan"
+    "tech_stack_desc": "Pengembangan Web & Kecerdasan Buatan",
+    "tabTitle": "Tentang Saya | Mohamad Fiky"
   },
-  "certificates": {
-    "title": "Sertifikat Saya",
-    "description": "Koleksi sertifikasi dan pencapaian profesional yang memvalidasi keahlian teknis saya."
+  "skill": {
+    "tabTitle": "Keahlian & Tech Stack | Mohamad Fiky",
+    "metaDescription": "Daftar keahlian teknis dan teknologi modern yang dikuasai Mohamad Fiky, termasuk React, Next.js, TypeScript, Tailwind CSS, Node.js, dan AI tooling."
+  },
+  "project": {
+    "tabTitle": "Portofolio Proyek | Mohamad Fiky",
+    "metaDescription": "Jelajahi portofolio proyek web development Mohamad Fiky, mulai dari aplikasi web modern, e-commerce, hingga integrasi kecerdasan buatan."
   },
   "contact": {
     "title": "Hubungi Saya",
@@ -223,10 +55,336 @@
       "messageMinLength": "Pesan minimal 10 karakter",
       "messageMaxLength": "Pesan maksimal 2000 karakter",
       "suspiciousContent": "Pesan mengandung konten yang tidak valid"
+    },
+    "tabTitle": "Hubungi Saya | Mohamad Fiky",
+    "metaDescription": "Hubungi Mohamad Fiky untuk kolaborasi pengembangan web, peluang kerja, konsultasi proyek, atau pertanyaan seputar teknologi web modern."
+  },
+  "hero": {
+    "greeting": "Halo, Saya Fiky! ☺️",
+    "welcome": "Selamat Datang di Portofolio Saya!",
+    "role": "Mahasiswa | Web Developer 🧑‍💻",
+    "passion": "Antusias | Artificial Intelligence",
+    "description": "Pengembang web profesional yang berfokus pada penciptaan solusi digital inovatif dan efisien. Dengan keahlian dalam berbagai teknologi web modern, saya berkomitmen menghadirkan pengalaman pengguna yang optimal melalui desain responsif dan fungsionalitas yang andal.",
+    "viewProjects": "Lihat Proyek",
+    "downloadCV": "Unduh CV",
+    "usedLanguages": "Bahasa Digunakan",
+    "frameworks": "Framework",
+    "tools": "Tools",
+    "levels": "Level Keahlian"
+  },
+  "skills": {
+    "title": "Tech Stack",
+    "noSkills": "Tidak ada skill tersedia",
+    "noDescription": "Tidak ada deskripsi",
+    "metaDescription": "Daftar keahlian teknis dan teknologi modern yang dikuasai Mohamad Fiky, termasuk React, Next.js, TypeScript, Tailwind CSS, Node.js, dan AI tooling.",
+    "techStack": "Tech Stack",
+    "techStackDesc": "Teknologi yang saya kuasai dalam pengembangan web modern.",
+    "languages": "Bahasa Pemrograman",
+    "frameworks": "Framework & Library",
+    "versionControl": "Version Control"
+  },
+  "projects": {
+    "title": "Proyek Saya!",
+    "viewProject": "Lihat Proyek",
+    "viewDetail": "Lihat detail",
+    "noProjects": "Tidak ada proyek tersedia",
+    "noDescription": "Tidak ada deskripsi",
+    "metaDescription": "Jelajahi portofolio proyek web development Mohamad Fiky, mulai dari aplikasi web modern, e-commerce, hingga integrasi kecerdasan buatan.",
+    "categories": {
+      "web_app": "Web Application",
+      "web_app_desc": "Membangun Website dengan teknologi yang canggih dan cepat",
+      "ui_design": "UI/UX Design",
+      "ui_design_desc": "Menciptakan antarmuka yang intuitif dan pengalaman pengguna yang luar biasa"
+    },
+    "list": {
+      "grocerystore": {
+        "title": "Grocerystore",
+        "description": "Proyek e-commerce UAS RPL yang terinspirasi dari YouTube dengan konsep ATM (Amati, Tiru, Modifikasi).",
+        "tools": [
+          "Next.js",
+          "TypeScript",
+          "Clerk",
+          "Tailwind"
+        ]
+      },
+      "coffeshop": {
+        "title": "Coffeeshop",
+        "description": "Proyek mata kuliah Bahasa Pemrograman yang dikerjakan bersama tim.",
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ]
+      },
+      "relecta": {
+        "title": "Relecta",
+        "description": "Relecta merupakan sebuah website yang digunakan untuk melakukan pengumpulan sampah elektronik untuk disortir kembali, dan barang yang rusak secara total akan diserahkan ke pemerintah. Relecta dibuat untuk perlombaan IndoCeis.",
+        "tools": [
+          "Html",
+          "Typescript",
+          "Tailwind",
+          "React",
+          "AI Agent"
+        ]
+      }
     }
   },
+  "skillDetail": {
+    "title": "Teknologi yang Saya Gunakan",
+    "description": "Setiap proyek dibangun menggunakan teknologi yang tepat. Berikut detail framework dan bahasa pemrograman yang saya gunakan.",
+    "features": "Fitur Utama:",
+    "visitSite": "Kunjungi Situs Resmi →",
+    "back": "Kembali ke Skills",
+    "metaDescription": "Detail keahlian yang saya kuasai.",
+    "technologies": {
+      "nextjs": {
+        "name": "Next.js",
+        "type": "Framework",
+        "description": "Next.js adalah framework React yang mendukung SSR, SSG, dan hybrid rendering. Cocok untuk SEO, performa tinggi, dan pengembangan cepat.",
+        "features": [
+          "Server-Side Rendering (SSR)",
+          "Static Site Generation (SSG)",
+          "Routing otomatis",
+          "API Routes bawaan",
+          "Optimasi gambar"
+        ]
+      },
+      "typescript": {
+        "name": "TypeScript",
+        "type": "Bahasa Pemrograman",
+        "description": "TypeScript adalah pengembangan dari JavaScript dengan fitur static typing untuk meningkatkan kualitas dan maintainability kode.",
+        "features": [
+          "Static typing",
+          "IntelliSense & autocomplete",
+          "Kompatibel dengan JavaScript",
+          "Interface & type inference",
+          "Meningkatkan kualitas kode"
+        ]
+      },
+      "clerk": {
+        "name": "Clerk",
+        "type": "Framework",
+        "description": "Clerk menyediakan sistem autentikasi siap pakai seperti login, register, dan manajemen user tanpa perlu backend kompleks.",
+        "features": [
+          "Login & Register siap pakai",
+          "Multi-factor authentication",
+          "Social login",
+          "Manajemen user & role",
+          "Keamanan tingkat tinggi"
+        ]
+      },
+      "tailwind": {
+        "name": "Tailwind CSS",
+        "type": "Framework",
+        "description": "Framework CSS utility-first untuk membangun UI dengan cepat dan fleksibel langsung dari HTML.",
+        "features": [
+          "Utility-first",
+          "Responsif secara default",
+          "Customizable",
+          "JIT compiler",
+          "Ekosistem plugin luas"
+        ]
+      },
+      "html": {
+        "name": "HTML",
+        "type": "Bahasa Markup",
+        "description": "Dasar dari semua halaman web untuk membangun struktur konten.",
+        "features": [
+          "Struktur halaman",
+          "Semantic element",
+          "Aksesibilitas baik",
+          "Kompatibel semua browser",
+          "Ringan"
+        ]
+      },
+      "css": {
+        "name": "CSS",
+        "type": "Bahasa Styling",
+        "description": "Digunakan untuk mengatur tampilan dan layout halaman web.",
+        "features": [
+          "Styling visual",
+          "Responsive design",
+          "Animasi",
+          "Flexbox & Grid",
+          "Cross-device support"
+        ]
+      },
+      "javascript": {
+        "name": "JavaScript",
+        "type": "Bahasa Pemrograman",
+        "description": "Bahasa utama untuk membuat web interaktif, baik di frontend maupun backend.",
+        "features": [
+          "Interaktivitas",
+          "DOM manipulation",
+          "Async programming",
+          "Cross-browser",
+          "Ekosistem luas"
+        ]
+      },
+      "react": {
+        "name": "React",
+        "type": "Library JavaScript",
+        "description": "Library untuk membangun UI modern dengan pendekatan component-based dan Virtual DOM.",
+        "features": [
+          "Component-based",
+          "Virtual DOM",
+          "JSX",
+          "Hooks",
+          "Ekosistem luas"
+        ]
+      },
+      "nodejs": {
+        "name": "Node.js",
+        "type": "Runtime Environment",
+        "description": "Runtime JavaScript berbasis V8 engine untuk mengeksekusi kode JavaScript di sisi server dengan arsitektur non-blocking I/O yang efisien.",
+        "features": [
+          "Event-driven & asynchronous",
+          "Non-blocking I/O model",
+          "Ekosistem package NPM raksasa",
+          "Performa tinggi untuk microservices",
+          "Single-thread concurrency"
+        ]
+      },
+      "express": {
+        "name": "Express.js",
+        "type": "Backend Framework",
+        "description": "Framework web minimalis dan fleksibel untuk Node.js yang menyediakan serangkaian fitur tangguh untuk membangun API web dan backend modular.",
+        "features": [
+          "Routing modular & fleksibel",
+          "Dukungan middleware ekstensif",
+          "Integrasi RESTful API cepat",
+          "Manajemen error terstruktur",
+          "Ringan dan berkinerja tinggi"
+        ]
+      },
+      "postgresql": {
+        "name": "PostgreSQL",
+        "type": "Relational Database",
+        "description": "Database relasional open-source tingkat enterprise yang mendukung query SQL kompleks, integritas data tinggi, dan skalabilitas transaksi ACID.",
+        "features": [
+          "Kepatuhan transaksi ACID penuh",
+          "Dukungan tipe data JSONB fleksibel",
+          "Indexing canggih (B-tree, GIN, GiST)",
+          "Konkurensi tinggi & MVCC",
+          "Integritas data relasional ketat"
+        ]
+      },
+      "mysql": {
+        "name": "MySQL",
+        "type": "Relational Database",
+        "description": "Sistem manajemen database relasional (RDBMS) yang populer, cepat, andal, dan banyak digunakan dalam ekosistem web modern.",
+        "features": [
+          "Engine penyimpanan InnoDB tangguh",
+          "Replikasi & skalabilitas tinggi",
+          "Dukungan relasi antar-tabel terstruktur",
+          "Keamanan dan hak akses terperinci",
+          "Kompatibilitas luas lintas platform"
+        ]
+      },
+      "prisma": {
+        "name": "Prisma ORM",
+        "type": "Database ORM",
+        "description": "Next-generation ORM untuk Node.js dan TypeScript yang menyederhanakan interaksi database dengan skema deklaratif dan type-safety penuh.",
+        "features": [
+          "Type-safety query builder otomatis",
+          "Prisma Schema deklaratif",
+          "Prisma Migrate untuk migrasi skema",
+          "Prisma Studio GUI inspector",
+          "Mencegah runtime database errors"
+        ]
+      },
+      "restapi": {
+        "name": "RESTful API",
+        "type": "Architecture Standard",
+        "description": "Standar arsitektur komunikasi layanan berbasis protokol HTTP yang stateless, terstruktur, dan terstandarisasi untuk pemisahan frontend-backend.",
+        "features": [
+          "Arsitektur stateless & terstruktur",
+          "Metode HTTP standar (GET, POST, PUT, DELETE)",
+          "Format payload JSON konsisten",
+          "HTTP Status Codes semantik",
+          "Pemisahan tegas klien dan server"
+        ]
+      },
+      "aiagent": {
+        "name": "AI Agent Integration",
+        "type": "AI Engineering",
+        "description": "Implementasi agen otonom dan integrasi LLM untuk mempercepat alur kerja rekayasa, otomatisasi pemrosesan data, dan penalaran kontekstual aplikasi.",
+        "features": [
+          "Tool calling & workflow automation",
+          "Context-aware reasoning loop",
+          "Prompt engineering terstruktur",
+          "Integrasi LLM API modern",
+          "Siklus evaluasi hasil otonom"
+        ]
+      },
+      "git": {
+        "name": "Git & GitHub",
+        "type": "Version Control",
+        "description": "Sistem kendali versi terdistribusi untuk melacak perubahan kode sumber, kolaborasi tim, dan manajemen branching.",
+        "features": [
+          "Distributed version control",
+          "Branching & merging workflow",
+          "Kolaborasi melalui pull requests",
+          "Audit trail riwayat commit",
+          "Integrasi CI/CD pipelines"
+        ]
+      },
+      "docker": {
+        "name": "Docker",
+        "type": "Containerization",
+        "description": "Platform kontainerisasi untuk membungkus aplikasi dan dependensinya ke dalam container terisolasi yang konsisten di semua lingkungan.",
+        "features": [
+          "Isolasi dependensi konsisten",
+          "Docker Compose untuk multi-service",
+          "Lingkungan dev-to-prod identik",
+          "Portabilitas lintas sistem operasi",
+          "Manajemen resource terukur"
+        ]
+      },
+      "postman": {
+        "name": "Postman",
+        "type": "API Platform",
+        "description": "Platform kolaboratif untuk merancang, menguji, mendokumentasikan, dan memvalidasi RESTful API secara komprehensif.",
+        "features": [
+          "Pengujian endpoint HTTP interaktif",
+          "Automated collection test scripts",
+          "Environment variable switcher",
+          "Mock server & API documentation",
+          "Inspeksi header & response payload"
+        ]
+      },
+      "vercel": {
+        "name": "Vercel",
+        "type": "Deployment Platform",
+        "description": "Platform cloud serverless yang dioptimalkan untuk deployment instan frontend framework React/Next.js dengan Edge Network global.",
+        "features": [
+          "Continuous deployment otomatis via Git",
+          "Edge Network global berlatensi rendah",
+          "Serverless Functions bawaan",
+          "Preview deployments per commit",
+          "Manajemen environment variables aman"
+        ]
+      },
+      "sanity": {
+        "name": "Sanity CMS",
+        "type": "Headless CMS",
+        "description": "Platform konten terstruktur berbasis cloud dengan antarmuka kustomisasi real-time dan API responsif untuk manajemen konten web.",
+        "features": [
+          "Struktur konten deklaratif (GROQ/GraphQL)",
+          "Real-time collaborative editing",
+          "Sanity Studio kustomisasi penuh",
+          "CDN aset gambar berkecepatan tinggi",
+          "Integrasi mulus dengan frontend React/Next.js"
+        ]
+      }
+    }
+  },
+  "certificates": {
+    "title": "Sertifikat Saya",
+    "description": "Koleksi sertifikasi dan pencapaian profesional yang memvalidasi keahlian teknis saya."
+  },
   "footer": {
-    "description": "Membangun pengalcerdas web yang ringan, cerdas, dan menyenangkan — satu baris kode setiap waktu.",
+    "description": "Membangun pengalaman web yang ringan, cerdas, dan menyenangkan, satu baris kode setiap waktu.",
     "navigation": "Navigasi",
     "contactTitle": "Kontak",
     "collaborate": "Ingin Berkolaborasi?",

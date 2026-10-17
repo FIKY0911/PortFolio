@@ -107,29 +107,59 @@ function extractRoutesFromRouter(routerFilePath) {
 function generateSitemap(routes, config) {
   const currentDate = new Date().toISOString().split('T')[0]
 
+  const totalEntries = routes.length * 3
   const sitemapHeader = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- ✅ Sitemap successfully generated on ${currentDate} -->
 <!-- 📍 Generated from: ${config.routerPath} -->
-<!-- 🔗 Total URLs: ${routes.length} -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- 🔗 Total URLs: ${totalEntries} (${routes.length} routes x 3 language variants) -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 `
 
   const sitemapFooter = `</urlset>
 `
 
-  const urlEntries = routes.map(routePath => {
+  const urlEntries = routes.flatMap(routePath => {
     // Get route-specific config or use defaults
     const routeConfig = config.routeOverrides[routePath] || {}
 
     const changefreq = routeConfig.changefreq || config.defaultChangefreq
     const priority = routeConfig.priority || config.defaultPriority
 
-    return `  <url>
-    <loc>${config.baseUrl}${routePath}</loc>
+    const cleanPath = routePath === '/' ? '' : routePath
+    const defaultLoc = routePath === '/' ? `${config.baseUrl}/` : `${config.baseUrl}${routePath}`
+    const idLoc = `${config.baseUrl}${cleanPath}?lang=id`
+    const enLoc = `${config.baseUrl}${cleanPath}?lang=en`
+
+    const alternateTags = [
+      `    <xhtml:link rel="alternate" hreflang="id" href="${idLoc}" />`,
+      `    <xhtml:link rel="alternate" hreflang="en" href="${enLoc}" />`,
+      `    <xhtml:link rel="alternate" hreflang="x-default" href="${defaultLoc}" />`,
+    ].join('\n')
+
+    return [
+      `  <url>
+    <loc>${defaultLoc}</loc>
+${alternateTags}
     <lastmod>${currentDate}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-  </url>`
+  </url>`,
+      `  <url>
+    <loc>${idLoc}</loc>
+${alternateTags}
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`,
+      `  <url>
+    <loc>${enLoc}</loc>
+${alternateTags}
+    <lastmod>${currentDate}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`,
+    ]
   }).join('\n')
 
   return sitemapHeader + urlEntries + '\n' + sitemapFooter

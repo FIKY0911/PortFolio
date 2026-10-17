@@ -20,7 +20,7 @@ const HomeProject = () => {
             {t('projects.title', 'Projek Saya')}
           </h2>
           <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-            {t('about.intro')} Fiky {t('about.description1')} {t('about.description2')} <strong>{t('about.highlight')}</strong>{t('about.description3')}
+            {t('about.intro')} Fiky{t('about.description1')} {t('about.description2')} <strong>{t('about.highlight')}</strong>{t('about.description3')}
           </p>
         </div>
 

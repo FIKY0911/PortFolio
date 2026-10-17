@@ -17,7 +17,7 @@ const HeroSection = () => {
     if (profile?.cv_url) {
       const link = document.createElement('a')
       link.href = profile.cv_url
-      link.download = 'CV Mohamad Fiky.pdf'
+      link.download = 'CV - Mohamad Fiky.pdf'
       document.body.appendChild(link)
       link.click()
       document.body.removeChild(link)
