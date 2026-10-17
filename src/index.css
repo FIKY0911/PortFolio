@@ -234,3 +234,15 @@ html.dark {
     @apply bg-background text-foreground;
   }
 }
+
+/* Custom utilities for hiding scrollbar while preserving scroll functionality */
+.scrollbar-none,
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}

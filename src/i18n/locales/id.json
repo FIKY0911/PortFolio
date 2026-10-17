@@ -79,6 +79,10 @@
     "metaDescription": "Daftar keahlian teknis dan teknologi modern yang dikuasai Mohamad Fiky, termasuk React, Next.js, TypeScript, Tailwind CSS, Node.js, dan AI tooling.",
     "techStack": "Tech Stack",
     "techStackDesc": "Teknologi yang saya kuasai dalam pengembangan web modern.",
+    "techStackCategories": "Filter Kategori Tech Stack",
+    "skillFilterCategories": "Filter Kategori Spesialisasi",
+    "scrollLeft": "Geser kategori ke kiri",
+    "scrollRight": "Geser kategori ke kanan",
     "languages": "Bahasa Pemrograman",
     "frameworks": "Framework & Library",
     "versionControl": "Version Control"

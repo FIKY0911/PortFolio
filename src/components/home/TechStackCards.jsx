@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link } from 'react-router-dom'
+import CategorySlider from '../ui/CategorySlider'
 
 // Import assets
 import Javascript from '../../assets/tools/JS-tools_compressed.webp'
@@ -153,10 +154,16 @@ const TechStackCards = () => {
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12">
+        <CategorySlider
+          activeKey={activeTab}
+          containerClassName="mb-12 w-full max-w-7xl mx-auto"
+          ariaLabel={t('skills.techStackCategories', 'Filter Kategori Tech Stack')}
+        >
           <button
+            type="button"
+            data-key="all"
             onClick={() => setActiveTab('all')}
-            className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
+            className={`shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer ${
               activeTab === 'all'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                 : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
@@ -169,8 +176,10 @@ const TechStackCards = () => {
             return (
               <button
                 key={cat.key}
+                type="button"
+                data-key={cat.key}
                 onClick={() => setActiveTab(cat.key)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 ${
+                className={`shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap cursor-pointer ${
                   activeTab === cat.key
                     ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                     : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
@@ -182,7 +191,7 @@ const TechStackCards = () => {
               </button>
             )
           })}
-        </div>
+        </CategorySlider>
 
         {/* Categorized Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

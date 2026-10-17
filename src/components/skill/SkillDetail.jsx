@@ -21,6 +21,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useInView } from 'react-intersection-observer'
 import { useTranslation } from 'react-i18next'
+import CategorySlider from '../ui/CategorySlider'
 
 // Import gambar dari assets
 import Nextjs from '../../assets/tools/next-js-tools_compressed.webp'
@@ -230,12 +231,18 @@ const SkillDetail = () => {
         </div>
 
         {/* Filter Navigation */}
-        <div className='flex flex-wrap justify-center gap-2 mb-10'>
+        <CategorySlider
+          activeKey={filter}
+          containerClassName="mb-10 max-w-4xl mx-auto"
+          ariaLabel={t('skills.skillFilterCategories', 'Filter Kategori Skill')}
+        >
           {filterTabs.map(tab => (
             <button
               key={tab.key}
+              type="button"
+              data-key={tab.key}
               onClick={() => setFilter(tab.key)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 ${
+              className={`shrink-0 px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer ${
                 filter === tab.key
                   ? 'bg-blue-600 text-white shadow-md shadow-blue-500/20'
                   : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
@@ -244,7 +251,7 @@ const SkillDetail = () => {
               {t(tab.labelKey, tab.defaultLabel)}
             </button>
           ))}
-        </div>
+        </CategorySlider>
 
         {/* Grid Detail */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>

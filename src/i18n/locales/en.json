@@ -79,6 +79,10 @@
     "metaDescription": "Technical skills and tools mastered by Mohamad Fiky including Next.js, React, TypeScript, Tailwind CSS, Node.js, and modern AI development tools.",
     "techStack": "Tech Stack",
     "techStackDesc": "Technologies I use in modern web development.",
+    "techStackCategories": "Tech Stack Category Filters",
+    "skillFilterCategories": "Specialization Category Filters",
+    "scrollLeft": "Scroll categories left",
+    "scrollRight": "Scroll categories right",
     "languages": "Programming Languages",
     "frameworks": "Frameworks & Libraries",
     "versionControl": "Version Control"
